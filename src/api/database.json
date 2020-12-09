@@ -224,8 +224,72 @@
        }
    ],
    "notes": [],
-   "parts": [],
-   "partTypes": [],
+   "parts": [
+        {
+            "name": "Yamaha F40",
+            "partTypeId": 1,
+            "id": 1
+        },
+       {
+           "name": "Yamaha F70",
+           "partTypeId": 1,
+           "id": 2
+       },
+       {
+           "name": "Yamaha F90",
+           "partTypeId": 1,
+           "id": 3
+       },
+       {
+           "name": "Karavan Single Axle 1800# Custom Bunk Trailer",
+           "partTypeId": 3,
+           "id": 4
+       },
+       {
+           "name": "Karavan Single Axle 2400# Custom Bunk Trailer",
+           "partTypeId": 3,
+           "id": 5
+       },
+       {
+           "name": "Karavan Single Axle 3100# Custom Bunk Trailer",
+           "partTypeId": 3,
+           "id": 6
+       },
+       {
+           "name": "Garmin 74CV w/ Chirp Transducer",
+           "partTypeId": 2,
+           "id": 7
+       },
+       {
+           "name": "Garmin 742xs GPS w/ NMEA 2000 Engine Interface & Chirp Sounder",
+           "partTypeId": 2,
+           "id": 8
+       },
+       {
+           "name": "Garmin 742s GPS w/ NMEA 2000 Engine Interface & Chirp Sounder",
+           "partTypeId": 2,
+           "id": 9
+       },
+       {
+           "name": "Garmin 64CV GPS w/ NMEA 2000 Engine Interface & Chirp Sounder",
+           "partTypeId": 2,
+           "id": 10
+       }
+   ],
+   "partTypes": [
+       {
+           "type": "engine",
+           "id":1
+       },
+       {
+           "type": "GPS",
+           "id":2
+       },
+       {
+           "type": "trailer",
+           "id":3
+       }
+   ],
    "projectParts": [],
    "paintTypes": [
        {
