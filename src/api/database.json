@@ -1,0 +1,398 @@
+{
+   "users": [
+       {
+            "firstName": "Read",
+            "lastName": "Foster",
+            "phone": "615-867-5309",
+            "email": "rfoster@fosco.com",
+            "password": "notpassword",
+            "userTypeId": 1,
+            "id": 1 
+       },
+       {
+            "firstName": "Joe",
+            "lastName": "Patti",
+            "phone": "850-432-3315",
+            "email": "jp@joepattis.com",
+            "password": "myboatname",
+            "userTypeId": 2,
+            "id": 2
+       },
+       {
+            "firstName": "Jared",
+            "lastName": "Williams",
+            "phone": "361-867-5309",
+            "email": "jared@Wilco.co",
+            "password": "myboatname",
+            "userTypeId": 2,
+            "id": 3
+       }
+   ],
+   "userTypes": [
+       {
+            "type": "maker",
+            "id": 1
+       },
+       {
+           "type": "client",
+           "id": 2
+       }
+   ],
+   "projects": [
+       {
+           "boatName": "Gaines",
+            "year": 1979,
+            "model": "Striper",
+            "boatLength": 15,
+            "userId": 3,
+            "paintTypeId": 1,
+            "seadekColorId": 16,
+            "seadekTexture": "brushed",
+            "swimPlatform": false,
+            "projectStartDate": 1607536384,
+            "isComplete": false,
+            "projectEndDate": null,
+            "id": 1
+       }
+   ],
+   "tasks": [
+       {
+           "text": "Order engine",
+           "taskTypeId": 1,
+           "id": 1
+       },
+       {
+           "text": "Order GPS",
+           "taskTypeId": 1,
+           "id": 2
+       },
+       {
+           "text": "Order trailer",
+           "taskTypeId": 1,
+           "id": 3
+       },
+       {
+           "text": "Measure for Seadek",
+           "taskTypeId": 1,
+           "id": 4
+       },
+       {
+           "text": "Order Seadek",
+           "taskTypeId": 1,
+           "id": 5
+       },
+       {
+           "text": "Order swim platform",
+           "taskTypeId": 4,
+           "id": 6
+       },
+       {
+           "text": "Demolition",
+           "taskTypeId": 1,
+           "id": 7
+       },
+       {
+           "text": "Patch and repair",
+           "taskTypeId": 1,
+           "id": 8
+       },
+       {
+           "text": "Gel coat restoration",
+           "taskTypeId": 3,
+           "id": 9
+       },
+       {
+           "text": "Prime and faring compound",
+           "taskTypeId": 2,
+           "id": 10
+       },
+       {
+           "text": "Finish primer and sanding",
+           "taskTypeId": 2,
+           "id": 11
+       },
+       {
+           "text": "Top coats",
+           "taskTypeId": 2,
+           "id": 12
+       },
+       {
+           "text": "Install rigging and Seadek",
+           "taskTypeId": 1,
+           "id": 13
+       },
+       {
+           "text": "Finished photoshoot",
+           "taskTypeId": 1,
+           "id": 14
+       }
+   ],
+   "taskTypes": [
+        {
+            "type": "default",
+            "id": 1
+        },
+        {
+            "type": "paint",
+            "id": 2
+        },
+        {
+            "type": "gel coat",
+            "id": 3
+        },
+        {
+            "type": "swim platform",
+            "id": 4
+        },
+        {
+            "type": "order",
+            "id": 5
+        }
+   ],
+   "projectTasks": [
+       {
+           "projectId": 1,
+           "taskId": 1,
+           "isCompleted": true, 
+           "id": 1
+       },
+       {
+           "projectId": 1,
+           "taskId": 2,
+           "isCompleted": true, 
+           "id": 2
+       },
+       {
+           "projectId": 1,
+           "taskId": 3,
+           "isCompleted": true, 
+           "id": 3
+       },
+       {
+           "projectId": 1,
+           "taskId": 4,
+           "isCompleted": false, 
+           "id": 4
+       },
+       {
+           "projectId": 1,
+           "taskId": 5,
+           "isCompleted": false, 
+           "id": 5
+       },
+       {
+           "projectId": 1,
+           "taskId": 7,
+           "isCompleted": false, 
+           "id": 6
+       },
+       {
+           "projectId": 1,
+           "taskId": 8,
+           "isCompleted": false, 
+           "id": 7
+       },
+       {
+           "projectId": 1,
+           "taskId": 10,
+           "isCompleted": false, 
+           "id": 8
+       },
+       {
+           "projectId": 1,
+           "taskId": 11,
+           "isCompleted": false, 
+           "id": 9
+       },
+       {
+           "projectId": 1,
+           "taskId": 12,
+           "isCompleted": false, 
+           "id": 10
+       },
+       {
+           "projectId": 1,
+           "taskId": 13,
+           "isCompleted": false, 
+           "id": 11
+       },
+       {
+           "projectId": 1,
+           "taskId": 14,
+           "isCompleted": false, 
+           "id": 12
+       }
+   ],
+   "notes": [],
+   "parts": [
+        {
+            "name": "Yamaha F40",
+            "partTypeId": 1,
+            "id": 1
+        },
+       {
+           "name": "Yamaha F70",
+           "partTypeId": 1,
+           "id": 2
+       },
+       {
+           "name": "Yamaha F90",
+           "partTypeId": 1,
+           "id": 3
+       },
+       {
+           "name": "Karavan Single Axle 1800# Custom Bunk Trailer",
+           "partTypeId": 3,
+           "id": 4
+       },
+       {
+           "name": "Karavan Single Axle 2400# Custom Bunk Trailer",
+           "partTypeId": 3,
+           "id": 5
+       },
+       {
+           "name": "Karavan Single Axle 3100# Custom Bunk Trailer",
+           "partTypeId": 3,
+           "id": 6
+       },
+       {
+           "name": "Garmin 74CV w/ Chirp Transducer",
+           "partTypeId": 2,
+           "id": 7
+       },
+       {
+           "name": "Garmin 742xs GPS w/ NMEA 2000 Engine Interface & Chirp Sounder",
+           "partTypeId": 2,
+           "id": 8
+       },
+       {
+           "name": "Garmin 742s GPS w/ NMEA 2000 Engine Interface & Chirp Sounder",
+           "partTypeId": 2,
+           "id": 9
+       },
+       {
+           "name": "Garmin 64CV GPS w/ NMEA 2000 Engine Interface & Chirp Sounder",
+           "partTypeId": 2,
+           "id": 10
+       }
+   ],
+   "partTypes": [
+       {
+           "type": "engine",
+           "id":1
+       },
+       {
+           "type": "GPS",
+           "id":2
+       },
+       {
+           "type": "trailer",
+           "id":3
+       }
+   ],
+   "projectParts": [
+       {
+           "projectId": 1,
+           "partId": 2,
+           "id": 1
+       },
+       {
+           "projectId": 1,
+           "partId": 5,
+           "id": 2
+       },
+       {
+           "projectId": 1,
+           "partId": 9,
+           "id": 3
+       }
+   ],
+   "paintTypes": [
+       {
+           "type": "paint",
+           "id": "1"
+       },
+       {
+           "type": "gel coat",
+           "id": "2"
+       }
+   ],
+   "seadekOptions": [
+       {
+           "color": "Caribbean Blue",
+           "id": 1
+       },
+       {
+           "color": "Bahama Blue",
+           "id": 2
+       },
+       {
+           "color": "Bimini Blue",
+           "id": 3
+       },
+       {
+           "color": "Olive Green",
+           "id": 4
+       },
+       {
+           "color": "Seafoam Green",
+           "id": 5
+       },
+       {
+           "color": "White",
+           "id": 6
+       },
+       {
+           "color": "Cool Gray",
+           "id": 7
+       },
+       {
+           "color": "Storm Gray",
+           "id": 8
+       },
+       {
+           "color": "Smoke Gray",
+           "id": 9
+       },
+       {
+           "color": "Dark Gray",
+           "id": 10
+       },
+       {
+           "color": "Midnight Black",
+           "id": 11
+       },
+       {
+           "color": "Beach Sand",
+           "id": 12
+       },
+       {
+           "color": "Cream",
+           "id": 13
+       },
+       {
+           "color": "Camel",
+           "id": 14
+       },
+       {
+           "color": "Mica",
+           "id": 15
+       },
+       {
+           "color": "Terra",
+           "id": 16
+       },
+       {
+           "color": "Cappuccino",
+           "id": 17
+       },
+       {
+           "color": "Mocha",
+           "id": 18
+       },
+       {
+           "color": "Chocolate",
+           "id": 19
+       }
+   ] 
+}
