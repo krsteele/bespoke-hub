@@ -1,3 +1,154 @@
 {
-    
+   "users": [
+       {
+            "firstName": "Read",
+            "lastName": "Foster",
+            "phone": "615-867-5309",
+            "email": "rfoster@fosco.com",
+            "password": "notpassword",
+            "userTypeId": 1,
+            "id": 1 
+       },
+       {
+            "firstName": "Joe",
+            "lastName": "Patti",
+            "phone": "850-432-3315",
+            "email": "jp@joepattis.com",
+            "password": "myboatname",
+            "userTypeId": 2,
+            "id": 2
+       },
+       {
+            "firstName": "Jared",
+            "lastName": "Williams",
+            "phone": "361-867-5309",
+            "email": "jared@Wilco.co",
+            "password": "myboatname",
+            "userTypeId": 2,
+            "id": 3
+       }
+   ],
+   "userTypes": [
+       {
+            "type": "maker",
+            "id": 1
+       },
+       {
+           "type": "client",
+           "id": 2
+       }
+   ],
+   "projects": [
+       {
+           "boatName": "Gaines",
+            "year": 1979,
+            "model": "Striper",
+            "boatLength": 15,
+            "userId": 3,
+            "paintTypeId": 1,
+            "seadekColorId": 16,
+            "seadekTexture": "brushed",
+            "swimPlatform": false,
+            "projectStartDate": 1607536384,
+            "isComplete": false,
+            "projectEndDate": null,
+            "id": 1
+       }
+   ],
+   "tasks": [
+       
+   ],
+   "projectTasks": [],
+   "notes": [],
+   "parts": [],
+   "partTypes": [],
+   "projectParts": [],
+   "paintTypes": [
+       {
+           "type": "paint",
+           "id": "1"
+       },
+       {
+           "type": "gel coat",
+           "id": "2"
+       }
+   ],
+   "seadekOptions": [
+       {
+           "color": "Caribbean Blue",
+           "id": 1
+       },
+       {
+           "color": "Bahama Blue",
+           "id": 2
+       },
+       {
+           "color": "Bimini Blue",
+           "id": 3
+       },
+       {
+           "color": "Olive Green",
+           "id": 4
+       },
+       {
+           "color": "Seafoam Green",
+           "id": 5
+       },
+       {
+           "color": "White",
+           "id": 6
+       },
+       {
+           "color": "Cool Gray",
+           "id": 7
+       },
+       {
+           "color": "Storm Gray",
+           "id": 8
+       },
+       {
+           "color": "Smoke Gray",
+           "id": 9
+       },
+       {
+           "color": "Dark Gray",
+           "id": 10
+       },
+       {
+           "color": "Midnight Black",
+           "id": 11
+       },
+       {
+           "color": "Beach Sand",
+           "id": 12
+       },
+       {
+           "color": "Cream",
+           "id": 13
+       },
+       {
+           "color": "Camel",
+           "id": 14
+       },
+       {
+           "color": "Mica",
+           "id": 15
+       },
+       {
+           "color": "Terra",
+           "id": 16
+       },
+       {
+           "color": "Cappuccino",
+           "id": 17
+       },
+       {
+           "color": "Mocha",
+           "id": 18
+       },
+       {
+           "color": "Chocolate",
+           "id": 19
+       }
+   ] 
 }
