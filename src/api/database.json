@@ -290,7 +290,23 @@
            "id":3
        }
    ],
-   "projectParts": [],
+   "projectParts": [
+       {
+           "projectId": 1,
+           "partId": 2,
+           "id": 1
+       },
+       {
+           "projectId": 1,
+           "partId": 5,
+           "id": 2
+       },
+       {
+           "projectId": 1,
+           "partId": 9,
+           "id": 3
+       }
+   ],
    "paintTypes": [
        {
            "type": "paint",
