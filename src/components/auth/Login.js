@@ -1,5 +1,4 @@
 import React, { useRef } from "react"
-import { Link } from "react-router-dom";
 import "./Login.css"
 
 
@@ -8,7 +7,6 @@ export const Login = props => {
     const password = useRef()
     const existDialog = useRef()
     const passwordDialog = useRef()
-    const userType = useRef
 
     const existingUserCheck = () => {
         // If your json-server URL is different, please change it below!
@@ -22,11 +20,11 @@ export const Login = props => {
 
         existingUserCheck()
             .then(exists => {
-                if (exists && exists.password === password.current.value && exists.userType === 1) {
+                if (exists && exists.password === password.current.value && exists.userTypeId === 1) {
                     // The user id is saved under the key app_user_id in local Storage. Change below if needed!
                     localStorage.setItem("app_user_id", exists.id)
                     props.history.push("/")
-                } else if (exists && exists.password === password.current.value && exists.userType === 2) {
+                } else if (exists && exists.password === password.current.value && exists.userTypeId === 2) {
                     // The user id is saved under the key app_user_id in local Storage. Change below if needed!
                     localStorage.setItem("app_user_id", exists.id)
                     props.history.push("/dashboards")
@@ -34,6 +32,8 @@ export const Login = props => {
                     passwordDialog.current.showModal()
                 } else if (!exists) {
                     existDialog.current.showModal()
+                } else {
+                    console.log("pit of despair")
                 }
             })
     }
@@ -69,7 +69,7 @@ export const Login = props => {
                             required />
                     </fieldset>
                     <fieldset>
-                        <button type="submit">
+                        <button type="submit" onClick={handleLogin} >
                             Sign in
                         </button>
                     </fieldset>
