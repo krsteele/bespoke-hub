@@ -3,6 +3,7 @@ import { Route, Redirect } from "react-router-dom"
 import { Login } from "./auth/Login"
 import { Register } from "./auth/Register"
 import "./BespokeHub.css"
+import { NavBar } from "./nav/NavBar"
 
 export const BespokeHub = () => (
     <>
@@ -11,7 +12,7 @@ export const BespokeHub = () => (
       if (localStorage.getItem("app_user_id")) {
           return (
               <>
-                  //Components that are rendered when the user is authenticated go inside this React fragment
+                <Route render={props => <NavBar {...props} />} />
               </>
           )
       } else {
