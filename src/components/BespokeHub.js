@@ -1,7 +1,7 @@
 import React from "react"
 import { Route, Redirect } from "react-router-dom"
 import { Login } from "./auth/Login"
-import { Register } from "./auth/Register"
+// import { Register } from "./auth/Register"
 import "./BespokeHub.css"
 import { NavBar } from "./nav/NavBar"
 
@@ -21,6 +21,6 @@ export const BespokeHub = () => (
   }} />
 
   <Route path="/login" render={props => <Login {...props} />} />
-  <Route path="/register" render={props => <Register {...props} />} />
+  {/* <Route path="/register" render={props => <Register {...props} />} /> */}
 </>
 )
