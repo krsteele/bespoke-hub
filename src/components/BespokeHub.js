@@ -1,7 +1,8 @@
 import React from "react"
 import { Route, Redirect } from "react-router-dom"
+import { ApplicationViews } from "./ApplicationViews"
 import { Login } from "./auth/Login"
-import { Register } from "./auth/Register"
+// import { Register } from "./auth/Register"
 import "./BespokeHub.css"
 import { NavBar } from "./nav/NavBar"
 
@@ -13,6 +14,7 @@ export const BespokeHub = () => (
           return (
               <>
                 <Route render={props => <NavBar {...props} />} />
+                <Route render={props => <ApplicationViews {...props} />} />
               </>
           )
       } else {
@@ -21,6 +23,6 @@ export const BespokeHub = () => (
   }} />
 
   <Route path="/login" render={props => <Login {...props} />} />
-  <Route path="/register" render={props => <Register {...props} />} />
+  {/* <Route path="/register" render={props => <Register {...props} />} /> */}
 </>
 )
