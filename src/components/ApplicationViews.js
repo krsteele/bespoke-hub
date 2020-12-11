@@ -5,6 +5,7 @@ import { ProjectsList } from "./projects/ProjectsList"
 import { UserProvider } from "./users/UsersDataProvider"
 import { UsersList } from "./users/UsersList"
 import { UserDetail } from "./users/UserDetail"
+import { ProjectProvider } from "./projects/ProjectsDataProvider"
 
 
 export const ApplicationViews = () => {
@@ -14,13 +15,14 @@ export const ApplicationViews = () => {
                 <ProjectsList />
             </Route>
             <UserProvider>
-                <Route exact path="/people" render={
-                    props => <UsersList {...props} />
-                 } />
-                <Route path="/people/:userId(\d+)" render={
-                    props => <UserDetail {...props} />
-                 } />
-
+                <ProjectProvider>
+                    <Route exact path="/people" render={
+                        props => <UsersList {...props} />
+                    } />
+                    <Route path="/people/:userId(\d+)" render={
+                        props => <UserDetail {...props} />
+                    } />
+                </ProjectProvider>
             </UserProvider>
             <Route exact path="/dashboards">
                 <ClientViewList />
