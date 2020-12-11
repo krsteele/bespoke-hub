@@ -29,7 +29,7 @@ export const UsersList = (props) => {
             <article className="usersList">
                 {
                     users.map(user => {
-                        return <Link key={user.id} to={`/users/${user.id}`}>
+                        return <Link key={user.id} to={`/people/${user.id}`}>
                             <p>{user.firstName} {user.lastName}</p>
                         </Link>
                     })
