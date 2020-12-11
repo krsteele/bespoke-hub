@@ -11,7 +11,7 @@ export const UserDetail = (props) => {
     const [project, setProject] = useState({})
 
     useEffect(() => {
-        getProjects().then(getUsers)
+        getUsers().then(getProjects)
     }, [])
 
     useEffect(() => {
@@ -21,8 +21,9 @@ export const UserDetail = (props) => {
 
     useEffect(() => {
         const proj = projects.find(j => j.userId === user.id)
+        console.log("project found:", proj)
         setProject(proj)
-    }, [user])
+    }, [projects, user])
 
     return (
         <section className="user">
@@ -34,12 +35,18 @@ export const UserDetail = (props) => {
                 Delete
             </button>
             <div>
-            <Link key={project.id} to={`/projects/${project.id}`}>
-                <p>View project page</p>
-             </Link>
-            <Link key={user.id} to={"#clientdashboard"}>
-                <p>View client dashboard</p>
-            </Link>
+                {
+                    (project === {} || project === undefined)
+                    ? "" 
+                    : <>
+                    <Link to={`/projects/${project.id}`}>
+                        <p>View project page</p>
+                    </Link>
+                    <Link to={`/projects/${project.id}`}>
+                        <p>View client dashboard</p>
+                    </Link>
+                    </>
+                }
             </div>
             <div className="user__email">Email: {user.email}</div>
             <div className="user__phone">Phone: {user.phone}</div>
