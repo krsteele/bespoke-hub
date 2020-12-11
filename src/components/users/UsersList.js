@@ -17,7 +17,7 @@ export const UsersList = (props) => {
     return (
         <div className="users">
             <h1>People</h1>
-            <button onClick={() => props.history.push("/users/create")}>
+            <button onClick={() => props.history.push("/people/create")}>
                 Add New
             </button>
             <button onClick={console.log("I will filter teammates.")}>
