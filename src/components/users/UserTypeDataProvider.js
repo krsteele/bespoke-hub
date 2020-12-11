@@ -1,15 +1,15 @@
-import React from "react"
-import { propTypes } from "react-bootstrap/esm/Image"
+import React, { useState } from "react"
 
-export const UserTypeContext = React.createContext
 
-export const UserTypeProvider = () => {
-    const [userTypes, setTypes] = useState([])
+export const UserTypeContext = React.createContext()
+
+export const UserTypeProvider = (props) => {
+    const [userTypes, setUserTypes] = useState([])
 
     const getUserTypes = () => {
         return fetch("http://localhost8088/userTypes")
             .then(res => res.json())
-            .then(setTypes)
+            .then(setUserTypes)
     }
     return (
         <UserTypeContext.Provider value={{
