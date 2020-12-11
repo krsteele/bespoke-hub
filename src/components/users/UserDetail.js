@@ -1,13 +1,17 @@
 import React, { useState, useEffect, useContext } from "react"
 import { UserContext } from "./UsersDataProvider"
+import { ProjectContext } from "../projects/ProjectsDataProvider"
 import { Link } from "react-router-dom"
 
 export const UserDetail = (props) => {
     const { users, getUsers } = useContext(UserContext)
     const [user, setUser] = useState({})
 
+    const { projects, getProjects } = useContext(ProjectContext)
+    const [project, setProject] = useState({})
+
     useEffect(() => {
-        getUsers()
+        getProjects().then(getUsers)
     }, [])
 
     useEffect(() => {
@@ -15,17 +19,22 @@ export const UserDetail = (props) => {
         setUser(person)
     }, [users])
 
+    useEffect(() => {
+        const proj = projects.find(j => j.userId === user.id)
+        setProject(proj)
+    }, [user])
+
     return (
         <section className="user">
             <h1 className="user__name">{user.firstName} {user.lastName}</h1>
-            <button onClick={() => props.history.push("/users/update")}>
+            <button onClick={() => props.history.push("/people/update")}>
                 Edit
             </button>
-            <button onClick={() => props.history.push("/users/remove")}>
+            <button onClick={() => props.history.push("/people/remove")}>
                 Delete
             </button>
             <div>
-            <Link key={user.id} to={"#projectpage"}>
+            <Link key={project.id} to={`/projects/${project.id}`}>
                 <p>View project page</p>
              </Link>
             <Link key={user.id} to={"#clientdashboard"}>
