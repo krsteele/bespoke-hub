@@ -25,9 +25,12 @@ export const UserDetail = (props) => {
                 Delete
             </button>
             <div>
+            <Link key={user.id} to={"#projectpage"}>
+                <p>View project page</p>
+             </Link>
             <Link key={user.id} to={"#clientdashboard"}>
-                            <p>View client project page</p>
-                        </Link>
+                <p>View client dashboard</p>
+            </Link>
             </div>
             <div className="user__email">Email: {user.email}</div>
             <div className="user__phone">Phone: {user.phone}</div>
