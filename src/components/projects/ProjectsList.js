@@ -17,17 +17,19 @@ export const ProjectsList = (props) => {
     return (
         <div className="projects">
             <h1>Projects</h1>
-            <button onClick={() => props.history.push("/projects/create")}>
+            <button onClick={() => props.history.push("/create")}>
                 Add New
             </button>
             <article className="projectsList">
-                {
+                <ul>
+                    {
                     projects.map(project => {
-                        return <Link key={project.id} to={`/projects/${project.id}`}>
-                            <p>"{project.boatName}" — {project.boatLength}' {project.model} {project.year}</p>
+                        return <Link key={project.id} to={`/${project.id}`}>
+                            <li>"{project.boatName}" — {project.boatLength}' {project.model} {project.year}</li>
                         </Link>
                     })
                 }
+                </ul>
             </article>
         </div>
     )
