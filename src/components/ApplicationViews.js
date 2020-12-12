@@ -8,15 +8,23 @@ import { UserDetail } from "./users/UserDetail"
 import { ProjectProvider } from "./projects/ProjectsDataProvider"
 import { UserTypeProvider } from "./users/UserTypeDataProvider"
 import { UserForm } from "./users/UserForm"
+import { ProjectDetail } from "./projects/ProjectDetail"
+import { ProjectForm } from "./projects/ProjectForm"
 
 
 export const ApplicationViews = () => {
     return (
         <>
             <ProjectProvider>
-                <Route exact path="/">
-                    <ProjectsList />
-                </Route>
+                <Route exact path="/" render={
+                    props => <ProjectsList {...props} />
+                } />
+                <Route path="/:projectId(\d+)" render={
+                    props => <ProjectDetail {...props} />
+                } />
+                <Route exact path="/create" render={
+                    props => <ProjectForm {...props} />
+                } />
             </ProjectProvider>
 
             <UserProvider>
