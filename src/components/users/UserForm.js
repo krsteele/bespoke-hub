@@ -13,33 +13,40 @@ export const UserForm = (props) => {
         getUserTypes()
     }, [])
 
+    const { register, handleSubmit, errors, formState } = useForm()
+
+    const createNewUser = (data) => {
+        addUser(data)
+            .then(() => props.history.push("/people"))
+    }
+
     return (
         <>
         <h3>Create New User</h3>
-        <Form>
+        <Form onSubmit={handleSubmit(createNewUser)}>
             <Form.Group controlId="form__firstName">
                 <Form.Label>First Name</Form.Label>
-                <Form.Control type="firstName" />
+                <Form.Control ref={register({required: true})} name="firstName" type="firstName" style={{borderColor: errors.firstName && "red"}} />
             </Form.Group>
             <Form.Group controlId="form__lastName">
                 <Form.Label>Last Name</Form.Label>
-                <Form.Control type="lastName" />
+                <Form.Control ref={register({required: true})} name="lastName" type="lastName" style={{borderColor: errors.lastName && "red"}} />
             </Form.Group>
             <Form.Group controlId="form__email">
                 <Form.Label>Email</Form.Label>
-                <Form.Control type="email" placeholder="name@example.com" />
+                <Form.Control ref={register({required: true})} name="email" type="email" style={{borderColor: errors.email && "red"}} placeholder="name@example.com" />
             </Form.Group>
             <Form.Group controlId="form__phone">
                 <Form.Label>Phone</Form.Label>
-                <Form.Control type="phone" placeholder="xxx-xxx-xxxx" />
+                <Form.Control ref={register} name="phone" type="phone" placeholder="xxx-xxx-xxxx" />
             </Form.Group>
             <Form.Group controlId="form__password">
                 <Form.Label>Password</Form.Label>
-                <Form.Control type="password" />
+                <Form.Control ref={register({required: true})} name="password" type="password" style={{borderColor: errors.password && "red"}} />
             </Form.Group>
             <Form.Group controlId="form__userType">
                 <Form.Label>User type</Form.Label>
-                <Form.Control as="select">
+                <Form.Control ref={register({required: true})} name="userTypeId" as="select" style={{borderColor: errors.userTypeId && "red"}}>
                 <option value="0">Select user type</option>
                 {
                     userTypes.map(t => (
@@ -48,7 +55,7 @@ export const UserForm = (props) => {
                 }
                 </Form.Control>
             </Form.Group>
-            <Button variant="primary" type="submit" onClick={() => console.log("user form submitted")}>Submit</Button>
+            <Button variant="primary" type="submit" disabled={formState.isSubmitting}>Submit</Button>
         </Form>
         </>
     )
