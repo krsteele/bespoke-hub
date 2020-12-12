@@ -6,12 +6,12 @@ export const UsersList = (props) => {
     const { users, getUsers } = useContext(UserContext)
 
     useEffect(() => {
-        console.log("I'm UsersList initial render!")
+        // console.log("I'm UsersList initial render!")
         getUsers()
     }, [])
 
     useEffect(() => {
-        console.log("I'm UsersList second render with data:", users)
+        // console.log("I'm UsersList second render with data:", users)
     }, [users])
 
     return (
@@ -20,10 +20,10 @@ export const UsersList = (props) => {
             <button onClick={() => props.history.push("/people/create")}>
                 Add New
             </button>
-            <button onClick={console.log("I will filter teammates.")}>
+            <button onClick={(()=>console.log("I will filter teammates."))}>
                 Teammates
             </button>
-            <button onClick={console.log("I will filter Clients.")}>
+            <button onClick={(()=>console.log("I will filter Clients."))}>
                 Clients
             </button>
             <article className="usersList">
