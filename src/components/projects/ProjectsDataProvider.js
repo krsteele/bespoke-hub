@@ -24,7 +24,7 @@ export const ProjectProvider = (props) => {
     }
 
     const getProjectById = (id) => {
-        return fetch(`http://localhost:8088/projects/${ id }?_expand=user&_expand=seadekColor&_expand=finishType`)
+        return fetch(`http://localhost:8088/projects/${ id }?_expand=user&_expand=seadekColor&_expand=paintType`)
             .then(res => res.json())
     }
 
