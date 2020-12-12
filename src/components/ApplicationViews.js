@@ -28,9 +28,9 @@ export const ApplicationViews = () => {
                         <Route path="/people/:userId(\d+)" render={
                             props => <UserDetail {...props} />
                         } />
-                        <Route exact path="/people/create">
-                            <UserForm />
-                        </Route>  
+                        <Route exact path="/people/create" render={
+                            props => <UserForm {...props} />
+                        } />
                     </ProjectProvider>
                 </UserTypeProvider>
             </UserProvider>
