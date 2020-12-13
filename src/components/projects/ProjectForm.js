@@ -1,4 +1,4 @@
-import React, { useContext, useEffect, useRef } from "react"
+import React, { useContext, useEffect, useRef, useState } from "react"
 // import needed contexts
 import { ProjectContext } from "./ProjectsDataProvider"
 import { UserContext } from "../users/UsersDataProvider"
@@ -119,6 +119,17 @@ export const ProjectForm = (props) => {
                     }).map(part => (
                         <option key={part.id} value={part.id}>{part.name}</option>
                     ))
+                }
+                </Form.Control>
+            </Form.Group>
+            <Form.Group controlId="form__seadekColor">
+                <Form.Label>Seadek color</Form.Label>
+                <Form.Control ref={register} name="seadekColorId" as="select">
+                <option value="0">Select a color</option>
+                {
+                    seadekColors.map(color => {
+                       return <option key={color.id} value={color.id}>{color.color}</option>
+                    })
                 }
                 </Form.Control>
             </Form.Group>
