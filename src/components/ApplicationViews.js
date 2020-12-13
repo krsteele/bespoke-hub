@@ -10,21 +10,27 @@ import { UserTypeProvider } from "./users/UserTypeDataProvider"
 import { UserForm } from "./users/UserForm"
 import { ProjectDetail } from "./projects/ProjectDetail"
 import { ProjectForm } from "./projects/ProjectForm"
+import { PartsProvider } from "./parts/PartsDataProvider"
+import { ProjectPartsProvider } from "./parts/ProjectPartsDataProvider"
 
 
 export const ApplicationViews = () => {
     return (
         <>
             <ProjectProvider>
-                <Route exact path="/" render={
-                    props => <ProjectsList {...props} />
-                } />
-                <Route path="/:projectId(\d+)" render={
-                    props => <ProjectDetail {...props} />
-                } />
-                <Route exact path="/create" render={
-                    props => <ProjectForm {...props} />
-                } />
+                <PartsProvider>
+                    <ProjectPartsProvider>
+                    <Route exact path="/" render={
+                        props => <ProjectsList {...props} />
+                    } />
+                    <Route path="/:projectId(\d+)" render={
+                        props => <ProjectDetail {...props} />
+                    } />
+                    <Route exact path="/create" render={
+                        props => <ProjectForm {...props} />
+                    } />
+                    </ProjectPartsProvider>
+                </PartsProvider>
             </ProjectProvider>
 
             <UserProvider>
