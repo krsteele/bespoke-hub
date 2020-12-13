@@ -12,6 +12,7 @@ import { ProjectDetail } from "./projects/ProjectDetail"
 import { ProjectForm } from "./projects/ProjectForm"
 import { PartsProvider } from "./parts/PartsDataProvider"
 import { ProjectPartsProvider } from "./parts/ProjectPartsDataProvider"
+import { SeadekColorProvider } from "./seadek/SeadekColorsDataProvider"
 
 
 export const ApplicationViews = () => {
@@ -20,15 +21,17 @@ export const ApplicationViews = () => {
             <ProjectProvider>
                 <PartsProvider>
                     <ProjectPartsProvider>
-                    <Route exact path="/" render={
-                        props => <ProjectsList {...props} />
-                    } />
-                    <Route path="/:projectId(\d+)" render={
-                        props => <ProjectDetail {...props} />
-                    } />
-                    <Route exact path="/create" render={
-                        props => <ProjectForm {...props} />
-                    } />
+                        <SeadekColorProvider>
+                            <Route exact path="/" render={
+                                props => <ProjectsList {...props} />
+                            } />
+                            <Route path="/:projectId(\d+)" render={
+                                props => <ProjectDetail {...props} />
+                            } />
+                            <Route exact path="/create" render={
+                                props => <ProjectForm {...props} />
+                            } />
+                        </SeadekColorProvider>
                     </ProjectPartsProvider>
                 </PartsProvider>
             </ProjectProvider>
