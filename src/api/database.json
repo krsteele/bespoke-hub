@@ -65,7 +65,7 @@
   ],
   "tasks": [
     {
-      "text": "Order engine",
+      "text": "Order motor",
       "taskTypeId": 1,
       "id": 1
     },
@@ -286,11 +286,11 @@
   ],
   "partTypes": [
     {
-      "type": "engine",
+      "type": "motor",
       "id": 1
     },
     {
-      "type": "GPS",
+      "type": "navigation system",
       "id": 2
     },
     {
@@ -325,7 +325,7 @@
       "id": "2"
     }
   ],
-  "seadekOptions": [
+  "seadekColors": [
     {
       "color": "Caribbean Blue",
       "id": 1
