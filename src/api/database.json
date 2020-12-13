@@ -26,15 +26,6 @@
       "password": "myboatname",
       "userTypeId": 2,
       "id": 3
-    },
-    {
-      "firstName": "Bob",
-      "lastName": "Client",
-      "email": "bob@client.com",
-      "phone": "505-555-1234",
-      "password": "client",
-      "userTypeId": "2",
-      "id": 4
     }
   ],
   "userTypes": [
