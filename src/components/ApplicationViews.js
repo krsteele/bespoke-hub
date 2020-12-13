@@ -19,21 +19,23 @@ export const ApplicationViews = () => {
     return (
         <>
             <ProjectProvider>
-                <PartsProvider>
-                    <ProjectPartsProvider>
-                        <SeadekColorProvider>
-                            <Route exact path="/" render={
-                                props => <ProjectsList {...props} />
-                            } />
-                            <Route path="/:projectId(\d+)" render={
-                                props => <ProjectDetail {...props} />
-                            } />
-                            <Route exact path="/create" render={
-                                props => <ProjectForm {...props} />
-                            } />
-                        </SeadekColorProvider>
-                    </ProjectPartsProvider>
-                </PartsProvider>
+                <UserProvider>
+                    <PartsProvider>
+                        <ProjectPartsProvider>
+                            <SeadekColorProvider>
+                                <Route exact path="/" render={
+                                    props => <ProjectsList {...props} />
+                                } />
+                                <Route path="/:projectId(\d+)" render={
+                                    props => <ProjectDetail {...props} />
+                                } />
+                                <Route exact path="/create" render={
+                                    props => <ProjectForm {...props} />
+                                } />
+                            </SeadekColorProvider>
+                        </ProjectPartsProvider>
+                    </PartsProvider>
+                </UserProvider>
             </ProjectProvider>
 
             <UserProvider>
