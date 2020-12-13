@@ -1,10 +1,10 @@
-import React, { useContext } from "react"
+import React, { useContext, useEffect, useRef } from "react"
 // import needed contexts
 import { ProjectContext } from "./ProjectsDataProvider"
 import { UserContext } from "../users/UsersDataProvider"
 import { PartContext } from "../parts/PartsDataProvider"
 import { ProjectPartContext } from "../parts/ProjectPartsDataProvider"
-import { SeadekColorsContext } from "../seadek/SeadekColorsDataProvider"
+import { SeadekColorContext } from "../seadek/SeadekColorsDataProvider"
 
 // React-Hook-Form
 import { useForm } from "react-hook-form"
@@ -15,7 +15,6 @@ import Button from "react-bootstrap/Button"
 
 export const ProjectForm = (props) => {
     /* 
-        get contexts and providers
         filter parts for select menus
         build form
         upon submit, addProject, then take newProjectObject that is returned
@@ -23,41 +22,40 @@ export const ProjectForm = (props) => {
         then change view to project detail
     */
 
-//    Needed contexts
+//  Needed contexts
     const { addProject } = useContext(ProjectContext)
     const { users, getUsers } = useContext(UserContext)
     const { parts, getParts } = useContext(PartContext)
     const { seadekColors, getSeadekColors } = useContext(SeadekColorContext)
     const { addProjectParts } = useContext(ProjectPartContext)
 
-    
-    return (
-        <div>Hi! I'm the project form!</div>
-    )
-}
-
-
-export const UserForm = (props) => {
-    const { addUser } = useContext(UserContext)
-    const { userTypes, getUserTypes } = useContext(UserTypeContext)
-
-    useEffect(() => {
-        getUserTypes()
-    }, [])
-
+//  Grab needed functions form React-Form-Hook
     const { register, handleSubmit, errors, formState } = useForm()
 
-    const createNewUser = (data) => {
-        addUser(data)
-            .then(() => props.history.push("/people"))
-    }
+//  Get data needed to render dropdowns
+    useEffect(()=> {
+        getUsers().then(getParts).then(getSeadekColors)
+    }, [])
 
+//  create references for the projectParts that will be added separately
+    const engine = useRef(null)
+    const GPS = useRef(null)
+    const trailer = useRef(null)
+
+/* 
+    Function called in onSubmit to call the addProject function, 
+    then call the add ProjectParts function for the engine, trailer and GPS parts 
+*/
+    const createNewProject = (data) => {
+        console.log("project form submit clicked")
+    }
+    
     return (
         <>
-        <h3>Create New User</h3>
-        <Form onSubmit={handleSubmit(createNewUser)}>
-            <Form.Group controlId="form__firstName">
-                <Form.Label>First Name</Form.Label>
+        <h3>Create New Project</h3>
+        <Form onSubmit={handleSubmit(createNewProject)}>
+            <Form.Group controlId="form__boatName">
+                <Form.Label>Boat Name</Form.Label>
                 <Form.Control ref={register({required: true})} name="firstName" type="firstName" style={{borderColor: errors.firstName && "red"}} />
             </Form.Group>
             <Form.Group controlId="form__lastName">
@@ -90,5 +88,16 @@ export const UserForm = (props) => {
             <Button variant="primary" type="submit" disabled={formState.isSubmitting}>Submit</Button>
         </Form>
         </>
+    )
+}
+
+
+
+    // const createNewUser = (data) => {
+    //     addUser(data)
+    //         .then(() => props.history.push("/people"))
+    // }
+
+    return (
     )
 }
