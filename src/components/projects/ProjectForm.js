@@ -4,7 +4,7 @@ import { ProjectContext } from "./ProjectsDataProvider"
 import { UserContext } from "../users/UsersDataProvider"
 import { PartContext } from "../parts/PartsDataProvider"
 import { ProjectPartContext } from "../parts/ProjectPartsDataProvider"
-import { SeadekColorContext } from "../seadek/SeadekColorsDataProvider"
+import { SeadekColorsContext } from "../seadek/SeadekColorsDataProvider"
 
 // React-Hook-Form
 import { useForm } from "react-hook-form"
@@ -26,7 +26,7 @@ export const ProjectForm = (props) => {
     const { addProject } = useContext(ProjectContext)
     const { users, getUsers } = useContext(UserContext)
     const { parts, getParts } = useContext(PartContext)
-    const { seadekColors, getSeadekColors } = useContext(SeadekColorContext)
+    const { seadekColors, getSeadekColors } = useContext(SeadekColorsContext)
     const { addProjectParts } = useContext(ProjectPartContext)
 
 //  Grab needed functions form React-Form-Hook
@@ -38,8 +38,8 @@ export const ProjectForm = (props) => {
     }, [])
 
 //  create references for the projectParts that will be added separately
-    const engine = useRef(null)
-    const GPS = useRef(null)
+    const motor = useRef(null)
+    const navSystem = useRef(null)
     const trailer = useRef(null)
 
 /* 
@@ -56,31 +56,68 @@ export const ProjectForm = (props) => {
         <Form onSubmit={handleSubmit(createNewProject)}>
             <Form.Group controlId="form__boatName">
                 <Form.Label>Boat Name</Form.Label>
-                <Form.Control ref={register({required: true})} name="firstName" type="firstName" style={{borderColor: errors.firstName && "red"}} />
+                <Form.Control ref={register({required: true})} name="boatName" type="boatName" style={{borderColor: errors.boatName && "red"}} />
             </Form.Group>
-            <Form.Group controlId="form__lastName">
-                <Form.Label>Last Name</Form.Label>
-                <Form.Control ref={register({required: true})} name="lastName" type="lastName" style={{borderColor: errors.lastName && "red"}} />
+            <Form.Group controlId="form__boatLength">
+                <Form.Label>Boat Length (ft.)</Form.Label>
+                <Form.Control ref={register} name="boatLength" type="boatLength" placeholder="xx" />
             </Form.Group>
-            <Form.Group controlId="form__email">
-                <Form.Label>Email</Form.Label>
-                <Form.Control ref={register({required: true})} name="email" type="email" style={{borderColor: errors.email && "red"}} placeholder="name@example.com" />
+            <Form.Group controlId="form__model">
+                <Form.Label>Model</Form.Label>
+                <Form.Control ref={register} name="model" type="model" />
             </Form.Group>
-            <Form.Group controlId="form__phone">
-                <Form.Label>Phone</Form.Label>
-                <Form.Control ref={register} name="phone" type="phone" placeholder="xxx-xxx-xxxx" />
+            <Form.Group controlId="form__year">
+                <Form.Label>Year</Form.Label>
+                <Form.Control ref={register} name="year" type="year" placeholder="xxxx" />
             </Form.Group>
-            <Form.Group controlId="form__password">
-                <Form.Label>Password</Form.Label>
-                <Form.Control ref={register({required: true})} name="password" type="password" style={{borderColor: errors.password && "red"}} />
-            </Form.Group>
-            <Form.Group controlId="form__userType">
-                <Form.Label>User type</Form.Label>
-                <Form.Control ref={register({required: true})} name="userTypeId" as="select" style={{borderColor: errors.userTypeId && "red"}}>
-                <option value="0">Select user type</option>
+            <Form.Group controlId="form__client">
+                <Form.Label>Client</Form.Label>
+                <Form.Control ref={register} name="userId" as="select">
+                <option value="null">Select client</option>
                 {
-                    userTypes.map(t => (
-                        <option key={t.id} value={t.id}>{t.type}</option>
+                    users.filter(user => {
+                       return user.userTypeId === 2
+                    }).map(user => (
+                        <option key={user.id} value={user.id}>{user.firstName} {user.lastName}</option>
+                    ))
+                }
+                </Form.Control>
+            </Form.Group>
+            <Form.Group controlId="form__motor">
+                <Form.Label>Motor</Form.Label>
+                <Form.Control ref={motor} name="motor" as="select">
+                <option value="0">Select a motor</option>
+                {
+                    parts.filter(part => {
+                       return part.partTypeId === 1
+                    }).map(part => (
+                        <option key={part.id} value={part.id}>{part.name}</option>
+                    ))
+                }
+                </Form.Control>
+            </Form.Group>
+            <Form.Group controlId="form__navSystem">
+                <Form.Label>GPS</Form.Label>
+                <Form.Control ref={navSystem} name="navSystem" as="select">
+                <option value="0">Select a GPS</option>
+                {
+                    parts.filter(part => {
+                       return part.partTypeId === 2
+                    }).map(part => (
+                        <option key={part.id} value={part.id}>{part.name}</option>
+                    ))
+                }
+                </Form.Control>
+            </Form.Group>
+            <Form.Group controlId="form__trailer">
+                <Form.Label>Trailer</Form.Label>
+                <Form.Control ref={trailer} name="trailer" as="select">
+                <option value="0">Select a trailer</option>
+                {
+                    parts.filter(part => {
+                       return part.partTypeId === 3
+                    }).map(part => (
+                        <option key={part.id} value={part.id}>{part.name}</option>
                     ))
                 }
                 </Form.Control>
@@ -97,7 +134,3 @@ export const ProjectForm = (props) => {
     //     addUser(data)
     //         .then(() => props.history.push("/people"))
     // }
-
-    return (
-    )
-}
