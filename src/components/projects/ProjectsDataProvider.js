@@ -20,7 +20,11 @@ export const ProjectProvider = (props) => {
             },
             body: JSON.stringify(project)
         })
-            .then(getProjects)
+            .then(res => res.json())
+            .then((newProjectObject)=> {
+                getProjects()
+                return newProjectObject
+            })
     }
 
     const getProjectById = (id) => {
