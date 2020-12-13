@@ -1,10 +1,17 @@
-import React from "react"
+import React, { useContext } from "react"
+// import needed contexts
 import { ProjectContext } from "./ProjectsDataProvider"
 import { UserContext } from "../users/UsersDataProvider"
 import { PartContext } from "../parts/PartsDataProvider"
 import { ProjectPartContext } from "../parts/ProjectPartsDataProvider"
 import { SeadekColorsContext } from "../seadek/SeadekColorsDataProvider"
 
+// React-Hook-Form
+import { useForm } from "react-hook-form"
+
+// React-Bootstrap Component imports
+import Form from "react-bootstrap/Form"
+import Button from "react-bootstrap/Button"
 
 export const ProjectForm = (props) => {
     /* 
@@ -16,17 +23,19 @@ export const ProjectForm = (props) => {
         then change view to project detail
     */
 
+//    Needed contexts
+    const { addProject } = useContext(ProjectContext)
+    const { users, getUsers } = useContext(UserContext)
+    const { parts, getParts } = useContext(PartContext)
+    const { seadekColors, getSeadekColors } = useContext(SeadekColorContext)
+    const { addProjectParts } = useContext(ProjectPartContext)
+
+    
     return (
         <div>Hi! I'm the project form!</div>
     )
 }
 
-import React, { useContext, useEffect } from "react"
-import { UserContext } from "./UsersDataProvider"
-import { UserTypeContext } from "./UserTypeDataProvider"
-import { useForm } from "react-hook-form"
-import Form from "react-bootstrap/Form"
-import Button from "react-bootstrap/Button"
 
 export const UserForm = (props) => {
     const { addUser } = useContext(UserContext)
