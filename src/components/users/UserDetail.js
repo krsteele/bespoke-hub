@@ -4,7 +4,7 @@ import { ProjectContext } from "../projects/ProjectsDataProvider"
 import { Link } from "react-router-dom"
 
 export const UserDetail = (props) => {
-    const { users, getUsers } = useContext(UserContext)
+    const { users, getUsers, deleteUser } = useContext(UserContext)
     const [user, setUser] = useState({})
 
     const { projects, getProjects } = useContext(ProjectContext)
@@ -15,23 +15,26 @@ export const UserDetail = (props) => {
     }, [])
 
     useEffect(() => {
+        // console.log(props.match.params)
         const person = users.find(p => p.id === parseInt(props.match.params.userId)) || {}
         setUser(person)
     }, [users])
 
     useEffect(() => {
         const proj = projects.find(j => j.userId === user.id)
-        console.log("project found:", proj)
+        // console.log("project found:", proj)
         setProject(proj)
     }, [projects, user])
 
     return (
         <section className="user">
             <h1 className="user__name">{user.firstName} {user.lastName}</h1>
-            <button onClick={() => props.history.push("/people/update")}>
+            <button onClick={() => {
+                // console.log("edit:", user.id)
+                props.history.push(`/people/edit/${user.id}`)}}>
                 Edit
             </button>
-            <button onClick={() => props.history.push("/people/remove")}>
+            <button onClick={() => deleteUser(user.id).then(()=>props.history.push("/people"))}>
                 Delete
             </button>
             <div>
