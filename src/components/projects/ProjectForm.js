@@ -5,6 +5,7 @@ import { UserContext } from "../users/UsersDataProvider"
 import { PartContext } from "../parts/PartsDataProvider"
 import { ProjectPartContext } from "../parts/ProjectPartsDataProvider"
 import { SeadekColorsContext } from "../seadek/SeadekColorsDataProvider"
+import { PaintTypeContext } from "../paint/PaintTypesDataProvider"
 
 // React-Hook-Form
 import { useForm } from "react-hook-form"
@@ -28,13 +29,14 @@ export const ProjectForm = (props) => {
     const { parts, getParts } = useContext(PartContext)
     const { seadekColors, getSeadekColors } = useContext(SeadekColorsContext)
     const { addProjectParts } = useContext(ProjectPartContext)
+    const { paintTypes, getPaintTypes } = useContext(PaintTypeContext)
 
 //  Grab needed functions form React-Form-Hook
     const { register, handleSubmit, errors, formState } = useForm()
 
 //  Get data needed to render dropdowns
     useEffect(()=> {
-        getUsers().then(getParts).then(getSeadekColors)
+        getUsers().then(getParts).then(getSeadekColors).then(getPaintTypes)
     }, [])
 
 //  create references for the projectParts that will be added separately
@@ -48,6 +50,7 @@ export const ProjectForm = (props) => {
 */
     const createNewProject = (data) => {
         console.log("project form submit clicked")
+        console.log("submitted project data:", data, motor, navSystem, trailer)
     }
     
     return (
@@ -132,6 +135,24 @@ export const ProjectForm = (props) => {
                     })
                 }
                 </Form.Control>
+            </Form.Group>
+            <Form.Group controlId="form__paintType">
+                <Form.Label>Paint Finish Type</Form.Label>
+                <Form.Control ref={register} name="paintTypeId" as="select">
+                <option value="0">Select a type</option>
+                {
+                    paintTypes.map(type => {
+                       return <option key={type.id} value={type.id}>{type.type}</option>
+                    })
+                }
+                </Form.Control>
+            </Form.Group>
+            <Form.Group controlId="form__swimPlatform">
+                <Form.Label>Add swim platform?</Form.Label>
+                <div>
+                    <Form.Check inline type="radio" label="yes" value="true" ref={register} />
+                    <Form.Check inline type="radio" label="no" value="false" ref={register} />
+                </div>
             </Form.Group>
             <Button variant="primary" type="submit" disabled={formState.isSubmitting}>Submit</Button>
         </Form>
