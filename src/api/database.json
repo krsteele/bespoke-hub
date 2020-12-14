@@ -26,6 +26,51 @@
       "password": "myboatname",
       "userTypeId": 2,
       "id": 3
+    },
+    {
+      "firstName": "Hunter",
+      "lastName": "Sholar",
+      "email": "hunter@fosco.com",
+      "phone": "111-111-1111",
+      "password": "team",
+      "userTypeId": 1,
+      "id": 4
+    },
+    {
+      "firstName": "Ian",
+      "lastName": "Smith",
+      "email": "ian@fosco.com",
+      "phone": "222-222-2222",
+      "password": "team",
+      "userTypeId": 1,
+      "id": 5
+    },
+    {
+      "firstName": "Bob",
+      "lastName": "Evans",
+      "email": "bob@evans.com",
+      "phone": "555-555-5555",
+      "password": "client",
+      "userTypeId": 2,
+      "id": 6
+    },
+    {
+      "firstName": "Larry",
+      "lastName": "Franklin",
+      "email": "larry@franklin.com",
+      "phone": "333-333-3333",
+      "password": "client",
+      "userTypeId": 2,
+      "id": 7
+    },
+    {
+      "firstName": "Frank",
+      "lastName": "Manford",
+      "email": "frank@manford.com",
+      "phone": "444-444-4444",
+      "password": "client",
+      "userTypeId": 2,
+      "id": 8
     }
   ],
   "userTypes": [
