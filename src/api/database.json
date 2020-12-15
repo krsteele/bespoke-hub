@@ -10,7 +10,7 @@
       "id": 1
     },
     {
-      "firstName": "Joe",
+      "firstName": "Jane",
       "lastName": "Patti",
       "phone": "850-432-3315",
       "email": "jp@joepattis.com",
@@ -22,7 +22,7 @@
       "firstName": "Jared",
       "lastName": "Williams",
       "phone": "361-867-5309",
-      "email": "jared@Wilco.co",
+      "email": "jared@wilco.co",
       "password": "myboatname",
       "userTypeId": 2,
       "id": 3
@@ -97,6 +97,34 @@
       "isComplete": false,
       "projectEndDate": null,
       "id": 1
+    },
+    {
+      "boatName": "Gary",
+      "year": 1979,
+      "model": "Striper",
+      "boatLength": 15,
+      "userId": 3,
+      "paintTypeId": 1,
+      "seadekColorId": 16,
+      "swimPlatform": false,
+      "projectStartDate": 1607536384,
+      "isComplete": false,
+      "projectEndDate": null,
+      "id": 2
+    },
+    {
+      "boatName": "Gary",
+      "year": 1979,
+      "model": "Striper",
+      "boatLength": 15,
+      "userId": 3,
+      "paintTypeId": 1,
+      "seadekColorId": 16,
+      "swimPlatform": false,
+      "projectStartDate": 1607536384,
+      "isComplete": false,
+      "projectEndDate": null,
+      "id": 3
     }
   ],
   "tasks": [
