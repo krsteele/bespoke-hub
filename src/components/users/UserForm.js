@@ -18,6 +18,7 @@ export const UserForm = (props) => {
         const newUser = Object.assign({}, user)
         newUser[event.target.name] = event.target.value
         setUser(newUser)
+        console.log("new user", newUser)
     }
 
     const getUserInEditMode = () => {
