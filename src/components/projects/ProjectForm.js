@@ -39,18 +39,28 @@ export const ProjectForm = (props) => {
         getUsers().then(getParts).then(getSeadekColors).then(getPaintTypes)
     }, [])
 
-//  create references for the projectParts that will be added separately
-    const motor = useRef(null)
-    const navSystem = useRef(null)
-    const trailer = useRef(null)
-
 /* 
     Function called in onSubmit to call the addProject function, 
     then call the add ProjectParts function for the engine, trailer and GPS parts 
 */
     const createNewProject = (data) => {
-        console.log("project form submit clicked")
-        console.log("submitted project data:", data, motor, navSystem, trailer)
+        // console.log("project form submit clicked")
+        // console.log("submitted project data:", data)
+       const newBoatProject = {
+           boatName: "Gary",
+           year: 1979,
+           model: "Striper",
+           boatLength: 15,
+           userId: 3,
+           paintTypeId: 1,
+           seadekColorId: 16,
+           swimPlatform: false,
+           projectStartDate: 1607536384,
+           isComplete: false,
+           projectEndDate: null,
+       }
+       addProject(newBoatProject)
+        .then((newProjectObject)=> console.log(newProjectObject))
     }
     
     return (
@@ -88,7 +98,7 @@ export const ProjectForm = (props) => {
             </Form.Group>
             <Form.Group controlId="form__motor">
                 <Form.Label>Motor</Form.Label>
-                <Form.Control ref={motor} name="motor" as="select">
+                <Form.Control ref={register} name="motor" as="select">
                 <option value="0">Select a motor</option>
                 {
                     parts.filter(part => {
@@ -101,7 +111,7 @@ export const ProjectForm = (props) => {
             </Form.Group>
             <Form.Group controlId="form__navSystem">
                 <Form.Label>GPS</Form.Label>
-                <Form.Control ref={navSystem} name="navSystem" as="select">
+                <Form.Control ref={register} name="navSystem" as="select">
                 <option value="0">Select a GPS</option>
                 {
                     parts.filter(part => {
@@ -114,7 +124,7 @@ export const ProjectForm = (props) => {
             </Form.Group>
             <Form.Group controlId="form__trailer">
                 <Form.Label>Trailer</Form.Label>
-                <Form.Control ref={trailer} name="trailer" as="select">
+                <Form.Control ref={register} name="trailer" as="select">
                 <option value="0">Select a trailer</option>
                 {
                     parts.filter(part => {
