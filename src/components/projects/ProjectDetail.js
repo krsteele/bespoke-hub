@@ -23,8 +23,10 @@ export const ProjectDetail = (props) => {
     useEffect(() => {
         const filtered = projectParts.filter(obj => obj.projectId === project.id)
         console.log("filtered project parts", filtered)
-        // setfilteredParts(filtered)
+        setfilteredParts(filtered)
     }, [projectParts])
+
+    
 
     // What if I just filter for the parts for this project and then map those below?????
 
@@ -36,9 +38,9 @@ export const ProjectDetail = (props) => {
     //     setMotor(findMotor)
     // }, [projectParts])
 
-    // useEffect(()=> {
-    //     console.log("set motor", motor)
-    // }, [motor])
+    useEffect(()=> {
+        console.log("pp's after set", filteredProjectParts)
+    }, [filteredProjectParts])
     
     // useEffect(() => {
     //     const findNav = projectParts.filter(pp => pp.projectId === project.id).find(pp => pp.part.partTypeId === 2)
@@ -73,11 +75,11 @@ export const ProjectDetail = (props) => {
             </div>
             <div>
                 <h5>Boat details:</h5>
-                {/* {
+                {
                    filteredProjectParts.map(obj => {
                        return <p>{obj.part.name}</p>
                    }) 
-                } */}
+                }
                 {/* <p>Motor: {motor.part.name}</p> */}
                 {/* <p>GPS: {navSystem.part.name}</p>
                 <p>Trailer: {trailer.part.name}</p> */}
