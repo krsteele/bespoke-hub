@@ -125,6 +125,62 @@
       "isComplete": false,
       "projectEndDate": null,
       "id": 3
+    },
+    {
+      "boatName": "Gary",
+      "year": 1979,
+      "model": "Striper",
+      "boatLength": 15,
+      "userId": 3,
+      "paintTypeId": 1,
+      "seadekColorId": 16,
+      "swimPlatform": false,
+      "projectStartDate": 1607536384,
+      "isComplete": false,
+      "projectEndDate": null,
+      "id": 4
+    },
+    {
+      "boatName": "Christi",
+      "year": 1981,
+      "model": "Boop",
+      "boatLength": 17,
+      "userId": 6,
+      "paintTypeId": 2,
+      "seadekColorId": 16,
+      "swimPlatform": false,
+      "projectStartDate": 1607536384,
+      "isComplete": false,
+      "projectEndDate": null,
+      "id": 5
+    },
+    {
+      "boatName": "Sally",
+      "year": 1985,
+      "model": "Thunder",
+      "boatLength": 19,
+      "userId": 7,
+      "paintTypeId": 1,
+      "seadekColorId": 17,
+      "swimPlatform": false,
+      "projectStartDate": 1607536384,
+      "isComplete": false,
+      "projectEndDate": null,
+      "id": 6
+    },
+    {
+      "boatName": "Denver",
+      "year": 1986,
+      "model": "Thunder",
+      "boatLength": 19,
+      "userId": 8,
+      "paintTypeId": 1,
+      "seadekColorId": 1,
+      "swimPlatform": false,
+      "projectStartDate": 1607536384,
+      "isComplete": false,
+      "projectEndDate": null,
+      "id": 7
     }
   ],
   "tasks": [
