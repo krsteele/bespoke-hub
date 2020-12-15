@@ -28,7 +28,7 @@ export const ProjectForm = (props) => {
     const { users, getUsers } = useContext(UserContext)
     const { parts, getParts } = useContext(PartContext)
     const { seadekColors, getSeadekColors } = useContext(SeadekColorsContext)
-    const { addProjectParts } = useContext(ProjectPartContext)
+    const { addProjectPart } = useContext(ProjectPartContext)
     const { paintTypes, getPaintTypes } = useContext(PaintTypeContext)
 
 //  Grab needed functions from React-Form-Hook
@@ -46,22 +46,45 @@ export const ProjectForm = (props) => {
     const createNewProject = (data) => {
         // console.log("project form submit clicked")
         console.log("submitted project data:", data)
-       const newBoatProject = {
+        const swimPlatform = data.swimPlatform === "true" ? true : false
+
+        const newBoatProject = {
            boatName: data.boatName,
-           year: parseInt(data.year),
+           year: data.year,
            model: data.model,
-           boatLength: parseInt(data.boatLength),
-           userId: parseInt(data.userId),
-           paintTypeId: parseInt(data.paintTypeId),
-           seadekColorId: parseInt(data.seadekColorId),
-           swimPlatform: {data.swimPlatform === "true" ? true : false},
-           projectStartDate: 1607536384,
+           boatLength: data.boatLength,
+           userId: data.userId,
+           paintTypeId: data.paintTypeId,
+           seadekColorId: data.seadekColorId,
+           swimPlatform: swimPlatform,
+           projectStartDate: Date.now(),
            isComplete: false,
            projectEndDate: null,
        }
+
        addProject(newBoatProject)
-        .then((newProjectObject)=> console.log(newProjectObject))
-    }
+        .then((newProjectObject)=> {
+            const motor = {
+                projectId: newProjectObject.id,
+                partId: data.motor
+            }
+            const nav = {
+                projectId: newProjectObject.id,
+                partId: data.navSystem
+            }
+            const trailer = {
+                projectId: newProjectObject.id,
+                partId: data.trailer
+            }
+            addProjectPart(motor)
+            addProjectPart(nav)
+            addProjectPart(trailer)
+            console.log(newProjectObject)
+
+            return newProjectObject
+    })
+     .then((newProjectObject) => props.history.push(`/${newProjectObject.id}`))
+}
     
     return (
         <>
@@ -73,7 +96,7 @@ export const ProjectForm = (props) => {
             </Form.Group>
             <Form.Group controlId="form__boatLength">
                 <Form.Label>Boat Length (ft.)</Form.Label>
-                <Form.Control ref={register} name="boatLength" type="boatLength" placeholder="xx" />
+                <Form.Control ref={register({valueAsNumber: true})} name="boatLength" type="boatLength" placeholder="xx" />
             </Form.Group>
             <Form.Group controlId="form__model">
                 <Form.Label>Model</Form.Label>
@@ -81,7 +104,7 @@ export const ProjectForm = (props) => {
             </Form.Group>
             <Form.Group controlId="form__year">
                 <Form.Label>Year</Form.Label>
-                <Form.Control ref={register} name="year" type="year" placeholder="xxxx" />
+                <Form.Control ref={register({valueAsNumber: true})} name="year" type="year" placeholder="xxxx" />
             </Form.Group>
             <Form.Group controlId="form__client">
                 <Form.Label>Client</Form.Label>
@@ -98,7 +121,7 @@ export const ProjectForm = (props) => {
             </Form.Group>
             <Form.Group controlId="form__motor">
                 <Form.Label>Motor</Form.Label>
-                <Form.Control ref={register} name="motor" as="select">
+                <Form.Control ref={register({valueAsNumber: true})} name="motor" as="select">
                 <option value="0">Select a motor</option>
                 {
                     parts.filter(part => {
@@ -111,7 +134,7 @@ export const ProjectForm = (props) => {
             </Form.Group>
             <Form.Group controlId="form__navSystem">
                 <Form.Label>GPS</Form.Label>
-                <Form.Control ref={register} name="navSystem" as="select">
+                <Form.Control ref={register({valueAsNumber: true})} name="navSystem" as="select">
                 <option value="0">Select a GPS</option>
                 {
                     parts.filter(part => {
@@ -124,7 +147,7 @@ export const ProjectForm = (props) => {
             </Form.Group>
             <Form.Group controlId="form__trailer">
                 <Form.Label>Trailer</Form.Label>
-                <Form.Control ref={register} name="trailer" as="select">
+                <Form.Control ref={register({valueAsNumber: true})} name="trailer" as="select">
                 <option value="0">Select a trailer</option>
                 {
                     parts.filter(part => {
@@ -137,7 +160,7 @@ export const ProjectForm = (props) => {
             </Form.Group>
             <Form.Group controlId="form__seadekColor">
                 <Form.Label>Seadek color</Form.Label>
-                <Form.Control ref={register} name="seadekColorId" as="select">
+                <Form.Control ref={register({valueAsNumber: true})} name="seadekColorId" as="select">
                 <option value="0">Select a color</option>
                 {
                     seadekColors.map(color => {
@@ -148,7 +171,7 @@ export const ProjectForm = (props) => {
             </Form.Group>
             <Form.Group controlId="form__paintType">
                 <Form.Label>Paint Finish Type</Form.Label>
-                <Form.Control ref={register} name="paintTypeId" as="select">
+                <Form.Control ref={register({valueAsNumber: true})} name="paintTypeId" as="select">
                 <option value="0">Select a type</option>
                 {
                     paintTypes.map(type => {
@@ -158,21 +181,10 @@ export const ProjectForm = (props) => {
                 </Form.Control>
             </Form.Group>
             <Form.Group controlId="form__swimPlatform">
-                <Form.Label>Add swim platform?</Form.Label>
-                <div>
-                    <Form.Check inline name="swimPlatform" type="radio" label="yes" value="true" ref={register} />
-                    <Form.Check inline name="swimPlatform" type="radio" label="no" value="false" ref={register} />
-                </div>
+                <Form.Check inline name="swimPlatform" type="checkbox" label="Add swim platform" value="true" ref={register} />
             </Form.Group>
             <Button variant="primary" type="submit" disabled={formState.isSubmitting}>Submit</Button>
         </Form>
         </>
     )
 }
-
-
-
-    // const createNewUser = (data) => {
-    //     addUser(data)
-    //         .then(() => props.history.push("/people"))
-    // }
