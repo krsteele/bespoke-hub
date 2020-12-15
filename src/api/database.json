@@ -99,88 +99,46 @@
       "id": 1
     },
     {
-      "boatName": "Gary",
-      "year": 1979,
-      "model": "Striper",
-      "boatLength": 15,
-      "userId": 3,
-      "paintTypeId": 1,
-      "seadekColorId": 16,
-      "swimPlatform": false,
-      "projectStartDate": 1607536384,
+      "boatName": "Jackson",
+      "year": 1986,
+      "model": "Destroyer",
+      "boatLength": 17,
+      "userId": 2,
+      "paintTypeId": 2,
+      "seadekColorId": 14,
+      "swimPlatform": true,
+      "projectStartDate": 1608034677095,
       "isComplete": false,
       "projectEndDate": null,
       "id": 2
     },
     {
-      "boatName": "Gary",
-      "year": 1979,
-      "model": "Striper",
+      "boatName": "Hartford",
+      "year": 1986,
+      "model": "Goobie",
       "boatLength": 15,
-      "userId": 3,
-      "paintTypeId": 1,
-      "seadekColorId": 16,
-      "swimPlatform": false,
-      "projectStartDate": 1607536384,
+      "userId": 2,
+      "paintTypeId": 2,
+      "seadekColorId": 2,
+      "swimPlatform": true,
+      "projectStartDate": 1608043824658,
       "isComplete": false,
       "projectEndDate": null,
       "id": 3
     },
     {
-      "boatName": "Gary",
-      "year": 1979,
-      "model": "Striper",
-      "boatLength": 15,
+      "boatName": "Goober",
+      "year": 1986,
+      "model": "Thunder",
+      "boatLength": 17,
       "userId": 3,
       "paintTypeId": 1,
-      "seadekColorId": 16,
+      "seadekColorId": 4,
       "swimPlatform": false,
-      "projectStartDate": 1607536384,
+      "projectStartDate": 1608044374659,
       "isComplete": false,
       "projectEndDate": null,
       "id": 4
-    },
-    {
-      "boatName": "Christi",
-      "year": 1981,
-      "model": "Boop",
-      "boatLength": 17,
-      "userId": 6,
-      "paintTypeId": 2,
-      "seadekColorId": 16,
-      "swimPlatform": false,
-      "projectStartDate": 1607536384,
-      "isComplete": false,
-      "projectEndDate": null,
-      "id": 5
-    },
-    {
-      "boatName": "Sally",
-      "year": 1985,
-      "model": "Thunder",
-      "boatLength": 19,
-      "userId": 7,
-      "paintTypeId": 1,
-      "seadekColorId": 17,
-      "swimPlatform": false,
-      "projectStartDate": 1607536384,
-      "isComplete": false,
-      "projectEndDate": null,
-      "id": 6
-    },
-    {
-      "boatName": "Denver",
-      "year": 1986,
-      "model": "Thunder",
-      "boatLength": 19,
-      "userId": 8,
-      "paintTypeId": 1,
-      "seadekColorId": 1,
-      "swimPlatform": false,
-      "projectStartDate": 1607536384,
-      "isComplete": false,
-      "projectEndDate": null,
-      "id": 7
     }
   ],
   "tasks": [
@@ -433,6 +391,36 @@
       "projectId": 1,
       "partId": 9,
       "id": 3
+    },
+    {
+      "projectId": 3,
+      "partId": 2,
+      "id": 4
+    },
+    {
+      "projectId": 3,
+      "partId": 9,
+      "id": 5
+    },
+    {
+      "projectId": 3,
+      "partId": 5,
+      "id": 6
+    },
+    {
+      "projectId": 4,
+      "partId": 2,
+      "id": 7
+    },
+    {
+      "projectId": 4,
+      "partId": 8,
+      "id": 8
+    },
+    {
+      "projectId": 4,
+      "partId": 5,
+      "id": 9
     }
   ],
   "paintTypes": [
