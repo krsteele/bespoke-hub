@@ -36,7 +36,7 @@ export const UserProvider = (props) => {
     }
 
     const updateUser = user => {
-        return fetch(`http://localhost:8088/user/${user.id}`, {
+        return fetch(`http://localhost:8088/users/${user.id}`, {
             method: "PUT",
             headers: {
                 "Content-Type": "application/json"

@@ -1,62 +1,156 @@
-import React, { useContext, useEffect } from "react"
+import React, { useContext, useState, useEffect } from "react"
 import { UserContext } from "./UsersDataProvider"
 import { UserTypeContext } from "./UserTypeDataProvider"
-import { useForm } from "react-hook-form"
-import Form from "react-bootstrap/Form"
-import Button from "react-bootstrap/Button"
+// import { useForm } from "react-hook-form"
+// import Form from "react-bootstrap/Form"
+// import Button from "react-bootstrap/Button"
 
 export const UserForm = (props) => {
-    const { addUser } = useContext(UserContext)
+    // necessary context providers
+    const { addUser, users, updateUser, getUsers } = useContext(UserContext)
     const { userTypes, getUserTypes } = useContext(UserTypeContext)
+    // component state
+    const [user, setUser] = useState({})
+    // URL parameter?
+    const editMode = props.match.params.hasOwnProperty("userId")
+    // changing state
+    const handleControlledInputChange = (event) => {
+        const newUser = Object.assign({}, user)
+        newUser[event.target.name] = event.target.value
+        setUser(newUser)
+        console.log("new user", newUser)
+    }
 
+    const getUserInEditMode = () => {
+        if (editMode) {
+            // console.log("get user in edit mode:", props.match.params)
+            const userToEdit = parseInt(props.match.params.userId)
+            console.log("user to edit",userToEdit)
+            console.log("users:", users)
+            const selectedUser = users.find(user => user.id === userToEdit)
+            console.log("selected for edit:", selectedUser)
+            setUser(selectedUser)
+        }
+    }
+    // get users and usertypes when component initializes
     useEffect(() => {
-        getUserTypes()
+        getUserTypes().then(getUsers)
     }, [])
+    // once provider state updated, determine the user to edit (if edit)
+    useEffect(() => {
+        getUserInEditMode()
+    }, [users])
 
-    const { register, handleSubmit, errors, formState } = useForm()
+    
+    const createNewUser = () => {
+        const userTypeId = parseInt(user.userTypeId)
 
-    const createNewUser = (data) => {
-        addUser(data)
-            .then(() => props.history.push("/people"))
+        if (userTypeId === 0) {
+            window.alert("Please select a user type")
+        } else {
+            if (editMode) {
+                updateUser({
+                    id: user.id,
+                    firstName: user.firstName,
+                    lastName: user.lastName,
+                    email: user.email,
+                    phone: user.phone,
+                    password: user.password,
+                    userTypeId: userTypeId
+                })
+                    .then(() => props.history.push(`/people/${user.id}`))
+            } else {
+                addUser({
+                    firstName: user.firstName,
+                    lastName: user.lastName,
+                    email: user.email,
+                    phone: user.phone,
+                    password: user.password,
+                    userTypeId: userTypeId
+                })
+                .then(()=> props.history.push("/people"))
+            }
+        }
     }
 
     return (
-        <>
-        <h3>Create New User</h3>
-        <Form onSubmit={handleSubmit(createNewUser)}>
-            <Form.Group controlId="form__firstName">
-                <Form.Label>First Name</Form.Label>
-                <Form.Control ref={register({required: true})} name="firstName" type="firstName" style={{borderColor: errors.firstName && "red"}} />
-            </Form.Group>
-            <Form.Group controlId="form__lastName">
-                <Form.Label>Last Name</Form.Label>
-                <Form.Control ref={register({required: true})} name="lastName" type="lastName" style={{borderColor: errors.lastName && "red"}} />
-            </Form.Group>
-            <Form.Group controlId="form__email">
-                <Form.Label>Email</Form.Label>
-                <Form.Control ref={register({required: true})} name="email" type="email" style={{borderColor: errors.email && "red"}} placeholder="name@example.com" />
-            </Form.Group>
-            <Form.Group controlId="form__phone">
-                <Form.Label>Phone</Form.Label>
-                <Form.Control ref={register} name="phone" type="phone" placeholder="xxx-xxx-xxxx" />
-            </Form.Group>
-            <Form.Group controlId="form__password">
-                <Form.Label>Password</Form.Label>
-                <Form.Control ref={register({required: true})} name="password" type="password" style={{borderColor: errors.password && "red"}} />
-            </Form.Group>
-            <Form.Group controlId="form__userType">
-                <Form.Label>User type</Form.Label>
-                <Form.Control ref={register({required: true})} name="userTypeId" as="select" style={{borderColor: errors.userTypeId && "red"}}>
-                <option value="0">Select user type</option>
-                {
-                    userTypes.map(t => (
-                        <option key={t.id} value={t.id}>{t.type}</option>
-                    ))
-                }
-                </Form.Control>
-            </Form.Group>
-            <Button variant="primary" type="submit" disabled={formState.isSubmitting}>Submit</Button>
-        </Form>
-        </>
+        <form className="userForm">
+            <h3 className="userForm__title">{editMode ? "Edit Person Info" : "Add New Person"}</h3>
+            <fieldset>
+                <div className="form-group">
+                    <label htmlFor="firstName">First Name</label>
+                    <input type="text" name="firstName" required autoFocus className="form-control"
+                        proptype="varchar"
+                        defaultValue={user.firstName}
+                        onChange={handleControlledInputChange}
+                    />
+                </div>
+            </fieldset>
+            <fieldset>
+                <div className="form-group">
+                    <label htmlFor="lastName">Last Name</label>
+                    <input type="text" name="lastName" required autoFocus className="form-control"
+                        proptype="varchar"
+                        defaultValue={user.lastName}
+                        onChange={handleControlledInputChange}
+                    />
+                </div>
+            </fieldset>
+            <fieldset>
+                <div className="form-group">
+                    <label htmlFor="email">Email</label>
+                    <input type="text" name="email" required autoFocus className="form-control"
+                        proptype="varchar"
+                        defaultValue={user.email}
+                        onChange={handleControlledInputChange}
+                    />
+                </div>
+            </fieldset>
+            <fieldset>
+                <div className="form-group">
+                    <label htmlFor="phone">Phone</label>
+                    <input type="text" name="phone" autoFocus className="form-control"
+                        proptype="varchar"
+                        defaultValue={user.phone}
+                        onChange={handleControlledInputChange}
+                    />
+                </div>
+            </fieldset>
+            <fieldset>
+                <div className="form-group">
+                    <label htmlFor="password">Password</label>
+                    <input type="text" name="password" required autoFocus className="form-control"
+                        proptype="varchar"
+                        defaultValue={user.password}
+                        onChange={handleControlledInputChange}
+                    />
+                </div>
+            </fieldset>
+            <fieldset>
+                <div className="form-group">
+                    <label htmlFor="userTypeId">User Type </label>
+                    <select name="userTypeId" className="form-control"
+                        proptype="int"
+                        value={user.userTypeId}
+                        onChange={handleControlledInputChange}>
+
+                        <option value="0">Select a type</option>
+                        {userTypes.map(t => (
+                            <option key={t.id} value={t.id}>
+                                {t.type}
+                            </option>
+                        ))}
+                    </select>
+                </div>
+            </fieldset>
+            <button type="submit"
+                onClick={evt => {
+                    evt.preventDefault()
+                    createNewUser()
+                }}
+                className="btn btn-primary">
+                {editMode ? "Save Updates" : "Save"}
+            </button>
+        </form>
     )
 }

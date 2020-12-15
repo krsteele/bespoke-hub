@@ -7,7 +7,7 @@ export const ProjectProvider = (props) => {
     const [ searchTerms, setTerms ] = useState("")
 
     const getProjects = () => {
-        return fetch("http://localhost:8088/projects")
+        return fetch("http://localhost:8088/projects?_expand=user")
             .then(res => res.json())
             .then(setProjects)
     }
@@ -20,16 +20,20 @@ export const ProjectProvider = (props) => {
             },
             body: JSON.stringify(project)
         })
-            .then(getProjects)
+            .then(res => res.json())
+            .then((newProjectObject)=> {
+                getProjects()
+                return newProjectObject
+            })
     }
 
     const getProjectById = (id) => {
-        return fetch(`http://localhost:8088/projects/${ id }?_expand=user&_expand=seadekColor&_expand=finishType`)
+        return fetch(`http://localhost:8088/projects/${ id }?_expand=user&_expand=seadekColor&_expand=paintType`)
             .then(res => res.json())
     }
 
     const deleteProject = projectId => {
-        return fetch(`http://localhost:8088/animals/${projectId}`, {
+        return fetch(`http://localhost:8088/projects/${projectId}`, {
             method: "DELETE"
         })
             .then(getProjects)

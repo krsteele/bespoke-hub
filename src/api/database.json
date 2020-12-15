@@ -10,7 +10,7 @@
       "id": 1
     },
     {
-      "firstName": "Joe",
+      "firstName": "Jane",
       "lastName": "Patti",
       "phone": "850-432-3315",
       "email": "jp@joepattis.com",
@@ -22,19 +22,55 @@
       "firstName": "Jared",
       "lastName": "Williams",
       "phone": "361-867-5309",
-      "email": "jared@Wilco.co",
+      "email": "jared@wilco.co",
       "password": "myboatname",
       "userTypeId": 2,
       "id": 3
     },
     {
-      "firstName": "Bob",
-      "lastName": "Client",
-      "email": "bob@client.com",
-      "phone": "505-555-1234",
-      "password": "client",
-      "userTypeId": "2",
+      "firstName": "Hunter",
+      "lastName": "Sholar",
+      "email": "hunter@fosco.com",
+      "phone": "111-111-1111",
+      "password": "team",
+      "userTypeId": 1,
       "id": 4
+    },
+    {
+      "firstName": "Ian",
+      "lastName": "Smith",
+      "email": "ian@fosco.com",
+      "phone": "222-222-2222",
+      "password": "team",
+      "userTypeId": 1,
+      "id": 5
+    },
+    {
+      "firstName": "Bob",
+      "lastName": "Evans",
+      "email": "bob@evans.com",
+      "phone": "555-555-5555",
+      "password": "client",
+      "userTypeId": 2,
+      "id": 6
+    },
+    {
+      "firstName": "Larry",
+      "lastName": "Franklin",
+      "email": "larry@franklin.com",
+      "phone": "333-333-3333",
+      "password": "client",
+      "userTypeId": 2,
+      "id": 7
+    },
+    {
+      "firstName": "Frank",
+      "lastName": "Manford",
+      "email": "frank@manford.com",
+      "phone": "444-444-4444",
+      "password": "client",
+      "userTypeId": 2,
+      "id": 8
     }
   ],
   "userTypes": [
@@ -56,17 +92,58 @@
       "userId": 3,
       "paintTypeId": 1,
       "seadekColorId": 16,
-      "seadekTexture": "brushed",
       "swimPlatform": false,
       "projectStartDate": 1607536384,
       "isComplete": false,
       "projectEndDate": null,
       "id": 1
+    },
+    {
+      "boatName": "Jackson",
+      "year": 1986,
+      "model": "Destroyer",
+      "boatLength": 17,
+      "userId": 2,
+      "paintTypeId": 2,
+      "seadekColorId": 14,
+      "swimPlatform": true,
+      "projectStartDate": 1608034677095,
+      "isComplete": false,
+      "projectEndDate": null,
+      "id": 2
+    },
+    {
+      "boatName": "Hartford",
+      "year": 1986,
+      "model": "Goobie",
+      "boatLength": 15,
+      "userId": 2,
+      "paintTypeId": 2,
+      "seadekColorId": 2,
+      "swimPlatform": true,
+      "projectStartDate": 1608043824658,
+      "isComplete": false,
+      "projectEndDate": null,
+      "id": 3
+    },
+    {
+      "boatName": "Goober",
+      "year": 1986,
+      "model": "Thunder",
+      "boatLength": 17,
+      "userId": 3,
+      "paintTypeId": 1,
+      "seadekColorId": 4,
+      "swimPlatform": false,
+      "projectStartDate": 1608044374659,
+      "isComplete": false,
+      "projectEndDate": null,
+      "id": 4
     }
   ],
   "tasks": [
     {
-      "text": "Order engine",
+      "text": "Order motor",
       "taskTypeId": 1,
       "id": 1
     },
@@ -287,11 +364,11 @@
   ],
   "partTypes": [
     {
-      "type": "engine",
+      "type": "motor",
       "id": 1
     },
     {
-      "type": "GPS",
+      "type": "navigation system",
       "id": 2
     },
     {
@@ -314,6 +391,36 @@
       "projectId": 1,
       "partId": 9,
       "id": 3
+    },
+    {
+      "projectId": 3,
+      "partId": 2,
+      "id": 4
+    },
+    {
+      "projectId": 3,
+      "partId": 9,
+      "id": 5
+    },
+    {
+      "projectId": 3,
+      "partId": 5,
+      "id": 6
+    },
+    {
+      "projectId": 4,
+      "partId": 2,
+      "id": 7
+    },
+    {
+      "projectId": 4,
+      "partId": 8,
+      "id": 8
+    },
+    {
+      "projectId": 4,
+      "partId": 5,
+      "id": 9
     }
   ],
   "paintTypes": [
@@ -326,7 +433,7 @@
       "id": "2"
     }
   ],
-  "seadekOptions": [
+  "seadekColors": [
     {
       "color": "Caribbean Blue",
       "id": 1

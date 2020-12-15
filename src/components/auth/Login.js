@@ -27,7 +27,7 @@ export const Login = props => {
                 } else if (exists && exists.password === password.current.value && exists.userTypeId === 2) {
                     // The user id is saved under the key app_user_id in local Storage. Change below if needed!
                     localStorage.setItem("app_user_id", exists.id)
-                    props.history.push("/dashboards")
+                    props.history.push(`/dashboards/${exists.id}`)
                 } else if (exists && exists.password !== password.current.value) {
                     passwordDialog.current.showModal()
                 } else if (!exists) {
