@@ -30,13 +30,13 @@ export const ProjectDetail = (props) => {
 
     // What if I just filter for the parts for this project and then map those below?????
 
-    // useEffect(() => {
-    //     const findMotor = projectParts.filter(pp => pp.projectId === project.id).find(pp => pp.part.partTypeId === 1)
-    // //    console.log("found motor:", findMotor)
-    // //    console.log(project)
-    // //    console.log(projectParts)
-    //     setMotor(findMotor)
-    // }, [projectParts])
+    useEffect(() => {
+        const findMotor = projectParts.filter(pp => pp.projectId === project.id).find(pp => pp.part.partTypeId === 1)
+    //    console.log("found motor:", findMotor)
+    //    console.log(project)
+    //    console.log(projectParts)
+        setMotor(findMotor)
+    }, [projectParts])
 
     useEffect(()=> {
         console.log("pp's after set", filteredProjectParts)
