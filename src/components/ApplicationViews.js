@@ -15,6 +15,7 @@ import { SeadekColorProvider } from "./seadek/SeadekColorsDataProvider"
 import { PaintTypeProvider } from "./paint/PaintTypesDataProvider"
 import { ClientDashboard } from "./dashboards/ClientDashboard"
 import { ClientDashboardList } from "./dashboards/ClientDashboardList"
+import { PartTypesProvider } from "./parts/PartTypesProvider"
 
 
 export const ApplicationViews = () => {
@@ -26,15 +27,17 @@ export const ApplicationViews = () => {
                         <ProjectPartsProvider>
                             <SeadekColorProvider>
                                 <PaintTypeProvider>
-                                    <Route exact path="/" render={
-                                        props => <ProjectsList {...props} />
-                                    } />
-                                    <Route path="/:projectId(\d+)" render={
-                                        props => <ProjectDetail {...props} />
-                                    } />
-                                    <Route exact path="/create" render={
-                                        props => <ProjectForm {...props} />
-                                    } />
+                                    <PartTypesProvider>
+                                        <Route exact path="/" render={
+                                            props => <ProjectsList {...props} />
+                                        } />
+                                        <Route path="/:projectId(\d+)" render={
+                                            props => <ProjectDetail {...props} />
+                                        } />
+                                        <Route exact path="/create" render={
+                                            props => <ProjectForm {...props} />
+                                        } />
+                                    </PartTypesProvider>
                                 </PaintTypeProvider>
                             </SeadekColorProvider>
                         </ProjectPartsProvider>
