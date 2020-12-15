@@ -31,7 +31,7 @@ export const ProjectForm = (props) => {
     const { addProjectParts } = useContext(ProjectPartContext)
     const { paintTypes, getPaintTypes } = useContext(PaintTypeContext)
 
-//  Grab needed functions form React-Form-Hook
+//  Grab needed functions from React-Form-Hook
     const { register, handleSubmit, errors, formState } = useForm()
 
 //  Get data needed to render dropdowns
@@ -45,16 +45,16 @@ export const ProjectForm = (props) => {
 */
     const createNewProject = (data) => {
         // console.log("project form submit clicked")
-        // console.log("submitted project data:", data)
+        console.log("submitted project data:", data)
        const newBoatProject = {
-           boatName: "Gary",
-           year: 1979,
-           model: "Striper",
-           boatLength: 15,
-           userId: 3,
-           paintTypeId: 1,
-           seadekColorId: 16,
-           swimPlatform: false,
+           boatName: data.boatName,
+           year: parseInt(data.year),
+           model: data.model,
+           boatLength: parseInt(data.boatLength),
+           userId: parseInt(data.userId),
+           paintTypeId: parseInt(data.paintTypeId),
+           seadekColorId: parseInt(data.seadekColorId),
+           swimPlatform: {data.swimPlatform === "true" ? true : false},
            projectStartDate: 1607536384,
            isComplete: false,
            projectEndDate: null,
@@ -85,7 +85,7 @@ export const ProjectForm = (props) => {
             </Form.Group>
             <Form.Group controlId="form__client">
                 <Form.Label>Client</Form.Label>
-                <Form.Control ref={register} name="userId" as="select">
+                <Form.Control ref={register({valueAsNumber: true})} name="userId" as="select">
                 <option value="null">Select client</option>
                 {
                     users.filter(user => {
@@ -160,8 +160,8 @@ export const ProjectForm = (props) => {
             <Form.Group controlId="form__swimPlatform">
                 <Form.Label>Add swim platform?</Form.Label>
                 <div>
-                    <Form.Check inline type="radio" label="yes" value="true" ref={register} />
-                    <Form.Check inline type="radio" label="no" value="false" ref={register} />
+                    <Form.Check inline name="swimPlatform" type="radio" label="yes" value="true" ref={register} />
+                    <Form.Check inline name="swimPlatform" type="radio" label="no" value="false" ref={register} />
                 </div>
             </Form.Group>
             <Button variant="primary" type="submit" disabled={formState.isSubmitting}>Submit</Button>
