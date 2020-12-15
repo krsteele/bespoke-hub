@@ -8,9 +8,7 @@ export const ProjectDetail = (props) => {
     const { projectParts, getProjectParts } = useContext(ProjectPartContext)
 
     const [project, setProject] = useState({user: {}, seadekColor: {}, paintType: {}})
-    const [motor, setMotor] = useState({part: {}})
-    const [navSystem, setNavSystem] = useState({part: {}})
-    const [trailer, setTrailer] = useState({part: {}})
+    const [filteredProjectParts, setfilteredParts] = useState({part: {}})
 
     useEffect(() => {
         const projectId = parseInt(props.match.params.projectId)
@@ -21,20 +19,26 @@ export const ProjectDetail = (props) => {
     useEffect(() => {
         getProjectParts()
     }, [project])
+    
+    useEffect(() => {
+        const filtered = projectParts.filter(obj => obj.projectId === project.id)
+        console.log("filtered project parts", filtered)
+        // setfilteredParts(filtered)
+    }, [projectParts])
 
     // What if I just filter for the parts for this project and then map those below?????
 
-    useEffect(() => {
-        const findMotor = projectParts.filter(pp => pp.projectId === project.id).find(pp => pp.part.partTypeId === 1)
-    //    console.log("found motor:", findMotor)
-    //    console.log(project)
-    //    console.log(projectParts)
-        setMotor(findMotor)
-    }, [projectParts])
+    // useEffect(() => {
+    //     const findMotor = projectParts.filter(pp => pp.projectId === project.id).find(pp => pp.part.partTypeId === 1)
+    // //    console.log("found motor:", findMotor)
+    // //    console.log(project)
+    // //    console.log(projectParts)
+    //     setMotor(findMotor)
+    // }, [projectParts])
 
-    useEffect(()=> {
-        console.log("set motor", motor)
-    }, [motor])
+    // useEffect(()=> {
+    //     console.log("set motor", motor)
+    // }, [motor])
     
     // useEffect(() => {
     //     const findNav = projectParts.filter(pp => pp.projectId === project.id).find(pp => pp.part.partTypeId === 2)
@@ -69,7 +73,12 @@ export const ProjectDetail = (props) => {
             </div>
             <div>
                 <h5>Boat details:</h5>
-                <p>Motor: {motor.part.name}</p>
+                {
+                   filteredProjectParts.map(obj => {
+                       return <p>{obj.part.name}</p>
+                   }) 
+                }
+                {/* <p>Motor: {motor.part.name}</p> */}
                 {/* <p>GPS: {navSystem.part.name}</p>
                 <p>Trailer: {trailer.part.name}</p> */}
                 <p>Seadek Color: {project.seadekColor.color}</p>
