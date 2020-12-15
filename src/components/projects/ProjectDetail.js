@@ -2,14 +2,16 @@ import React, { useEffect, useState, useContext } from "react"
 import { Link } from "react-router-dom"
 import { ProjectContext } from "./ProjectsDataProvider"
 import { ProjectPartContext } from "../parts/ProjectPartsDataProvider"
+import { PartTypeContext } from "../parts/PartTypesProvider"
 
 export const ProjectDetail = (props) => {
     const { getProjectById } = useContext(ProjectContext)
     const { projectParts, getProjectParts } = useContext(ProjectPartContext)
+    const { partTypes, getPartTypes } = useContext(PartTypeContext)
 
     const [project, setProject] = useState({user: {}, seadekColor: {}, paintType: {}})
-    const [filteredProjectParts, setfilteredParts] = useState({part: {}})
-
+    const [filteredProjectParts, setfilteredParts] = useState([])
+    console.log("this is the info you are looking for", filteredProjectParts)
     useEffect(() => {
         const projectId = parseInt(props.match.params.projectId)
         getProjectById(projectId)
@@ -18,39 +20,19 @@ export const ProjectDetail = (props) => {
 
     useEffect(() => {
         getProjectParts()
+        getPartTypes()
     }, [project])
     
     useEffect(() => {
         const filtered = projectParts.filter(obj => obj.projectId === project.id)
-        console.log("filtered project parts", filtered)
+        // console.log("filtered project parts", filtered)
         setfilteredParts(filtered)
     }, [projectParts])
-
-    
-
-    // What if I just filter for the parts for this project and then map those below?????
-
-    useEffect(() => {
-        const findMotor = projectParts.filter(pp => pp.projectId === project.id).find(pp => pp.part.partTypeId === 1)
-    //    console.log("found motor:", findMotor)
-    //    console.log(project)
-    //    console.log(projectParts)
-        setMotor(findMotor)
-    }, [projectParts])
+    // console.log(filteredProjectParts)
 
     useEffect(()=> {
         console.log("pp's after set", filteredProjectParts)
     }, [filteredProjectParts])
-    
-    // useEffect(() => {
-    //     const findNav = projectParts.filter(pp => pp.projectId === project.id).find(pp => pp.part.partTypeId === 2)
-    //     setNavSystem(findNav)
-    // }, [projectParts])
-    
-    // useEffect(() => {
-    //     const findTrailer = projectParts.filter(pp => pp.projectId === project.id).find(pp => pp.part.partTypeId === 3)
-    //     setTrailer(findTrailer)
-    // }, [projectParts])
 
     return (
         <>
@@ -77,12 +59,13 @@ export const ProjectDetail = (props) => {
                 <h5>Boat details:</h5>
                 {
                    filteredProjectParts.map(obj => {
-                       return <p>{obj.part.name}</p>
+                       if (obj.hasOwnProperty('part')) {
+                        const foundType = partTypes.find(type => type.id === obj.part.partTypeId)
+                           return <p key={obj.part.id}>
+                               {foundType.type}: {obj.part.name}</p>
+                       }
                    }) 
                 }
-                {/* <p>Motor: {motor.part.name}</p> */}
-                {/* <p>GPS: {navSystem.part.name}</p>
-                <p>Trailer: {trailer.part.name}</p> */}
                 <p>Seadek Color: {project.seadekColor.color}</p>
                 <p>Paint Finish: {project.paintType.type}</p>
                 <p>Swim Platform: {project.swimPlatform === true ? "yes" : "no"}</p>
