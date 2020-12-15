@@ -1,6 +1,5 @@
 import React from "react"
 import { Route } from "react-router-dom"
-import { ClientViewList } from "./client-views/ClientViewList"
 import { ProjectsList } from "./projects/ProjectsList"
 import { UserProvider } from "./users/UsersDataProvider"
 import { UsersList } from "./users/UsersList"
@@ -14,6 +13,8 @@ import { PartsProvider } from "./parts/PartsDataProvider"
 import { ProjectPartsProvider } from "./parts/ProjectPartsDataProvider"
 import { SeadekColorProvider } from "./seadek/SeadekColorsDataProvider"
 import { PaintTypeProvider } from "./paint/PaintTypesDataProvider"
+import { ClientDashboard } from "./dashboards/ClientDashboard"
+import { ClientDashboardList } from "./dashboards/ClientDashboardList"
 
 
 export const ApplicationViews = () => {
@@ -59,9 +60,16 @@ export const ApplicationViews = () => {
                     </ProjectProvider>
                 </UserTypeProvider>
             </UserProvider>
-            <Route exact path="/dashboards">
-                <ClientViewList />
-            </Route>
+            <UserProvider>
+                <ProjectProvider>
+                    <Route exact path="/dashboards" render={
+                        props => <ClientDashboardList {...props} />
+                    } />
+                    <Route path="/dashboards/:userId(\d+)" render={
+                        props => <ClientDashboard {...props} />
+                    } />
+                </ProjectProvider>
+            </UserProvider>
         </>
     )
 }
