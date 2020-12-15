@@ -73,11 +73,11 @@ export const ProjectDetail = (props) => {
             </div>
             <div>
                 <h5>Boat details:</h5>
-                {
+                {/* {
                    filteredProjectParts.map(obj => {
                        return <p>{obj.part.name}</p>
                    }) 
-                }
+                } */}
                 {/* <p>Motor: {motor.part.name}</p> */}
                 {/* <p>GPS: {navSystem.part.name}</p>
                 <p>Trailer: {trailer.part.name}</p> */}
