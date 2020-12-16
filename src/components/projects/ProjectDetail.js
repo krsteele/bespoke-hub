@@ -11,7 +11,7 @@ export const ProjectDetail = (props) => {
 
     const [project, setProject] = useState({user: {}, seadekColor: {}, paintType: {}})
     const [filteredProjectParts, setfilteredParts] = useState([])
-    console.log("this is the info you are looking for", filteredProjectParts)
+    // console.log("this is the info you are looking for", filteredProjectParts)
     useEffect(() => {
         const projectId = parseInt(props.match.params.projectId)
         getProjectById(projectId)
@@ -30,9 +30,9 @@ export const ProjectDetail = (props) => {
     }, [projectParts])
     // console.log(filteredProjectParts)
 
-    useEffect(()=> {
-        console.log("pp's after set", filteredProjectParts)
-    }, [filteredProjectParts])
+    // useEffect(()=> {
+    //     console.log("pp's after set", filteredProjectParts)
+    // }, [filteredProjectParts])
 
     return (
         <>
