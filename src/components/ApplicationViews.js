@@ -16,6 +16,9 @@ import { PaintTypeProvider } from "./paint/PaintTypesDataProvider"
 import { ClientDashboard } from "./dashboards/ClientDashboard"
 import { ClientDashboardList } from "./dashboards/ClientDashboardList"
 import { PartTypesProvider } from "./parts/PartTypesProvider"
+import { MakerProjectDashboard } from "./dashboards/MakerDashboard"
+import { TasksProvider } from "./tasks/TasksDataProvider"
+import { ProjectTasksProvider } from "./tasks/ProjectTasksDataProvider"
 
 
 export const ApplicationViews = () => {
@@ -28,15 +31,25 @@ export const ApplicationViews = () => {
                             <SeadekColorProvider>
                                 <PaintTypeProvider>
                                     <PartTypesProvider>
-                                        <Route exact path="/" render={
-                                            props => <ProjectsList {...props} />
-                                        } />
-                                        <Route path="/:projectId(\d+)" render={
-                                            props => <ProjectDetail {...props} />
-                                        } />
-                                        <Route exact path="/create" render={
-                                            props => <ProjectForm {...props} />
-                                        } />
+                                        <TasksProvider>
+                                            <ProjectTasksProvider>
+                                                <Route exact path="/" render={
+                                                    props => <ProjectsList {...props} />
+                                                } />
+                                                <Route path="/:projectId(\d+)" render={
+                                                    props => <MakerProjectDashboard {...props} />
+                                                } />
+                                                <Route exact path="/create" render={
+                                                    props => <ProjectForm {...props} />
+                                                } />
+                                                <Route exact path="/dashboards" render={
+                                                    props => <ClientDashboardList {...props} />
+                                                } />
+                                                <Route path="/dashboards/:userId(\d+)" render={
+                                                    props => <ClientDashboard {...props} />
+                                                } />
+                                            </ProjectTasksProvider>
+                                        </TasksProvider>
                                     </PartTypesProvider>
                                 </PaintTypeProvider>
                             </SeadekColorProvider>
@@ -51,9 +64,9 @@ export const ApplicationViews = () => {
                         <Route exact path="/people" render={
                             props => <UsersList {...props} />
                         } />
-                        <Route path="/people/:userId(\d+)" render={
+                        {/* <Route path="/people/:userId(\d+)" render={
                             props => <UserDetail {...props} />
-                        } />
+                        } /> */}
                         <Route exact path="/people/create" render={
                             props => <UserForm {...props} />
                         } />
@@ -62,16 +75,6 @@ export const ApplicationViews = () => {
                         } />
                     </ProjectProvider>
                 </UserTypeProvider>
-            </UserProvider>
-            <UserProvider>
-                <ProjectProvider>
-                    <Route exact path="/dashboards" render={
-                        props => <ClientDashboardList {...props} />
-                    } />
-                    <Route path="/dashboards/:userId(\d+)" render={
-                        props => <ClientDashboard {...props} />
-                    } />
-                </ProjectProvider>
             </UserProvider>
         </>
     )
