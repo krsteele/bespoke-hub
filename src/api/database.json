@@ -186,27 +186,27 @@
   "tasks": [
     {
       "text": "Order motor",
-      "taskTypeId": 1,
+      "taskTypeId": 5,
       "id": 1
     },
     {
       "text": "Order GPS",
-      "taskTypeId": 1,
+      "taskTypeId": 5,
       "id": 2
     },
     {
       "text": "Order trailer",
-      "taskTypeId": 1,
+      "taskTypeId": 5,
       "id": 3
     },
     {
       "text": "Measure for Seadek",
-      "taskTypeId": 1,
+      "taskTypeId": 5,
       "id": 4
     },
     {
       "text": "Order Seadek",
-      "taskTypeId": 1,
+      "taskTypeId": 5,
       "id": 5
     },
     {
@@ -282,43 +282,50 @@
       "projectId": 1,
       "taskId": 1,
       "isCompleted": true,
-      "id": 1
+      "id": 1,
+      "isComplete": true
     },
     {
       "projectId": 1,
       "taskId": 2,
       "isCompleted": true,
-      "id": 2
+      "id": 2,
+      "isComplete": true
     },
     {
       "projectId": 1,
       "taskId": 3,
       "isCompleted": true,
-      "id": 3
+      "id": 3,
+      "isComplete": true
     },
     {
       "projectId": 1,
       "taskId": 4,
       "isCompleted": false,
-      "id": 4
+      "id": 4,
+      "isComplete": true
     },
     {
       "projectId": 1,
       "taskId": 5,
       "isCompleted": false,
-      "id": 5
+      "id": 5,
+      "isComplete": true
     },
     {
       "projectId": 1,
       "taskId": 7,
       "isCompleted": false,
-      "id": 6
+      "id": 6,
+      "isComplete": true
     },
     {
       "projectId": 1,
       "taskId": 8,
       "isCompleted": false,
-      "id": 7
+      "id": 7,
+      "isComplete": true
     },
     {
       "projectId": 1,
@@ -330,7 +337,8 @@
       "projectId": 1,
       "taskId": 11,
       "isCompleted": false,
-      "id": 9
+      "id": 9,
+      "isComplete": true
     },
     {
       "projectId": 1,
@@ -348,7 +356,8 @@
       "projectId": 1,
       "taskId": 14,
       "isCompleted": false,
-      "id": 12
+      "id": 12,
+      "isComplete": true
     }
   ],
   "notes": [],
@@ -508,6 +517,81 @@
       "projectId": 7,
       "partId": 6,
       "id": 18
+    },
+    {
+      "projectId": 8,
+      "partId": 2,
+      "id": 19
+    },
+    {
+      "projectId": 8,
+      "partId": 8,
+      "id": 20
+    },
+    {
+      "projectId": 8,
+      "partId": 4,
+      "id": 21
+    },
+    {
+      "projectId": 9,
+      "partId": 3,
+      "id": 22
+    },
+    {
+      "projectId": 9,
+      "partId": 8,
+      "id": 23
+    },
+    {
+      "projectId": 9,
+      "partId": 4,
+      "id": 24
+    },
+    {
+      "projectId": 10,
+      "partId": 1,
+      "id": 25
+    },
+    {
+      "projectId": 10,
+      "partId": 7,
+      "id": 26
+    },
+    {
+      "projectId": 10,
+      "partId": 4,
+      "id": 27
+    },
+    {
+      "projectId": 11,
+      "partId": 1,
+      "id": 28
+    },
+    {
+      "projectId": 11,
+      "partId": 7,
+      "id": 29
+    },
+    {
+      "projectId": 11,
+      "partId": 4,
+      "id": 30
+    },
+    {
+      "projectId": 12,
+      "partId": 3,
+      "id": 31
+    },
+    {
+      "projectId": 12,
+      "partId": 8,
+      "id": 32
+    },
+    {
+      "projectId": 12,
+      "partId": 5,
+      "id": 33
     }
   ],
   "paintTypes": [
