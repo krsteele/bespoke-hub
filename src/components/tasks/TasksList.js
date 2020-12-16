@@ -14,13 +14,13 @@ import Form from "react-bootstrap/Form"
 export const TasksList = (props) => {
     
     const { tasks, getTasks } = useContext(TaskContext)
-    const { projectTasks, getProjectTasks } = useContext(ProjectTaskContext)
+    const { projectTasks, getProjectTasks, patchProjectTask } = useContext(ProjectTaskContext)
     const { projects, getProjects } = useContext(ProjectContext)
     
     const [filteredProjectTasks, setFiltered] = useState([])
     
     //  Grab needed functions from React-Form-Hook
-    const { register, formState } = useForm()
+    // const { register, formState } = useForm()
 
     useEffect(() => {
         getProjectTasks().then(getTasks).then(getProjects)
@@ -38,7 +38,13 @@ export const TasksList = (props) => {
         console.log("filtered and set Project Tasks:", filteredProjectTasks)
     }, [filteredProjectTasks])
 
-
+    const isCompleteToggle = (evt) => {
+        if (evt.target.checked === true) {
+            patchProjectTask(parseInt(evt.target.id), {isComplete: true})
+        } else {
+            patchProjectTask(parseInt(evt.target.id), {isComplete: false})
+        }
+    }
 
     return (
         <>
@@ -47,7 +53,9 @@ export const TasksList = (props) => {
         <Form.Group controlId="form__checklist">
                 {
                     filteredProjectTasks.map(obj => {
-                    return (<Form.Check name={obj.id} key={obj.id} type="checkbox" label={obj.task.text} ref={register} />)
+                    return (<Form.Check name="checkbox" key={obj.id} id={obj.id} type="checkbox" label={obj.task.text} checked={obj.isComplete} onChange={evt => {
+                        isCompleteToggle(evt)
+                    }} />)
                     })
                 }
         </Form.Group>
