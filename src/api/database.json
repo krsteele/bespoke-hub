@@ -99,88 +99,18 @@
       "id": 1
     },
     {
-      "boatName": "Jackson",
-      "year": 1986,
-      "model": "Destroyer",
-      "boatLength": 17,
-      "userId": 2,
-      "paintTypeId": 2,
-      "seadekColorId": 14,
-      "swimPlatform": true,
-      "projectStartDate": 1608034677095,
-      "isComplete": false,
-      "projectEndDate": null,
-      "id": 2
-    },
-    {
-      "boatName": "Hartford",
-      "year": 1986,
-      "model": "Goobie",
-      "boatLength": 15,
-      "userId": 2,
-      "paintTypeId": 2,
-      "seadekColorId": 2,
-      "swimPlatform": true,
-      "projectStartDate": 1608043824658,
-      "isComplete": false,
-      "projectEndDate": null,
-      "id": 3
-    },
-    {
-      "boatName": "Goober",
-      "year": 1986,
-      "model": "Thunder",
-      "boatLength": 17,
-      "userId": 3,
-      "paintTypeId": 1,
-      "seadekColorId": 4,
-      "swimPlatform": false,
-      "projectStartDate": 1608044374659,
-      "isComplete": false,
-      "projectEndDate": null,
-      "id": 4
-    },
-    {
-      "boatName": "Charlie",
-      "year": 1987,
-      "model": "thunder",
-      "boatLength": 15,
-      "userId": 6,
-      "paintTypeId": 2,
-      "seadekColorId": 7,
-      "swimPlatform": true,
-      "projectStartDate": 1608084455989,
-      "isComplete": false,
-      "projectEndDate": null,
-      "id": 5
-    },
-    {
-      "boatName": "Boston",
-      "year": 1979,
-      "model": "Grand Master",
-      "boatLength": 17,
-      "userId": 8,
-      "paintTypeId": 1,
-      "seadekColorId": 6,
-      "swimPlatform": false,
-      "projectStartDate": 1608088482933,
-      "isComplete": false,
-      "projectEndDate": null,
-      "id": 6
-    },
-    {
-      "boatName": "Smithy",
-      "year": 1986,
-      "model": "Tsunami",
+      "boatName": "Dolly",
+      "year": 1985,
+      "model": "Montauk",
       "boatLength": 19,
-      "userId": 6,
-      "paintTypeId": 2,
+      "userId": 7,
+      "paintTypeId": 1,
       "seadekColorId": 8,
-      "swimPlatform": false,
-      "projectStartDate": 1608088645016,
+      "swimPlatform": true,
+      "projectStartDate": 1608149479889,
       "isComplete": false,
       "projectEndDate": null,
-      "id": 7
+      "id": 9
     }
   ],
   "tasks": [
@@ -358,6 +288,84 @@
       "isCompleted": false,
       "id": 12,
       "isComplete": true
+    },
+    {
+      "projectId": 9,
+      "taskId": 1,
+      "isComplete": true,
+      "id": 13
+    },
+    {
+      "projectId": 9,
+      "taskId": 2,
+      "isComplete": false,
+      "id": 14
+    },
+    {
+      "projectId": 9,
+      "taskId": 3,
+      "isComplete": false,
+      "id": 15
+    },
+    {
+      "projectId": 9,
+      "taskId": 4,
+      "isComplete": false,
+      "id": 16
+    },
+    {
+      "projectId": 9,
+      "taskId": 5,
+      "isComplete": false,
+      "id": 17
+    },
+    {
+      "projectId": 9,
+      "taskId": 6,
+      "isComplete": false,
+      "id": 18
+    },
+    {
+      "projectId": 9,
+      "taskId": 7,
+      "isComplete": false,
+      "id": 19
+    },
+    {
+      "projectId": 9,
+      "taskId": 8,
+      "isComplete": false,
+      "id": 20
+    },
+    {
+      "projectId": 9,
+      "taskId": 10,
+      "isComplete": false,
+      "id": 21
+    },
+    {
+      "projectId": 9,
+      "taskId": 11,
+      "isComplete": false,
+      "id": 22
+    },
+    {
+      "projectId": 9,
+      "taskId": 12,
+      "isComplete": false,
+      "id": 23
+    },
+    {
+      "projectId": 9,
+      "taskId": 13,
+      "isComplete": false,
+      "id": 24
+    },
+    {
+      "projectId": 9,
+      "taskId": 14,
+      "isComplete": false,
+      "id": 25
     }
   ],
   "notes": [],
@@ -444,154 +452,19 @@
       "id": 3
     },
     {
-      "projectId": 3,
-      "partId": 2,
-      "id": 4
-    },
-    {
-      "projectId": 3,
-      "partId": 9,
-      "id": 5
-    },
-    {
-      "projectId": 3,
-      "partId": 5,
-      "id": 6
-    },
-    {
-      "projectId": 4,
-      "partId": 2,
-      "id": 7
-    },
-    {
-      "projectId": 4,
-      "partId": 8,
-      "id": 8
-    },
-    {
-      "projectId": 4,
-      "partId": 5,
-      "id": 9
-    },
-    {
-      "projectId": 5,
-      "partId": 2,
-      "id": 10
-    },
-    {
-      "projectId": 5,
-      "partId": 8,
-      "id": 11
-    },
-    {
-      "projectId": 5,
-      "partId": 5,
-      "id": 12
-    },
-    {
-      "projectId": 6,
-      "partId": 3,
-      "id": 13
-    },
-    {
-      "projectId": 6,
-      "partId": 8,
-      "id": 14
-    },
-    {
-      "projectId": 6,
-      "partId": 4,
-      "id": 15
-    },
-    {
-      "projectId": 7,
-      "partId": 3,
-      "id": 16
-    },
-    {
-      "projectId": 7,
-      "partId": 8,
-      "id": 17
-    },
-    {
-      "projectId": 7,
-      "partId": 6,
-      "id": 18
-    },
-    {
-      "projectId": 8,
-      "partId": 2,
-      "id": 19
-    },
-    {
-      "projectId": 8,
-      "partId": 8,
-      "id": 20
-    },
-    {
-      "projectId": 8,
-      "partId": 4,
-      "id": 21
-    },
-    {
       "projectId": 9,
       "partId": 3,
-      "id": 22
-    },
-    {
-      "projectId": 9,
-      "partId": 8,
-      "id": 23
-    },
-    {
-      "projectId": 9,
-      "partId": 4,
-      "id": 24
-    },
-    {
-      "projectId": 10,
-      "partId": 1,
-      "id": 25
-    },
-    {
-      "projectId": 10,
-      "partId": 7,
-      "id": 26
-    },
-    {
-      "projectId": 10,
-      "partId": 4,
-      "id": 27
-    },
-    {
-      "projectId": 11,
-      "partId": 1,
-      "id": 28
-    },
-    {
-      "projectId": 11,
-      "partId": 7,
       "id": 29
     },
     {
-      "projectId": 11,
-      "partId": 4,
+      "projectId": 9,
+      "partId": 9,
       "id": 30
     },
     {
-      "projectId": 12,
-      "partId": 3,
+      "projectId": 9,
+      "partId": 6,
       "id": 31
-    },
-    {
-      "projectId": 12,
-      "partId": 8,
-      "id": 32
-    },
-    {
-      "projectId": 12,
-      "partId": 5,
-      "id": 33
     }
   ],
   "paintTypes": [
