@@ -153,6 +153,34 @@
       "isComplete": false,
       "projectEndDate": null,
       "id": 5
+    },
+    {
+      "boatName": "Boston",
+      "year": 1979,
+      "model": "Grand Master",
+      "boatLength": 17,
+      "userId": 8,
+      "paintTypeId": 1,
+      "seadekColorId": 6,
+      "swimPlatform": false,
+      "projectStartDate": 1608088482933,
+      "isComplete": false,
+      "projectEndDate": null,
+      "id": 6
+    },
+    {
+      "boatName": "Smithy",
+      "year": 1986,
+      "model": "Tsunami",
+      "boatLength": 19,
+      "userId": 6,
+      "paintTypeId": 2,
+      "seadekColorId": 8,
+      "swimPlatform": false,
+      "projectStartDate": 1608088645016,
+      "isComplete": false,
+      "projectEndDate": null,
+      "id": 7
     }
   ],
   "tasks": [
@@ -450,6 +478,36 @@
       "projectId": 5,
       "partId": 5,
       "id": 12
+    },
+    {
+      "projectId": 6,
+      "partId": 3,
+      "id": 13
+    },
+    {
+      "projectId": 6,
+      "partId": 8,
+      "id": 14
+    },
+    {
+      "projectId": 6,
+      "partId": 4,
+      "id": 15
+    },
+    {
+      "projectId": 7,
+      "partId": 3,
+      "id": 16
+    },
+    {
+      "projectId": 7,
+      "partId": 8,
+      "id": 17
+    },
+    {
+      "projectId": 7,
+      "partId": 6,
+      "id": 18
     }
   ],
   "paintTypes": [

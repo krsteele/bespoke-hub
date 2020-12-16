@@ -40,7 +40,7 @@ export const ProjectForm = (props) => {
     const createNewProject = (data) => {
         // console.log("project form submit clicked")
         console.log("submitted project data:", data)
-        const swimPlatform = data.swimPlatform === "true" ? true : false
+        // const swimPlatform = data.swimPlatform === "true" ? true : false
 
         const newBoatProject = {
            boatName: data.boatName,
@@ -50,7 +50,7 @@ export const ProjectForm = (props) => {
            userId: data.userId,
            paintTypeId: data.paintTypeId,
            seadekColorId: data.seadekColorId,
-           swimPlatform: swimPlatform,
+           swimPlatform: data.swimPlatform,
            projectStartDate: Date.now(),
            isComplete: false,
            projectEndDate: null,
@@ -171,7 +171,7 @@ export const ProjectForm = (props) => {
                 </Form.Control>
             </Form.Group>
             <Form.Group controlId="form__swimPlatform">
-                <Form.Check inline name="swimPlatform" type="checkbox" label="Add swim platform" value="true" ref={register} />
+                <Form.Check inline name="swimPlatform" type="checkbox" label="Add swim platform" ref={register} />
             </Form.Group>
             <Button variant="primary" type="submit" disabled={formState.isSubmitting}>Submit</Button>
         </Form>
