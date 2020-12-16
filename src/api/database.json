@@ -139,6 +139,20 @@
       "isComplete": false,
       "projectEndDate": null,
       "id": 4
+    },
+    {
+      "boatName": "Charlie",
+      "year": 1987,
+      "model": "thunder",
+      "boatLength": 15,
+      "userId": 6,
+      "paintTypeId": 2,
+      "seadekColorId": 7,
+      "swimPlatform": true,
+      "projectStartDate": 1608084455989,
+      "isComplete": false,
+      "projectEndDate": null,
+      "id": 5
     }
   ],
   "tasks": [
@@ -421,6 +435,21 @@
       "projectId": 4,
       "partId": 5,
       "id": 9
+    },
+    {
+      "projectId": 5,
+      "partId": 2,
+      "id": 10
+    },
+    {
+      "projectId": 5,
+      "partId": 8,
+      "id": 11
+    },
+    {
+      "projectId": 5,
+      "partId": 5,
+      "id": 12
     }
   ],
   "paintTypes": [

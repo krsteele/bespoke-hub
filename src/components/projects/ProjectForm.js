@@ -15,13 +15,6 @@ import Form from "react-bootstrap/Form"
 import Button from "react-bootstrap/Button"
 
 export const ProjectForm = (props) => {
-    /* 
-        filter parts for select menus
-        build form
-        upon submit, addProject, then take newProjectObject that is returned
-        and use the id to create the projectParts records(x3) 
-        then change view to project detail
-    */
 
 //  Needed contexts
     const { addProject } = useContext(ProjectContext)
@@ -42,6 +35,7 @@ export const ProjectForm = (props) => {
 /* 
     Function called in onSubmit to call the addProject function, 
     then call the add ProjectParts function for the engine, trailer and GPS parts 
+
 */
     const createNewProject = (data) => {
         // console.log("project form submit clicked")
@@ -64,22 +58,18 @@ export const ProjectForm = (props) => {
 
        addProject(newBoatProject)
         .then((newProjectObject)=> {
-            const motor = {
+            addProjectPart({
                 projectId: newProjectObject.id,
                 partId: data.motor
-            }
-            const nav = {
+            })
+            addProjectPart({
                 projectId: newProjectObject.id,
                 partId: data.navSystem
-            }
-            const trailer = {
+            })
+            addProjectPart({
                 projectId: newProjectObject.id,
                 partId: data.trailer
-            }
-            addProjectPart(motor)
-            addProjectPart(nav)
-            addProjectPart(trailer)
-            console.log(newProjectObject)
+            })
 
             return newProjectObject
     })
