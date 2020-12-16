@@ -23,9 +23,20 @@ export const ProjectTasksProvider = (props) => {
             .then(getProjectTasks)
     }
 
+    const patchProjectTask = (id, update) => {
+        return fetch(`http://localhost:8088/projectTasks/${id}`, {
+            method: "PATCH",
+            headers: {
+                "Content-Type": "application/json"
+            },
+            body: JSON.stringify(update)
+        })
+        .then(getProjectTasks)
+    }
+
     return (
         <ProjectTaskContext.Provider value={{
-            projectTasks, getProjectTasks, addProjectTask
+            projectTasks, getProjectTasks, addProjectTask, patchProjectTask
         }}>
             {props.children}
         </ProjectTaskContext.Provider>
