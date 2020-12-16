@@ -26,7 +26,7 @@ export const ProjectForm = (props) => {
     const { addProjectPart } = useContext(ProjectPartContext)
     const { paintTypes, getPaintTypes } = useContext(PaintTypeContext)
     const { tasks, getTasks } = useContext(TaskContext)
-    const { addProjectTasks } = useContext(ProjectTaskContext)
+    const { addProjectTask } = useContext(ProjectTaskContext)
 
     // const [filteredTasks, setFiltered] = useState([])
 
@@ -65,32 +65,49 @@ export const ProjectForm = (props) => {
                 projectId: newProjectObject.id,
                 partId: data.motor
             })
+            .then(()=> {
             addProjectPart({
                 projectId: newProjectObject.id,
                 partId: data.navSystem
             })
-            addProjectPart({
+        })
+            .then(() => {
+                addProjectPart({
                 projectId: newProjectObject.id,
                 partId: data.trailer
             })
+        })
             // filter the tasks based on form choices
-           const filteredTasks = []
            tasks.forEach(task => {
                if (task.taskTypeId ===1 || task.taskTypeId === 5){
-                    filteredTasks.push(task)
+                    addProjectTask({
+                        projectId: newProjectObject.id,
+                        taskId: task.id,
+                        isComplete: false
+                    })
                }
                if (newProjectObject.swimPlatform && task.taskTypeId === 4) {
-                   filteredTasks.push(task)
+                addProjectTask({
+                    projectId: newProjectObject.id,
+                    taskId: task.id,
+                    isComplete: false
+                })
                }
                if (newProjectObject.paintTypeId === 1 && task.taskTypeId === 2){
-                   filteredTasks.push(task)
+                addProjectTask({
+                    projectId: newProjectObject.id,
+                    taskId: task.id,
+                    isComplete: false
+                })
                }
                if (newProjectObject.paintTypeId === 2 && task.taskTypeId === 3){
-                   filteredTasks.push(task)
+                addProjectTask({
+                    projectId: newProjectObject.id,
+                    taskId: task.id,
+                    isComplete: false
+                })
                }
             })
-            console.log(filteredTasks)
-
 
             /* 
                 I really think this is where the projectTasks need to get created
