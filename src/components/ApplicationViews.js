@@ -64,9 +64,9 @@ export const ApplicationViews = () => {
                         <Route exact path="/people" render={
                             props => <UsersList {...props} />
                         } />
-                        {/* <Route path="/people/:userId(\d+)" render={
+                        <Route path="/people/:userId(\d+)" render={
                             props => <UserDetail {...props} />
-                        } /> */}
+                        } />
                         <Route exact path="/people/create" render={
                             props => <UserForm {...props} />
                         } />
