@@ -1,32 +1,36 @@
-import React, { useEffect, useContext, useState } from "react"
+import React, { useEffect, useContext, useState, useRef } from "react"
 
 // necessary contexts: projects, projectTasks, users
 import { ProjectContext } from "../projects/ProjectsDataProvider"
 import { ProjectTaskContext } from "../tasks/ProjectTasksDataProvider"
 // necessary component
 import { ProjectDetail } from "../projects/ProjectDetail"
+// import doughnut graph component from chartjs
+import {Doughnut} from 'react-chartjs-2';
 
-// need project data and doughnut chart 
-// do i need to put the doughnut here and import projectTask data to use in doughnut?
 
 export const ClientDashboard = (props) => {
     // pulling in the contexts needed
     const { projects, getProjects } = useContext(ProjectContext)
     const { projectTasks, getProjectTasks } = useContext(ProjectTaskContext)
 
-    const [project, setProject] = useState({user: {}, seadekColor: {}, paintType: {}})
+    const [project, setProject] = useState({user: {}})
     const [filteredProjectTasks, setFiltered] = useState([])
     // projectTasks filtered by isComplete status
-    const [complete, setComplete] = useState([])
-    const [incomplete, setIncomplete] = useState([])
+    const [complete, setComplete] = useState(0)
+    const [incomplete, setIncomplete] = useState(0)
 
     useEffect(()=> {
-        getProjects().then(getProjectTasks)
+        getProjectTasks().then(getProjects)
     }, [])
 
     useEffect(() => {
-        const clientId = parseInt(props.match.params.userId)
-        const foundProject = projects.find(p => p.userId === clientId)
+        console.log("dashboard params", props.match.params)
+        const clientId = parseInt(props.match.params.userId) 
+        console.log(projects)
+        const foundProject = projects.find(p => p.userId === clientId) || {}
+        console.log(foundProject)
+        // project = foundProject
         setProject(foundProject)
     }, [projects])
 
@@ -38,22 +42,41 @@ export const ClientDashboard = (props) => {
     }, [project])
     
     useEffect(() => {
+        console.log("FPTs", filteredProjectTasks)
         const done = filteredProjectTasks.filter(task => task.isComplete === true)
-        setComplete(done)
+        setComplete(done.length)
         const notDone = filteredProjectTasks.filter(task => task.isComplete === false)
-        setIncomplete(notDone)
+        setIncomplete(notDone.length)
     }, [filteredProjectTasks])
     
-    
-    // useEffect(() => {
-    //     // const numFinished = complete.length
-    //     console.log("complete", complete.length)
-    //     console.log("incomplete", incomplete.length)
-    // }, [complete])
+    // doughnut data
+    const data = {
+        labels: [
+            'complete',
+          'incomplete'
+        ],
+        datasets: [{
+          data: [complete, incomplete],
+          backgroundColor: [
+          '#FF6384',
+          '#FFCE56'
+          ],
+          hoverBackgroundColor: [
+          '#FF6384',
+          '#FFCE56'
+          ]
+        }]
+      };
 
     return (
         <>
-            <h3>Welcome, {project.user.firstName}!</h3>
+            {/* <h3>Welcome, {project.user.firstName}!</h3> */}
+            <div>
+                <Doughnut data={data} />
+            </div>
+            <div>
+                {/* <ProjectDetail {...props} projectId={project.id}/> */}
+            </div>
             
         </>
     )
