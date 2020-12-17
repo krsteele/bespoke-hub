@@ -34,10 +34,6 @@ export const TasksList = (props) => {
         setFiltered(filteredProjectTasks)
     }, [projectTasks])
 
-    // useEffect(() => {
-    //     console.log("filtered and set Project Tasks:", filteredProjectTasks)
-    // }, [filteredProjectTasks])
-
     const isCompleteToggle = (evt) => {
         if (evt.target.checked === true) {
             patchProjectTask(parseInt(evt.target.id), {isComplete: true})
