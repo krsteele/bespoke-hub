@@ -5,7 +5,7 @@ import { ProjectPartContext } from "../parts/ProjectPartsDataProvider"
 import { PartTypeContext } from "../parts/PartTypesProvider"
 
 export const ProjectDetail = (props) => {
-    const { getProjectById } = useContext(ProjectContext)
+    const { getProjectById, deleteProject } = useContext(ProjectContext)
     const { projectParts, getProjectParts } = useContext(ProjectPartContext)
     const { partTypes, getPartTypes } = useContext(PartTypeContext)
 
@@ -13,6 +13,7 @@ export const ProjectDetail = (props) => {
     const [filteredProjectParts, setfilteredParts] = useState([])
     // console.log("this is the info you are looking for", filteredProjectParts)
     useEffect(() => {
+        console.log("props for proj detail from cl dash", props)
         const projectId = parseInt(props.match.params.projectId)
         getProjectById(projectId)
             .then(setProject)
@@ -37,13 +38,13 @@ export const ProjectDetail = (props) => {
     return (
         <>
         <h3>"{project.boatName}" — {project.boatLength}' {project.model} {project.year}</h3>
-        <button onClick={() => {
+        {/* <button onClick={() => {
                 console.log("edit project:", project.id)
                 // props.history.push(`/edit/${project.id}`)
                 }}>
                 Edit
-            </button>
-            <button onClick={() => console.log("delete project:", project.id)}>
+            </button> */}
+            <button onClick={() => deleteProject(project.id).then(()=> props.history.push("/"))}>
                 Delete
             </button>
             <div>
@@ -51,7 +52,7 @@ export const ProjectDetail = (props) => {
                 <Link key={project.user.id} to={`/people/${project.user.id}`}>
                     <p>{project.user.firstName} {project.user.lastName}</p>
                 </Link>
-                <Link to={`/dashboard/${project.user.id}`}>
+                <Link to={`/dashboards/${project.user.id}`}>
                     <p>View client dashboard</p>
                 </Link>
             </div>
