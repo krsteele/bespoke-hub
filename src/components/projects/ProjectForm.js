@@ -61,22 +61,18 @@ export const ProjectForm = (props) => {
             })
             .then(newProjectObject => {
             // capture the return and then post the parts related to the project
-            addProjectPart({
-                projectId: newProjectObject.id,
-                partId: data.motor
-            })
-            .then(()=> {
-            addProjectPart({
-                projectId: newProjectObject.id,
-                partId: data.navSystem
-            })
-        })
-            .then(() => {
+                addProjectPart({
+                    projectId: newProjectObject.id,
+                    partId: data.motor
+                })
+                addProjectPart({
+                    projectId: newProjectObject.id,
+                    partId: data.navSystem
+                })
                 addProjectPart({
                 projectId: newProjectObject.id,
                 partId: data.trailer
             })
-        })
             // filter the tasks based on form choices
            tasks.forEach(task => {
                if (task.taskTypeId ===1 || task.taskTypeId === 5){
@@ -108,20 +104,6 @@ export const ProjectForm = (props) => {
                 })
                }
             })
-
-            /* 
-                I really think this is where the projectTasks need to get created
-                but in order to do that, I think I would need to wrap this form 
-                module in the TaskProvider and I think the ProjectTaskProvider, 
-                then would need to import the contexts here and use the tasks with getTasks
-                and addProjectTask. Then would need to need to useState and filter the tasks
-                based on the conditions of the form, still unsure how to write that. Actually, would
-                I declare a variable and set it to an empty array and filter and .push? Do I also need
-                to wrap the form in the taskTypeProvider and import that context and get the taskTypes and 
-                getTaskTypes? Would I say "if newProjectObject.swimPlatform === true" 
-                Then would need to .map that filtered array and call addProjectTask for each. Or, actually
-                could .forEach, I think. 
-            */
 
             return newProjectObject
     })
