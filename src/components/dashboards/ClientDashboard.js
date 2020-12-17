@@ -1,6 +1,6 @@
 import React, { useEffect } from "react"
 
-// necessary contexts: project, projectparts
+// necessary contexts: projects
 
 
 // need project data and doughnut chart 
