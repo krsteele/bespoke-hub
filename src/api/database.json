@@ -111,6 +111,20 @@
       "isComplete": false,
       "projectEndDate": null,
       "id": 9
+    },
+    {
+      "boatName": "Penny",
+      "year": 1987,
+      "model": "Montauk",
+      "boatLength": 17,
+      "userId": 7,
+      "paintTypeId": 2,
+      "seadekColorId": 10,
+      "swimPlatform": true,
+      "projectStartDate": 1608169577544,
+      "isComplete": false,
+      "projectEndDate": null,
+      "id": 10
     }
   ],
   "tasks": [
@@ -248,14 +262,14 @@
       "taskId": 7,
       "isCompleted": false,
       "id": 6,
-      "isComplete": true
+      "isComplete": false
     },
     {
       "projectId": 1,
       "taskId": 8,
       "isCompleted": false,
       "id": 7,
-      "isComplete": true
+      "isComplete": false
     },
     {
       "projectId": 1,
@@ -268,7 +282,7 @@
       "taskId": 11,
       "isCompleted": false,
       "id": 9,
-      "isComplete": true
+      "isComplete": false
     },
     {
       "projectId": 1,
@@ -287,7 +301,7 @@
       "taskId": 14,
       "isCompleted": false,
       "id": 12,
-      "isComplete": true
+      "isComplete": false
     },
     {
       "projectId": 9,
@@ -366,6 +380,60 @@
       "taskId": 14,
       "isComplete": false,
       "id": 25
+    },
+    {
+      "projectId": 10,
+      "taskId": 1,
+      "isComplete": false,
+      "id": 26
+    },
+    {
+      "projectId": 10,
+      "taskId": 2,
+      "isComplete": false,
+      "id": 27
+    },
+    {
+      "projectId": 10,
+      "taskId": 3,
+      "isComplete": false,
+      "id": 28
+    },
+    {
+      "projectId": 10,
+      "taskId": 4,
+      "isComplete": false,
+      "id": 29
+    },
+    {
+      "projectId": 10,
+      "taskId": 7,
+      "isComplete": false,
+      "id": 30
+    },
+    {
+      "projectId": 10,
+      "taskId": 6,
+      "isComplete": false,
+      "id": 31
+    },
+    {
+      "projectId": 10,
+      "taskId": 8,
+      "isComplete": false,
+      "id": 32
+    },
+    {
+      "projectId": 10,
+      "taskId": 5,
+      "isComplete": false,
+      "id": 33
+    },
+    {
+      "projectId": 10,
+      "taskId": 9,
+      "isComplete": false,
+      "id": 34
     }
   ],
   "notes": [],
@@ -465,6 +533,11 @@
       "projectId": 9,
       "partId": 6,
       "id": 31
+    },
+    {
+      "projectId": 10,
+      "partId": 2,
+      "id": 32
     }
   ],
   "paintTypes": [
