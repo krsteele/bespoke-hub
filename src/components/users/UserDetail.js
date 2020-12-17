@@ -42,10 +42,10 @@ export const UserDetail = (props) => {
                     (project === {} || project === undefined)
                     ? "" 
                     : <>
-                    <Link to={`/projects/${project.id}`}>
+                    <Link to={`/${project.id}`}>
                         <p>View project page</p>
                     </Link>
-                    <Link to={`/projects/${project.id}`}>
+                    <Link to={`/dashboards/${project.userId}`}>
                         <p>View client dashboard</p>
                     </Link>
                     </>
