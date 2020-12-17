@@ -9,10 +9,6 @@ export const ClientDashboardList = (props) => {
         getProjects()
     }, [])
 
-    useEffect(() => {
-        console.log("client dashboard list:", projects)
-    }, [projects])
-
     return (
         <div className="dashboards">
             <h1>Client Dashboards</h1>
