@@ -32,8 +32,8 @@ export const ProjectProvider = (props) => {
             .then(res => res.json())
     }
 
-    const deleteProject = projectId => {
-        return fetch(`http://localhost:8088/projects/${projectId}`, {
+    const deleteProject = id => {
+        return fetch(`http://localhost:8088/projects/${id}`, {
             method: "DELETE"
         })
             .then(getProjects)
