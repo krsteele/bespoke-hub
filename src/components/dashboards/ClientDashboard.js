@@ -14,7 +14,7 @@ export const ClientDashboard = (props) => {
     const { projects, getProjects } = useContext(ProjectContext)
     const { projectTasks, getProjectTasks } = useContext(ProjectTaskContext)
 
-    const [project, setProject] = useState({user: {}})
+    const [project, setProject] = useState({})
     const [filteredProjectTasks, setFiltered] = useState([])
     // projectTasks filtered by isComplete status
     const [complete, setComplete] = useState(0)
@@ -25,13 +25,18 @@ export const ClientDashboard = (props) => {
     }, [])
 
     useEffect(() => {
-        console.log("dashboard params", props.match.params)
-        const clientId = parseInt(props.match.params.userId) 
-        console.log(projects)
-        const foundProject = projects.find(p => p.userId === clientId) || {}
-        console.log(foundProject)
-        // project = foundProject
-        setProject(foundProject)
+        // console.log("dashboard params", props.match.params)
+        
+            const clientId = parseInt(props.match.params.userId) 
+            // console.log("clientId", clientId)
+            if (projects) {
+
+                const foundProject = projects.find(p => p.userId === clientId) || {}
+                setProject(foundProject)
+            } else {
+                console.log("better luck next time")
+            }
+    
     }, [projects])
 
     useEffect(() => {
@@ -70,12 +75,12 @@ export const ClientDashboard = (props) => {
 
     return (
         <>
-            {/* <h3>Welcome, {project.user.firstName}!</h3> */}
+            <h3>Welcome, {project.user.firstName}!</h3>
             <div>
                 <Doughnut data={data} />
             </div>
             <div>
-                {/* <ProjectDetail {...props} projectId={project.id}/> */}
+                <ProjectDetail {...props} projectId={project.id}/>
             </div>
             
         </>

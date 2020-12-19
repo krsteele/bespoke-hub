@@ -7,7 +7,8 @@ import { TasksList } from "../tasks/TasksList"
 
 export const MakerProjectDashboard = (props) => {
    return (
-        <>     
+        <>   
+              
             <ProjectDetail {...props} />
             <TasksList {...props} />
         </>

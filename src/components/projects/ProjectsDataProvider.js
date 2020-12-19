@@ -28,7 +28,11 @@ export const ProjectProvider = (props) => {
     }
 
     const getProjectById = (id) => {
-        return fetch(`http://localhost:8088/projects/${ id }?_expand=user&_expand=seadekColor&_expand=paintType`)
+        return fetch(`http://localhost:8088/projects/${id}?_expand=user&_expand=seadekColor&_expand=paintType`)
+            .then(res => res.json())
+    }
+    const getProjectByUserId = (id) => {
+        return fetch(`http://localhost:8088/projects?userId=${id}`)
             .then(res => res.json())
     }
 
@@ -51,7 +55,7 @@ export const ProjectProvider = (props) => {
     }
     return (
         <ProjectContext.Provider value={{
-            projects, addProject, getProjects, getProjectById, deleteProject, updateProject, searchTerms, setTerms
+            projects, addProject, getProjects, getProjectById, deleteProject, updateProject, searchTerms, setTerms, getProjectByUserId
         }}>
             {props.children}
         </ProjectContext.Provider>

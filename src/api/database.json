@@ -28,15 +28,6 @@
       "userTypeId": 2
     },
     {
-      "firstName": "Hunter",
-      "lastName": "Sholar",
-      "email": "hunter@fosco.com",
-      "phone": "111-111-1111",
-      "password": "team",
-      "userTypeId": 1,
-      "id": 4
-    },
-    {
       "firstName": "Ian",
       "lastName": "Smith",
       "email": "ian@fosco.com",
@@ -64,11 +55,11 @@
       "id": 7
     },
     {
-      "firstName": "Frank",
-      "lastName": "Manford",
-      "email": "frank@manford.com",
-      "phone": "444-444-4444",
-      "password": "client",
+      "firstName": "Jimmy ",
+      "lastName": "Wilson",
+      "email": "bigjilm@mollusk.com",
+      "phone": "555-555-5555",
+      "password": "toot",
       "userTypeId": 2,
       "id": 8
     }
@@ -99,32 +90,18 @@
       "id": 1
     },
     {
-      "boatName": "Dolly",
-      "year": 1985,
-      "model": "Montauk",
-      "boatLength": 19,
-      "userId": 7,
-      "paintTypeId": 1,
-      "seadekColorId": 8,
-      "swimPlatform": true,
-      "projectStartDate": 1608149479889,
-      "isComplete": false,
-      "projectEndDate": null,
-      "id": 9
-    },
-    {
-      "boatName": "Shmoop",
-      "year": 1982,
+      "boatName": "Red",
+      "year": 1986,
       "model": "Montauk",
       "boatLength": 17,
-      "userId": 6,
-      "paintTypeId": 2,
-      "seadekColorId": 6,
+      "userId": 8,
+      "paintTypeId": 1,
+      "seadekColorId": 3,
       "swimPlatform": true,
-      "projectStartDate": 1608221447237,
+      "projectStartDate": 1608322713546,
       "isComplete": false,
       "projectEndDate": null,
-      "id": 10
+      "id": 2
     }
   ],
   "tasks": [
@@ -225,21 +202,23 @@
     {
       "projectId": 1,
       "taskId": 1,
-      "isCompleted": true,
+      "isCompleted": false,
       "id": 1,
-      "isComplete": true
+      "isComplete": true,
+      "taco": true
     },
     {
       "projectId": 1,
       "taskId": 2,
-      "isCompleted": true,
+      "isCompleted": false,
       "id": 2,
-      "isComplete": true
+      "isComplete": true,
+      "taco": true
     },
     {
       "projectId": 1,
       "taskId": 3,
-      "isCompleted": true,
+      "isCompleted": false,
       "id": 3,
       "isComplete": true
     },
@@ -248,14 +227,14 @@
       "taskId": 4,
       "isCompleted": false,
       "id": 4,
-      "isComplete": true
+      "isComplete": false
     },
     {
       "projectId": 1,
       "taskId": 5,
       "isCompleted": false,
       "id": 5,
-      "isComplete": true
+      "isComplete": false
     },
     {
       "projectId": 1,
@@ -304,148 +283,82 @@
       "isComplete": false
     },
     {
-      "projectId": 9,
+      "projectId": 2,
       "taskId": 1,
-      "isComplete": true,
+      "taco": true,
       "id": 13
     },
     {
-      "projectId": 9,
+      "projectId": 2,
       "taskId": 2,
-      "isComplete": false,
+      "taco": true,
       "id": 14
     },
     {
-      "projectId": 9,
+      "projectId": 2,
       "taskId": 3,
-      "isComplete": false,
+      "taco": true,
       "id": 15
     },
     {
-      "projectId": 9,
+      "projectId": 2,
       "taskId": 4,
-      "isComplete": false,
+      "taco": false,
       "id": 16
     },
     {
-      "projectId": 9,
+      "projectId": 2,
       "taskId": 5,
-      "isComplete": false,
+      "taco": false,
       "id": 17
     },
     {
-      "projectId": 9,
+      "projectId": 2,
       "taskId": 6,
-      "isComplete": false,
+      "taco": false,
       "id": 18
     },
     {
-      "projectId": 9,
+      "projectId": 2,
       "taskId": 7,
-      "isComplete": false,
+      "taco": false,
       "id": 19
     },
     {
-      "projectId": 9,
+      "projectId": 2,
       "taskId": 8,
-      "isComplete": false,
+      "taco": false,
       "id": 20
     },
     {
-      "projectId": 9,
+      "projectId": 2,
       "taskId": 10,
-      "isComplete": false,
+      "taco": false,
       "id": 21
     },
     {
-      "projectId": 9,
+      "projectId": 2,
       "taskId": 11,
-      "isComplete": false,
+      "taco": false,
       "id": 22
     },
     {
-      "projectId": 9,
+      "projectId": 2,
       "taskId": 12,
-      "isComplete": false,
+      "taco": false,
       "id": 23
     },
     {
-      "projectId": 9,
+      "projectId": 2,
       "taskId": 13,
-      "isComplete": false,
+      "taco": false,
       "id": 24
     },
     {
-      "projectId": 9,
+      "projectId": 2,
       "taskId": 14,
-      "isComplete": false,
+      "taco": false,
       "id": 25
-    },
-    {
-      "projectId": 10,
-      "taskId": 1,
-      "isComplete": false,
-      "id": 26
-    },
-    {
-      "projectId": 10,
-      "taskId": 2,
-      "isComplete": false,
-      "id": 27
-    },
-    {
-      "projectId": 10,
-      "taskId": 3,
-      "isComplete": false,
-      "id": 28
-    },
-    {
-      "projectId": 10,
-      "taskId": 4,
-      "isComplete": false,
-      "id": 29
-    },
-    {
-      "projectId": 10,
-      "taskId": 5,
-      "isComplete": false,
-      "id": 30
-    },
-    {
-      "projectId": 10,
-      "taskId": 6,
-      "isComplete": false,
-      "id": 31
-    },
-    {
-      "projectId": 10,
-      "taskId": 7,
-      "isComplete": false,
-      "id": 32
-    },
-    {
-      "projectId": 10,
-      "taskId": 8,
-      "isComplete": false,
-      "id": 33
-    },
-    {
-      "projectId": 10,
-      "taskId": 9,
-      "isComplete": false,
-      "id": 34
-    },
-    {
-      "projectId": 10,
-      "taskId": 13,
-      "isComplete": false,
-      "id": 35
-    },
-    {
-      "projectId": 10,
-      "taskId": 14,
-      "isComplete": false,
-      "id": 36
     }
   ],
   "notes": [],
@@ -532,34 +445,19 @@
       "id": 3
     },
     {
-      "projectId": 9,
-      "partId": 3,
-      "id": 29
-    },
-    {
-      "projectId": 9,
-      "partId": 9,
-      "id": 30
-    },
-    {
-      "projectId": 9,
-      "partId": 6,
-      "id": 31
-    },
-    {
-      "projectId": 10,
+      "projectId": 2,
       "partId": 2,
-      "id": 32
+      "id": 4
     },
     {
-      "projectId": 10,
+      "projectId": 2,
       "partId": 8,
-      "id": 33
+      "id": 5
     },
     {
-      "projectId": 10,
+      "projectId": 2,
       "partId": 5,
-      "id": 34
+      "id": 6
     }
   ],
   "paintTypes": [

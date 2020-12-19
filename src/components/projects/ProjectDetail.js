@@ -14,7 +14,9 @@ export const ProjectDetail = (props) => {
     // console.log("this is the info you are looking for", filteredProjectParts)
     useEffect(() => {
         console.log("props for proj detail from cl dash", props)
+       
         const projectId = parseInt(props.match.params.projectId)
+       
         getProjectById(projectId)
             .then(setProject)
         }, [])

@@ -13,7 +13,7 @@ export const UserProvider = (props) => {
     }
 
     const getUserById = (id) => {
-        return fetch(`http://localhost:8088/users/${ id }?_expand=userType`)
+        return fetch(`http://localhost:8088/users/${ id }?_expand=userType?_embed=project`)
             .then(res => res.json())
     }
 
