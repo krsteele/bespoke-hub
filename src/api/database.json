@@ -202,85 +202,74 @@
     {
       "projectId": 1,
       "taskId": 1,
-      "isCompleted": false,
       "id": 1,
-      "isComplete": true,
       "taco": true
     },
     {
       "projectId": 1,
       "taskId": 2,
-      "isCompleted": false,
       "id": 2,
-      "isComplete": true,
       "taco": true
     },
     {
       "projectId": 1,
       "taskId": 3,
-      "isCompleted": false,
       "id": 3,
-      "isComplete": true
+      "taco": true
     },
     {
       "projectId": 1,
       "taskId": 4,
-      "isCompleted": false,
       "id": 4,
-      "isComplete": false
+      "taco": false
     },
     {
       "projectId": 1,
       "taskId": 5,
-      "isCompleted": false,
       "id": 5,
-      "isComplete": false
+      "taco": false
     },
     {
       "projectId": 1,
       "taskId": 7,
-      "isCompleted": false,
       "id": 6,
-      "isComplete": false
+      "taco": false
     },
     {
       "projectId": 1,
       "taskId": 8,
-      "isCompleted": false,
       "id": 7,
-      "isComplete": false
+      "taco": false
     },
     {
       "projectId": 1,
       "taskId": 10,
-      "isCompleted": false,
-      "id": 8
+      "id": 8,
+      "taco": false
     },
     {
       "projectId": 1,
       "taskId": 11,
-      "isCompleted": false,
       "id": 9,
-      "isComplete": false
+      "taco": false
     },
     {
       "projectId": 1,
       "taskId": 12,
-      "isCompleted": false,
-      "id": 10
+      "id": 10,
+      "taco": false
     },
     {
       "projectId": 1,
       "taskId": 13,
-      "isCompleted": false,
-      "id": 11
+      "id": 11,
+      "taco": false
     },
     {
       "projectId": 1,
       "taskId": 14,
-      "isCompleted": false,
       "id": 12,
-      "isComplete": false
+      "taco": false
     },
     {
       "projectId": 2,
