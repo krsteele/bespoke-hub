@@ -29,23 +29,16 @@ export const UserDetail = (props) => {
     return (
         <section className="user">
             <h1 className="user__name">{user.firstName} {user.lastName}</h1>
-            <button onClick={() => {
-                // console.log("edit:", user.id)
-                props.history.push(`/people/edit/${user.id}`)}}>
-                Edit
-            </button>
-            <button onClick={() => deleteUser(user.id).then(()=>props.history.push("/people"))}>
-                Delete
-            </button>
+            
             <div>
                 {
                     (project === {} || project === undefined)
                     ? "" 
                     : <>
-                    <Link to={`/${project.id}`}>
+                    <Link to={`/${project.UserId}`}>
                         <p>View project page</p>
                     </Link>
-                    <Link to={`/dashboards/${project.userId}`}>
+                    <Link to={`/dashboards/${user.id}`}>
                         <p>View client dashboard</p>
                     </Link>
                     </>
@@ -54,6 +47,14 @@ export const UserDetail = (props) => {
             <div className="user__email">Email: {user.email}</div>
             <div className="user__phone">Phone: {user.phone}</div>
             <div className="user__password">Password: {user.password}</div>
+            <button onClick={() => {
+                // console.log("edit:", user.id)
+                props.history.push(`/people/edit/${user.id}`)}}>
+                Edit
+            </button>
+            <button onClick={() => deleteUser(user.id).then(()=>props.history.push("/people"))}>
+                Delete
+            </button>
         </section>
     )
 }
