@@ -3,22 +3,30 @@ import { Link } from "react-router-dom"
 import { ProjectContext } from "./ProjectsDataProvider"
 import { ProjectPartContext } from "../parts/ProjectPartsDataProvider"
 import { PartTypeContext } from "../parts/PartTypesProvider"
+import { UserContext } from "../users/UsersDataProvider"
 
 export const ProjectDetail = (props) => {
-    const { getProjectById, deleteProject } = useContext(ProjectContext)
+    const { getProjectByUserId, deleteProject } = useContext(ProjectContext)
+    const { getUserById } = useContext(UserContext)
     const { projectParts, getProjectParts } = useContext(ProjectPartContext)
     const { partTypes, getPartTypes } = useContext(PartTypeContext)
 
-    const [project, setProject] = useState({user: {}, seadekColor: {}, paintType: {}})
+    const [project, setProject] = useState({})
+    const [user, setUser] = useState({})
     const [filteredProjectParts, setfilteredParts] = useState([])
     // console.log("this is the info you are looking for", filteredProjectParts)
     useEffect(() => {
         console.log("props for proj detail from cl dash", props)
        
-        const projectId = parseInt(props.match.params.projectId)
+        const userId = parseInt(props.match.params.userId)
        
-        getProjectById(projectId)
-            .then(setProject)
+        getProjectByUserId(userId)
+        .then((returnedProject) => {
+            console.log("proj detail returned proj", returnedProject[0])
+            setProject(returnedProject[0])
+        })
+        getUserById(userId)
+            .then(setUser)
         }, [])
 
     useEffect(() => {
@@ -51,16 +59,16 @@ export const ProjectDetail = (props) => {
             </button>
             <div>
                 <h5>Client:</h5>
-                <Link key={project.user.id} to={`/people/${project.user.id}`}>
-                    <p>{project.user.firstName} {project.user.lastName}</p>
+                <Link key={user.id} to={`/people/${user.id}`}>
+                    <p>{user.firstName} {user.lastName}</p>
                 </Link>
-                <Link to={`/dashboards/${project.user.id}`}>
+                <Link to={`/dashboards/${user.id}`}>
                     <p>View client dashboard</p>
                 </Link>
             </div>
             <div>
                 <h5>Boat details:</h5>
-                {
+                {/* {
                    filteredProjectParts.map(obj => {
                        if (obj.hasOwnProperty('part')) {
                         const foundType = partTypes.find(type => type.id === obj.part.partTypeId)
@@ -68,9 +76,9 @@ export const ProjectDetail = (props) => {
                                {foundType.type}: {obj.part.name}</p>
                        }
                    }) 
-                }
-                <p>Seadek Color: {project.seadekColor.color}</p>
-                <p>Paint Finish: {project.paintType.type}</p>
+                } */}
+                {/* <p>Seadek Color: {project.seadekColor.color}</p>
+                <p>Paint Finish: {project.paintType.type}</p> */}
                 <p>Swim Platform: {project.swimPlatform === true ? "yes" : "no"}</p>
             </div>
         </>
