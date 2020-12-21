@@ -12,6 +12,12 @@ export const ProjectTasksProvider = (props) => {
             .then(setProjectTasks)
     }
 
+    const getProjectTasksByProjectId = (id) => {
+        console.log("PT GET id", id)
+        return fetch(`http://localhost:8088/projectTasks?projectId=${id}`)
+            .then(res => res.json())
+    }
+
     const addProjectTask = projectTask => {
         return fetch("http://localhost:8088/projectTasks", {
             method: "POST",
@@ -36,7 +42,7 @@ export const ProjectTasksProvider = (props) => {
 
     return (
         <ProjectTaskContext.Provider value={{
-            projectTasks, getProjectTasks, addProjectTask, patchProjectTask
+            projectTasks, getProjectTasks, addProjectTask, patchProjectTask, getProjectTasksByProjectId
         }}>
             {props.children}
         </ProjectTaskContext.Provider>
