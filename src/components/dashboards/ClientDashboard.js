@@ -14,11 +14,12 @@ export const ClientDashboard = (props) => {
     // pulling in the contexts needed
     const { getProjectByUserId } = useContext(ProjectContext)
     const { getUserById } = useContext(UserContext)
-    const { projectTasks, getProjectTasks } = useContext(ProjectTaskContext)
+    const { projectTasks, getProjectTasks, getProjectTasksByProjectId } = useContext(ProjectTaskContext)
 
     const [project, setProject] = useState({})
     const [user, setUser] = useState({})
     const [filteredProjectTasks, setFiltered] = useState([])
+    const [relatedProjectTasks, setRelated] = useState([])
     // projectTasks filtered by isComplete status
     const [complete, setComplete] = useState(0)
     const [incomplete, setIncomplete] = useState(0)
@@ -29,8 +30,15 @@ export const ClientDashboard = (props) => {
         const clientId = parseInt(props.match.params.userId) 
         
         getProjectByUserId(clientId)
-        .then(setProject)
-        .then(getProjectTasks)
+            .then((returnedProject) => {
+                setProject(returnedProject)
+                return returnedProject})
+            .then((returnedReturnedProject) => {
+                console.log("returnedReturnedProject", returnedReturnedProject)
+                getProjectTasksByProjectId(returnedReturnedProject[0].id)
+                    .then((r)=> setRelated(r))
+            })
+            // .then((result) => setRelated(result))
         
         getUserById(clientId)
         .then(setUser)
@@ -38,19 +46,15 @@ export const ClientDashboard = (props) => {
         }, [])
 
     useEffect(() => {
-        console.log("project tasks", projectTasks)
-        
-        const filtered = projectTasks.filter(obj => obj.projectId === project.id)
-        setFiltered(filtered)
-    }, [projectTasks])
+        console.log("related project Tasks", relatedProjectTasks)
+    }, [relatedProjectTasks])
     
     useEffect(() => {
-        console.log("FPTs", filteredProjectTasks)
-        const done = filteredProjectTasks.filter(task => task.taco === true)
+        const done = relatedProjectTasks.filter(task => task.isComplete === true)
         setComplete(done.length)
-        const notDone = filteredProjectTasks.filter(task => task.taco === false)
+        const notDone = relatedProjectTasks.filter(task => task.isComplete === false)
         setIncomplete(notDone.length)
-    }, [filteredProjectTasks])
+    }, [relatedProjectTasks])
     
     // doughnut data
     const data = {
