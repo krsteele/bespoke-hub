@@ -36,9 +36,9 @@ export const TasksList = (props) => {
 
     const isCompleteToggle = (evt) => {
         if (evt.target.checked === true) {
-            patchProjectTask(parseInt(evt.target.id), {taco: true})
+            patchProjectTask(parseInt(evt.target.id), {isComplete: true})
         } else {
-            patchProjectTask(parseInt(evt.target.id), {taco: false})
+            patchProjectTask(parseInt(evt.target.id), {isComplete: false})
         }
     }
 // check out denise's repo gig denzelb5 on gh
@@ -49,7 +49,7 @@ export const TasksList = (props) => {
         <Form.Group controlId="form__checklist">
                 {
                     filteredProjectTasks.map(obj => {
-                    return (<Form.Check name="checkbox" key={obj.id} id={obj.id} type="checkbox" label={obj.task.text} checked={obj.taco} onChange={evt => {
+                    return (<Form.Check name="checkbox" key={obj.id} id={obj.id} type="checkbox" label={obj.task.text} checked={obj.isComplete} onChange={evt => {
                         isCompleteToggle(evt)
                     }} />)
                     })
