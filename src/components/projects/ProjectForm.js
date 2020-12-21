@@ -79,28 +79,28 @@ export const ProjectForm = (props) => {
                     addProjectTask({
                         projectId: newProjectObject.id,
                         taskId: task.id,
-                        taco: false
+                        isComplete: false
                     })
                }
                if (newProjectObject.swimPlatform && task.taskTypeId === 4) {
                 addProjectTask({
                     projectId: newProjectObject.id,
                     taskId: task.id,
-                    taco: false
+                    isComplete: false
                 })
                }
                if (newProjectObject.paintTypeId === 1 && task.taskTypeId === 2){
                 addProjectTask({
                     projectId: newProjectObject.id,
                     taskId: task.id,
-                    taco: false
+                    isComplete: false
                 })
                }
                if (newProjectObject.paintTypeId === 2 && task.taskTypeId === 3){
                 addProjectTask({
                     projectId: newProjectObject.id,
                     taskId: task.id,
-                    taco: false
+                    isComplete: false
                 })
                }
             })
