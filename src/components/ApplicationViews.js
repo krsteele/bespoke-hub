@@ -36,7 +36,7 @@ export const ApplicationViews = () => {
                                                 <Route exact path="/" render={
                                                     props => <ProjectsList {...props} />
                                                 } />
-                                                <Route path="/:projectId(\d+)" render={
+                                                <Route path="/:userId(\d+)" render={
                                                     props => <MakerProjectDashboard {...props} />
                                                 } />
                                                 <Route exact path="/create" render={
