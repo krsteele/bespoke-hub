@@ -43,19 +43,9 @@ export const ProjectProvider = (props) => {
             .then(getProjects)
     }
 
-    const updateProject = project => {
-        return fetch(`http://localhost:8088/projects/${project.id}`, {
-            method: "PUT",
-            headers: {
-                "Content-Type": "application/json"
-            },
-            body: JSON.stringify(project)
-        })
-        .then(getProjects)
-    }
     return (
         <ProjectContext.Provider value={{
-            projects, addProject, getProjects, getProjectById, deleteProject, updateProject, searchTerms, setTerms, getProjectByUserId
+            projects, addProject, getProjects, getProjectById, deleteProject, searchTerms, setTerms, getProjectByUserId
         }}>
             {props.children}
         </ProjectContext.Provider>
