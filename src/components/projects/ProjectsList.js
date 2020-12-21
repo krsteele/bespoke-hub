@@ -24,7 +24,7 @@ export const ProjectsList = (props) => {
                 <ul>
                     {
                     projects.map(project => {
-                        return <Link key={project.id} to={`/${project.id}`}>
+                        return <Link key={project.id} to={`/${project.userId}`}>
                             <li>"{project.boatName}" — {project.boatLength}' {project.model} {project.year}</li>
                         </Link>
                     })
