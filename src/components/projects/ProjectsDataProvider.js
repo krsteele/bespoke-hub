@@ -32,7 +32,7 @@ export const ProjectProvider = (props) => {
             .then(res => res.json())
     }
     const getProjectByUserId = (id) => {
-        return fetch(`http://localhost:8088/projects?userId=${id}`)
+        return fetch(`http://localhost:8088/projects?userId=${id}&_expand=user&_expand=seadekColor&_expand=paintType`)
             .then(res => res.json())
     }
 
