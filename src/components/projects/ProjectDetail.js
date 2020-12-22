@@ -63,9 +63,13 @@ export const ProjectDetail = (props) => {
                 <p>Paint Finish: {project.paintType.type}</p>
                 <p>Swim Platform: {project.swimPlatform === true ? "yes" : "no"}</p>
             </div>
-            <button onClick={() => deleteProject(project.id).then(()=> props.history.push("/"))}>
-                Delete
-            </button>
+            {
+                localStorage.getItem("app_userType_id") === "1" 
+                ? 
+                <button onClick={() => deleteProject(project.id).then(()=> props.history.push("/"))}>Delete</button> 
+                : 
+                ""
+            }
         </>
     )
 }
