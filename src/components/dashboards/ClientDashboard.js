@@ -16,14 +16,14 @@ export const ClientDashboard = (props) => {
     const { getUserById } = useContext(UserContext)
     const { projectTasks, getProjectTasks, getProjectTasksByProjectId } = useContext(ProjectTaskContext)
 
-    const [project, setProject] = useState({})
+    const [project, setProject] = useState({user:{}, seadekColor: {}, paintType: {}})
     const [user, setUser] = useState({})
     const [filteredProjectTasks, setFiltered] = useState([])
     const [relatedProjectTasks, setRelated] = useState([])
     // projectTasks filtered by isComplete status
     const [complete, setComplete] = useState(0)
     const [incomplete, setIncomplete] = useState(0)
-
+    const [percentageComplete, setPercentage] = useState(null)
     
     useEffect(() => {
         
@@ -34,11 +34,10 @@ export const ClientDashboard = (props) => {
                 setProject(returnedProject)
                 return returnedProject})
             .then((returnedReturnedProject) => {
-                console.log("returnedReturnedProject", returnedReturnedProject)
+                // console.log("returnedReturnedProject", returnedReturnedProject)
                 getProjectTasksByProjectId(returnedReturnedProject[0].id)
                     .then((r)=> setRelated(r))
             })
-            // .then((result) => setRelated(result))
         
         getUserById(clientId)
         .then(setUser)
@@ -46,15 +45,17 @@ export const ClientDashboard = (props) => {
         }, [])
 
     useEffect(() => {
-        console.log("related project Tasks", relatedProjectTasks)
-    }, [relatedProjectTasks])
-    
-    useEffect(() => {
         const done = relatedProjectTasks.filter(task => task.isComplete === true)
         setComplete(done.length)
         const notDone = relatedProjectTasks.filter(task => task.isComplete === false)
         setIncomplete(notDone.length)
     }, [relatedProjectTasks])
+    
+    useEffect(() => {
+        console.log("why?", project.boatName)
+        const percentage = (complete / (complete + incomplete)) * 100
+        setPercentage(percentage)
+    }, [complete, incomplete])
     
     // doughnut data
     const data = {
@@ -78,11 +79,12 @@ export const ClientDashboard = (props) => {
     return (
         <>
             <h3>Welcome, {user.firstName}!</h3>
+            <h5>"{project.boatName}" is {percentageComplete}% complete</h5>
             <div>
                 <Doughnut data={data} />
             </div>
             <div>
-                {/* <ProjectDetail {...props} projectId={project.id}/> */}
+                <ProjectDetail {...props} />
             </div>
             
         </>
