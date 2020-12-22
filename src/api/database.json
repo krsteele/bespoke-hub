@@ -319,15 +319,15 @@
   ],
   "partTypes": [
     {
-      "type": "motor",
+      "type": "Motor",
       "id": 1
     },
     {
-      "type": "navigation system",
+      "type": "Navigation System",
       "id": 2
     },
     {
-      "type": "trailer",
+      "type": "Trailer",
       "id": 3
     }
   ],
