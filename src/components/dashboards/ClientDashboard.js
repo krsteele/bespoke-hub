@@ -1,8 +1,7 @@
-import React, { useEffect, useContext, useState, useRef } from "react"
+import React, { useEffect, useContext, useState } from "react"
 
 // necessary contexts: projects, projectTasks, users
 import { ProjectContext } from "../projects/ProjectsDataProvider"
-import { UserContext } from "../users/UsersDataProvider"
 import { ProjectTaskContext } from "../tasks/ProjectTasksDataProvider"
 // necessary component
 import { ProjectDetail } from "../projects/ProjectDetail"

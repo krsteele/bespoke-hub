@@ -1,4 +1,4 @@
-import React, { useContext, useEffect, useRef, useState } from "react"
+import React, { useContext, useEffect } from "react"
 // import needed contexts
 import { ProjectContext } from "./ProjectsDataProvider"
 import { UserContext } from "../users/UsersDataProvider"
@@ -104,7 +104,7 @@ export const ProjectForm = (props) => {
 
             return newProjectObject /* return the new project object again */
     })
-     .then((newProjectObject) => props.history.push(`/${newProjectObject.id}`)) /* once everything is saved, route the user to the maker project dashboard for the newly created project */
+     .then((newProjectObject) => props.history.push(`/${newProjectObject.userId}`)) /* once everything is saved, route the user to the maker project dashboard for the newly created project */
 }
     
     return (
