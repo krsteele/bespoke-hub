@@ -23,36 +23,18 @@
       "firstName": "Jared",
       "lastName": "Williams",
       "email": "jared@wilco.co",
-      "phone": "361-867-5309",
+      "phone": "361-867-5310",
       "password": "myboatname",
       "userTypeId": 2
     },
     {
+      "id": 5,
       "firstName": "Ian",
       "lastName": "Smith",
       "email": "ian@fosco.com",
-      "phone": "222-222-2222",
+      "phone": "222-222-2233",
       "password": "team",
-      "userTypeId": 1,
-      "id": 5
-    },
-    {
-      "firstName": "Bob",
-      "lastName": "Evans",
-      "email": "bob@evans.com",
-      "phone": "555-555-5555",
-      "password": "client",
-      "userTypeId": 2,
-      "id": 6
-    },
-    {
-      "firstName": "Larry",
-      "lastName": "Franklin",
-      "email": "larry@franklin.com",
-      "phone": "333-333-3333",
-      "password": "client",
-      "userTypeId": 2,
-      "id": 7
+      "userTypeId": 1
     },
     {
       "firstName": "Jimmy ",
@@ -88,6 +70,34 @@
       "isComplete": false,
       "projectEndDate": null,
       "id": 1
+    },
+    {
+      "boatName": "Penny",
+      "year": 1986,
+      "model": "Outrage",
+      "boatLength": 19,
+      "userId": 2,
+      "paintTypeId": 2,
+      "seadekColorId": 14,
+      "swimPlatform": true,
+      "projectStartDate": 1608670844008,
+      "isComplete": false,
+      "projectEndDate": null,
+      "id": 2
+    },
+    {
+      "boatName": "Myrtle",
+      "year": 1979,
+      "model": "Striper",
+      "boatLength": 15,
+      "userId": 8,
+      "paintTypeId": 2,
+      "seadekColorId": 13,
+      "swimPlatform": false,
+      "projectStartDate": 1608673157434,
+      "isComplete": false,
+      "projectEndDate": null,
+      "id": 3
     }
   ],
   "tasks": [
@@ -188,43 +198,43 @@
     {
       "projectId": 1,
       "taskId": 1,
-      "isComplete": false,
+      "isComplete": true,
       "id": 1
     },
     {
       "projectId": 1,
       "taskId": 2,
-      "isComplete": false,
+      "isComplete": true,
       "id": 2
     },
     {
       "projectId": 1,
       "taskId": 3,
-      "isComplete": false,
+      "isComplete": true,
       "id": 3
     },
     {
       "projectId": 1,
       "taskId": 4,
-      "isComplete": false,
+      "isComplete": true,
       "id": 4
     },
     {
       "projectId": 1,
       "taskId": 5,
-      "isComplete": false,
+      "isComplete": true,
       "id": 5
     },
     {
       "projectId": 1,
       "taskId": 6,
-      "isComplete": false,
+      "isComplete": true,
       "id": 6
     },
     {
       "projectId": 1,
       "taskId": 7,
-      "isComplete": false,
+      "isComplete": true,
       "id": 7
     },
     {
@@ -262,6 +272,132 @@
       "taskId": 14,
       "isComplete": false,
       "id": 13
+    },
+    {
+      "projectId": 2,
+      "taskId": 1,
+      "isComplete": true,
+      "id": 14
+    },
+    {
+      "projectId": 2,
+      "taskId": 2,
+      "isComplete": true,
+      "id": 15
+    },
+    {
+      "projectId": 2,
+      "taskId": 3,
+      "isComplete": false,
+      "id": 16
+    },
+    {
+      "projectId": 2,
+      "taskId": 4,
+      "isComplete": false,
+      "id": 17
+    },
+    {
+      "projectId": 2,
+      "taskId": 5,
+      "isComplete": false,
+      "id": 18
+    },
+    {
+      "projectId": 2,
+      "taskId": 6,
+      "isComplete": false,
+      "id": 19
+    },
+    {
+      "projectId": 2,
+      "taskId": 7,
+      "isComplete": false,
+      "id": 20
+    },
+    {
+      "projectId": 2,
+      "taskId": 8,
+      "isComplete": false,
+      "id": 21
+    },
+    {
+      "projectId": 2,
+      "taskId": 9,
+      "isComplete": false,
+      "id": 22
+    },
+    {
+      "projectId": 2,
+      "taskId": 13,
+      "isComplete": false,
+      "id": 23
+    },
+    {
+      "projectId": 2,
+      "taskId": 14,
+      "isComplete": false,
+      "id": 24
+    },
+    {
+      "projectId": 3,
+      "taskId": 1,
+      "isComplete": false,
+      "id": 25
+    },
+    {
+      "projectId": 3,
+      "taskId": 2,
+      "isComplete": false,
+      "id": 26
+    },
+    {
+      "projectId": 3,
+      "taskId": 3,
+      "isComplete": false,
+      "id": 27
+    },
+    {
+      "projectId": 3,
+      "taskId": 4,
+      "isComplete": false,
+      "id": 28
+    },
+    {
+      "projectId": 3,
+      "taskId": 5,
+      "isComplete": false,
+      "id": 29
+    },
+    {
+      "projectId": 3,
+      "taskId": 7,
+      "isComplete": false,
+      "id": 30
+    },
+    {
+      "projectId": 3,
+      "taskId": 8,
+      "isComplete": false,
+      "id": 31
+    },
+    {
+      "projectId": 3,
+      "taskId": 9,
+      "isComplete": false,
+      "id": 32
+    },
+    {
+      "projectId": 3,
+      "taskId": 13,
+      "isComplete": false,
+      "id": 33
+    },
+    {
+      "projectId": 3,
+      "taskId": 14,
+      "isComplete": false,
+      "id": 34
     }
   ],
   "notes": [],
@@ -346,6 +482,36 @@
       "projectId": 1,
       "partId": 5,
       "id": 3
+    },
+    {
+      "projectId": 2,
+      "partId": 3,
+      "id": 4
+    },
+    {
+      "projectId": 2,
+      "partId": 7,
+      "id": 5
+    },
+    {
+      "projectId": 2,
+      "partId": 6,
+      "id": 6
+    },
+    {
+      "projectId": 3,
+      "partId": 1,
+      "id": 7
+    },
+    {
+      "projectId": 3,
+      "partId": 10,
+      "id": 8
+    },
+    {
+      "projectId": 3,
+      "partId": 4,
+      "id": 9
     }
   ],
   "paintTypes": [
