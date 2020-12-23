@@ -1,6 +1,5 @@
 import React, { useContext, useEffect, useState } from "react"
 // import needed contexts
-import { TaskContext } from "./TasksDataProvider"
 import { ProjectContext } from "../projects/ProjectsDataProvider"
 import { ProjectTaskContext } from "./ProjectTasksDataProvider"
 
@@ -12,18 +11,14 @@ import Form from "react-bootstrap/Form"
 
 
 export const TasksList = (props) => {
-    
-    const { tasks, getTasks } = useContext(TaskContext)
-    const { projectTasks, getProjectTasks, patchProjectTask, getProjectTasksByProjectId } = useContext(ProjectTaskContext)
-    const { projects, getProjects, getProjectByUserId } = useContext(ProjectContext)
-    
+//  Contexts
+    const { projectTasks, patchProjectTask, getProjectTasksByProjectId } = useContext(ProjectTaskContext)
+    const { getProjectByUserId } = useContext(ProjectContext)
+//  State variables
     const [project, setProject] = useState({user:{}, seadekColor: {}, paintType: {}})
     const [relatedProjectTasks, setRelated] = useState([{task: {}}])
     
-
-// This is what I'm working on next. I need to get project by user id, then use the project id to get project tasks by project id. 
-// Once those are set in state, I just need to make sure everything else is working accordingly. 
-
+// find the selected project using the user id from params and set in state
 useEffect(() => {
         
     const clientId = parseInt(props.match.params.userId) 
@@ -34,12 +29,14 @@ useEffect(() => {
         })
    
     }, [])
-
+// watch for the project state variable to update and get all projectTasks related to that project
+// watch the state of projectTasks and run whenever it changes
 useEffect(() => {
     getProjectTasksByProjectId(project.id)
         .then((r) => setRelated(r))
 }, [project, projectTasks])
 
+// called from onChange whenever a checkbox is checked or unchecked
 const isCompleteToggle = (evt) => {
     if (evt.target.checked === true) {
         patchProjectTask(parseInt(evt.target.id), {isComplete: true})

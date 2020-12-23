@@ -1,9 +1,6 @@
 import React, { useContext, useState, useEffect } from "react"
 import { UserContext } from "./UsersDataProvider"
 import { UserTypeContext } from "./UserTypeDataProvider"
-// import { useForm } from "react-hook-form"
-// import Form from "react-bootstrap/Form"
-// import Button from "react-bootstrap/Button"
 
 export const UserForm = (props) => {
     // necessary context providers
@@ -11,24 +8,20 @@ export const UserForm = (props) => {
     const { userTypes, getUserTypes } = useContext(UserTypeContext)
     // component state
     const [user, setUser] = useState({})
-    // URL parameter?
+    // checking to see if the user got to this page via the edit button
     const editMode = props.match.params.hasOwnProperty("userId")
-    // changing state
+    // changing state whenever input fields change
     const handleControlledInputChange = (event) => {
         const newUser = Object.assign({}, user)
         newUser[event.target.name] = event.target.value
         setUser(newUser)
-        console.log("new user", newUser)
     }
-
+    // if user arrived via the edit button, find the selected user and set that user in state
     const getUserInEditMode = () => {
         if (editMode) {
-            // console.log("get user in edit mode:", props.match.params)
             const userToEdit = parseInt(props.match.params.userId)
-            console.log("user to edit",userToEdit)
-            console.log("users:", users)
+            
             const selectedUser = users.find(user => user.id === userToEdit)
-            console.log("selected for edit:", selectedUser)
             setUser(selectedUser)
         }
     }

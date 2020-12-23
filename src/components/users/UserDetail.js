@@ -1,28 +1,31 @@
 import React, { useState, useEffect, useContext } from "react"
+import { Link } from "react-router-dom"
+// import contexts
 import { UserContext } from "./UsersDataProvider"
 import { ProjectContext } from "../projects/ProjectsDataProvider"
-import { Link } from "react-router-dom"
 
 export const UserDetail = (props) => {
+//  contexts
     const { users, getUsers, deleteUser } = useContext(UserContext)
-    const [user, setUser] = useState({})
-
     const { projects, getProjects } = useContext(ProjectContext)
+//  state variables
+    const [user, setUser] = useState({})
     const [project, setProject] = useState({})
 
+//  get all users, then get all Projects
     useEffect(() => {
         getUsers().then(getProjects)
     }, [])
 
+//  watch for users to update, then find the user that matches the userId in props and set in state
     useEffect(() => {
-        // console.log(props.match.params)
         const person = users.find(p => p.id === parseInt(props.match.params.userId)) || {}
         setUser(person)
     }, [users])
 
+//  watch for change in projects and user state, then find the project related to that user
     useEffect(() => {
         const proj = projects.find(j => j.userId === user.id)
-        // console.log("project found:", proj)
         setProject(proj)
     }, [projects, user])
 
@@ -32,6 +35,7 @@ export const UserDetail = (props) => {
             
             <div>
                 {
+                    // only render links if there is a project found for this user
                     (project === {} || project === undefined)
                     ? "" 
                     : <>
@@ -48,7 +52,6 @@ export const UserDetail = (props) => {
             <div className="user__phone">Phone: {user.phone}</div>
             <div className="user__password">Password: {user.password}</div>
             <button onClick={() => {
-                // console.log("edit:", user.id)
                 props.history.push(`/people/edit/${user.id}`)}}>
                 Edit
             </button>
