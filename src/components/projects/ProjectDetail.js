@@ -3,66 +3,49 @@ import { Link } from "react-router-dom"
 import { ProjectContext } from "./ProjectsDataProvider"
 import { ProjectPartContext } from "../parts/ProjectPartsDataProvider"
 import { PartTypeContext } from "../parts/PartTypesProvider"
+import { UserContext } from "../users/UsersDataProvider"
 
 export const ProjectDetail = (props) => {
-    const { getProjectById } = useContext(ProjectContext)
-    const { projectParts, getProjectParts } = useContext(ProjectPartContext)
+    const { getProjectByUserId, deleteProject } = useContext(ProjectContext)
+    const { getUserById } = useContext(UserContext)
+    const { projectParts, getProjectParts, getProjectPartsByProjectId } = useContext(ProjectPartContext)
     const { partTypes, getPartTypes } = useContext(PartTypeContext)
 
-    const [project, setProject] = useState({user: {}, seadekColor: {}, paintType: {}})
-    const [filteredProjectParts, setfilteredParts] = useState([])
-    console.log("this is the info you are looking for", filteredProjectParts)
-    useEffect(() => {
-        const projectId = parseInt(props.match.params.projectId)
-        getProjectById(projectId)
-            .then(setProject)
+    const [project, setProject] = useState({user:{}, seadekColor: {}, paintType: {}})
+    const [user, setUser] = useState({})
+    const [relatedProjectParts, setParts] = useState([])
+    // console.log("this is the info you are looking for", filteredProjectParts)
+    useEffect(() => {       
+        const userId = parseInt(props.match.params.userId)
+       
+        getProjectByUserId(userId)
+            .then((returnedProject) => {
+                // console.log("proj detail returned proj", returnedProject[0])
+                setProject(returnedProject[0])
+            })
         }, [])
 
     useEffect(() => {
-        getProjectParts()
         getPartTypes()
+        getProjectPartsByProjectId(project.id)
+            .then(setParts)
     }, [project])
-    
-    useEffect(() => {
-        const filtered = projectParts.filter(obj => obj.projectId === project.id)
-        // console.log("filtered project parts", filtered)
-        setfilteredParts(filtered)
-    }, [projectParts])
-    // console.log(filteredProjectParts)
 
-    useEffect(()=> {
-        console.log("pp's after set", filteredProjectParts)
-    }, [filteredProjectParts])
 
     return (
         <>
-        <h3>"{project.boatName}" — {project.boatLength}' {project.model} {project.year}</h3>
-        <button onClick={() => {
-                console.log("edit project:", project.id)
-                // props.history.push(`/edit/${project.id}`)
-                }}>
-                Edit
-            </button>
-            <button onClick={() => console.log("delete project:", project.id)}>
-                Delete
-            </button>
+        
             <div>
-                <h5>Client:</h5>
-                <Link key={project.user.id} to={`/people/${project.user.id}`}>
-                    <p>{project.user.firstName} {project.user.lastName}</p>
-                </Link>
-                <Link to={`/dashboard/${project.user.id}`}>
-                    <p>View client dashboard</p>
-                </Link>
-            </div>
-            <div>
-                <h5>Boat details:</h5>
+                <h3>Boat details:</h3>
+                <h5>"{project.boatName}" — {project.boatLength}' {project.model} {project.year}</h5>
                 {
-                   filteredProjectParts.map(obj => {
+                   relatedProjectParts.map(obj => {
                        if (obj.hasOwnProperty('part')) {
                         const foundType = partTypes.find(type => type.id === obj.part.partTypeId)
-                           return <p key={obj.part.id}>
-                               {foundType.type}: {obj.part.name}</p>
+                        // console.log("found type", foundType)
+                           return   <div key={obj.id}>
+                                        <p>{foundType.type}: {obj.part.name}</p>
+                                    </div>
                        }
                    }) 
                 }
@@ -70,6 +53,13 @@ export const ProjectDetail = (props) => {
                 <p>Paint Finish: {project.paintType.type}</p>
                 <p>Swim Platform: {project.swimPlatform === true ? "yes" : "no"}</p>
             </div>
+            {
+                localStorage.getItem("app_userType_id") === "1" 
+                ? 
+                <button onClick={() => deleteProject(project.id).then(()=> props.history.push("/"))}>Delete</button> 
+                : 
+                ""
+            }
         </>
     )
 }

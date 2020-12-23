@@ -6,12 +6,12 @@ export const ProjectsList = (props) => {
     const { projects, getProjects } = useContext(ProjectContext)
 
     useEffect(() => {
-        console.log("I'm ProjectsList initial render!")
+        // console.log("I'm ProjectsList initial render!")
         getProjects()
     }, [])
 
     useEffect(() => {
-        console.log("I'm ProjectsList second render with data:", projects)
+        // console.log("I'm ProjectsList second render with data:", projects)
     }, [projects])
 
     return (
@@ -24,7 +24,7 @@ export const ProjectsList = (props) => {
                 <ul>
                     {
                     projects.map(project => {
-                        return <Link key={project.id} to={`/${project.id}`}>
+                        return <Link key={project.id} to={`/${project.userId}`}>
                             <li>"{project.boatName}" — {project.boatLength}' {project.model} {project.year}</li>
                         </Link>
                     })

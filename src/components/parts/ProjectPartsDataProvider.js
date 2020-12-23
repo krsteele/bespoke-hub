@@ -12,6 +12,12 @@ export const ProjectPartsProvider = (props) => {
             .then(setProjectParts)
     }
 
+    const getProjectPartsByProjectId = (id) => {
+        // console.log("PT GET id", id)
+        return fetch(`http://localhost:8088/projectParts?projectId=${id}&_expand=part`)
+            .then(res => res.json())
+    }
+
     const addProjectPart = projectPart => {
         return fetch("http://localhost:8088/projectParts", {
             method: "POST",
@@ -25,7 +31,7 @@ export const ProjectPartsProvider = (props) => {
 
     return (
         <ProjectPartContext.Provider value={{
-            projectParts, getProjectParts, addProjectPart
+            projectParts, getProjectParts, addProjectPart, getProjectPartsByProjectId
         }}>
             {props.children}
         </ProjectPartContext.Provider>

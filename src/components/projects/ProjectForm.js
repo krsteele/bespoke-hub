@@ -6,6 +6,8 @@ import { PartContext } from "../parts/PartsDataProvider"
 import { ProjectPartContext } from "../parts/ProjectPartsDataProvider"
 import { SeadekColorsContext } from "../seadek/SeadekColorsDataProvider"
 import { PaintTypeContext } from "../paint/PaintTypesDataProvider"
+import { TaskContext }  from "../tasks/TasksDataProvider"
+import { ProjectTaskContext } from "../tasks/ProjectTasksDataProvider"
 
 // React-Hook-Form
 import { useForm } from "react-hook-form"
@@ -15,13 +17,6 @@ import Form from "react-bootstrap/Form"
 import Button from "react-bootstrap/Button"
 
 export const ProjectForm = (props) => {
-    /* 
-        filter parts for select menus
-        build form
-        upon submit, addProject, then take newProjectObject that is returned
-        and use the id to create the projectParts records(x3) 
-        then change view to project detail
-    */
 
 //  Needed contexts
     const { addProject } = useContext(ProjectContext)
@@ -30,60 +25,86 @@ export const ProjectForm = (props) => {
     const { seadekColors, getSeadekColors } = useContext(SeadekColorsContext)
     const { addProjectPart } = useContext(ProjectPartContext)
     const { paintTypes, getPaintTypes } = useContext(PaintTypeContext)
+    const { tasks, getTasks } = useContext(TaskContext)
+    const { addProjectTask } = useContext(ProjectTaskContext)
 
 //  Grab needed functions from React-Form-Hook
     const { register, handleSubmit, errors, formState } = useForm()
 
 //  Get data needed to render dropdowns
     useEffect(()=> {
-        getUsers().then(getParts).then(getSeadekColors).then(getPaintTypes)
+        getUsers().then(getParts).then(getSeadekColors).then(getPaintTypes).then(getTasks)
     }, [])
 
 /* 
     Function called in onSubmit to call the addProject function, 
     then call the add ProjectParts function for the engine, trailer and GPS parts 
+
 */
     const createNewProject = (data) => {
-        // console.log("project form submit clicked")
-        console.log("submitted project data:", data)
-        const swimPlatform = data.swimPlatform === "true" ? true : false
-
-        const newBoatProject = {
-           boatName: data.boatName,
-           year: data.year,
-           model: data.model,
-           boatLength: data.boatLength,
-           userId: data.userId,
-           paintTypeId: data.paintTypeId,
-           seadekColorId: data.seadekColorId,
-           swimPlatform: swimPlatform,
-           projectStartDate: Date.now(),
-           isComplete: false,
-           projectEndDate: null,
-       }
-
-       addProject(newBoatProject)
-        .then((newProjectObject)=> {
-            const motor = {
-                projectId: newProjectObject.id,
-                partId: data.motor
-            }
-            const nav = {
-                projectId: newProjectObject.id,
-                partId: data.navSystem
-            }
-            const trailer = {
+        // post the project object
+       addProject({
+            boatName: data.boatName,
+            year: data.year,
+            model: data.model,
+            boatLength: data.boatLength,
+            userId: data.userId,
+            paintTypeId: data.paintTypeId,
+            seadekColorId: data.seadekColorId,
+            swimPlatform: data.swimPlatform,
+            projectStartDate: Date.now(),
+            isComplete: false,
+            projectEndDate: null
+            })
+            .then(newProjectObject => {
+            // capture the return and then post the parts related to the project
+                addProjectPart({
+                    projectId: newProjectObject.id,
+                    partId: data.motor
+                })
+                addProjectPart({
+                    projectId: newProjectObject.id,
+                    partId: data.navSystem
+                })
+                addProjectPart({
                 projectId: newProjectObject.id,
                 partId: data.trailer
-            }
-            addProjectPart(motor)
-            addProjectPart(nav)
-            addProjectPart(trailer)
-            console.log(newProjectObject)
+            })
+            // filter the tasks based on form choices and post the projectTask relationships
+           tasks.forEach(task => {
+               if (task.taskTypeId ===1 || task.taskTypeId === 5){
+                    addProjectTask({
+                        projectId: newProjectObject.id,
+                        taskId: task.id,
+                        isComplete: false
+                    })
+               }
+               if (newProjectObject.swimPlatform && task.taskTypeId === 4) {
+                addProjectTask({
+                    projectId: newProjectObject.id,
+                    taskId: task.id,
+                    isComplete: false
+                })
+               }
+               if (newProjectObject.paintTypeId === 1 && task.taskTypeId === 2){
+                addProjectTask({
+                    projectId: newProjectObject.id,
+                    taskId: task.id,
+                    isComplete: false
+                })
+               }
+               if (newProjectObject.paintTypeId === 2 && task.taskTypeId === 3){
+                addProjectTask({
+                    projectId: newProjectObject.id,
+                    taskId: task.id,
+                    isComplete: false
+                })
+               }
+            })
 
-            return newProjectObject
+            return newProjectObject /* return the new project object again */
     })
-     .then((newProjectObject) => props.history.push(`/${newProjectObject.id}`))
+     .then((newProjectObject) => props.history.push(`/${newProjectObject.id}`)) /* once everything is saved, route the user to the maker project dashboard for the newly created project */
 }
     
     return (
@@ -181,7 +202,7 @@ export const ProjectForm = (props) => {
                 </Form.Control>
             </Form.Group>
             <Form.Group controlId="form__swimPlatform">
-                <Form.Check inline name="swimPlatform" type="checkbox" label="Add swim platform" value="true" ref={register} />
+                <Form.Check inline name="swimPlatform" type="checkbox" label="Add swim platform" ref={register} />
             </Form.Group>
             <Button variant="primary" type="submit" disabled={formState.isSubmitting}>Submit</Button>
         </Form>

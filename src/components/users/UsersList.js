@@ -20,12 +20,12 @@ export const UsersList = (props) => {
             <button onClick={() => props.history.push("/people/create")}>
                 Add New
             </button>
-            <button onClick={(()=>console.log("I will filter teammates."))}>
+            {/* <button onClick={(()=>console.log("I will filter teammates."))}>
                 Teammates
             </button>
             <button onClick={(()=>console.log("I will filter Clients."))}>
                 Clients
-            </button>
+            </button> */}
             <article className="usersList">
                 {
                     users.map(user => {

@@ -13,7 +13,10 @@ export const BespokeHub = () => (
       if (localStorage.getItem("app_user_id")) {
           return (
               <>
-                <Route render={props => <NavBar {...props} />} />
+                {
+                    localStorage.getItem("app_userType_id") === "1" ? <Route render={props => <NavBar {...props} />} /> : ""
+                }
+                
                 <Route render={props => <ApplicationViews {...props} />} />
               </>
           )
