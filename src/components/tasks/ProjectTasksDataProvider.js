@@ -13,8 +13,7 @@ export const ProjectTasksProvider = (props) => {
     }
 
     const getProjectTasksByProjectId = (id) => {
-        console.log("PT GET id", id)
-        return fetch(`http://localhost:8088/projectTasks?projectId=${id}`)
+        return fetch(`http://localhost:8088/projectTasks?projectId=${id}&_expand=task`)
             .then(res => res.json())
     }
 
