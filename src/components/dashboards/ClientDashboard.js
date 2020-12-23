@@ -13,37 +13,32 @@ import {Doughnut} from 'react-chartjs-2';
 export const ClientDashboard = (props) => {
     // pulling in the contexts needed
     const { getProjectByUserId } = useContext(ProjectContext)
-    const { getUserById } = useContext(UserContext)
-    const { projectTasks, getProjectTasks, getProjectTasksByProjectId } = useContext(ProjectTaskContext)
-
+    const { projectTasks, getProjectTasksByProjectId } = useContext(ProjectTaskContext)
+    // state variables
     const [project, setProject] = useState({user:{}, seadekColor: {}, paintType: {}})
-    const [user, setUser] = useState({})
-    const [filteredProjectTasks, setFiltered] = useState([])
     const [relatedProjectTasks, setRelated] = useState([])
     // projectTasks filtered by isComplete status
     const [complete, setComplete] = useState(0)
     const [incomplete, setIncomplete] = useState(0)
     const [percentageComplete, setPercentage] = useState(null)
     
+    // useEffects
+    // find the project that matches the user's id in the params
     useEffect(() => {
         
         const clientId = parseInt(props.match.params.userId) 
         
         getProjectByUserId(clientId)
             .then((returnedProject) => {
-                setProject(returnedProject)
-                return returnedProject})
-            .then((returnedReturnedProject) => {
-                // console.log("returnedReturnedProject", returnedReturnedProject)
-                getProjectTasksByProjectId(returnedReturnedProject[0].id)
-                    .then((r)=> setRelated(r))
+                setProject(returnedProject[0])
             })
-        
-        getUserById(clientId)
-        .then(setUser)
-
         }, [])
-
+    // find the project-task relationships related to the found project
+    useEffect(() => {
+        getProjectTasksByProjectId(project.id)
+            .then((r)=> setRelated(r))
+    }, [project, projectTasks])
+    // filter the related project-task relationships by the status of the isComplete property
     useEffect(() => {
         const done = relatedProjectTasks.filter(task => task.isComplete === true)
         setComplete(done.length)
@@ -52,8 +47,8 @@ export const ClientDashboard = (props) => {
     }, [relatedProjectTasks])
     
     useEffect(() => {
-        console.log("why?", project.boatName)
-        const percentage = (complete / (complete + incomplete)) * 100
+        console.log("why?", project)
+        const percentage = Math.round((complete / (complete + incomplete)) * 100)
         setPercentage(percentage)
     }, [complete, incomplete])
     
@@ -66,8 +61,8 @@ export const ClientDashboard = (props) => {
         datasets: [{
           data: [complete, incomplete],
           backgroundColor: [
-          '#FF6384',
-          '#FFCE56'
+          '#FF6384', /* complete pink */
+          '#FFCE56' /* incomplete yellow */
           ],
           hoverBackgroundColor: [
           '#FF6384',
@@ -78,7 +73,7 @@ export const ClientDashboard = (props) => {
 
     return (
         <>
-            <h3>Welcome, {user.firstName}!</h3>
+            <h3>Welcome, {project.user.firstName}!</h3>
             <h5>"{project.boatName}" is {percentageComplete}% complete</h5>
             <div>
                 <Doughnut data={data} />
