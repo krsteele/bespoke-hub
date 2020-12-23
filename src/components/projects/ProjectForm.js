@@ -28,8 +28,6 @@ export const ProjectForm = (props) => {
     const { tasks, getTasks } = useContext(TaskContext)
     const { addProjectTask } = useContext(ProjectTaskContext)
 
-    // const [filteredTasks, setFiltered] = useState([])
-
 //  Grab needed functions from React-Form-Hook
     const { register, handleSubmit, errors, formState } = useForm()
 
@@ -44,7 +42,6 @@ export const ProjectForm = (props) => {
 
 */
     const createNewProject = (data) => {
-        console.log("submitted project data:", data)
         // post the project object
        addProject({
             boatName: data.boatName,
@@ -73,7 +70,7 @@ export const ProjectForm = (props) => {
                 projectId: newProjectObject.id,
                 partId: data.trailer
             })
-            // filter the tasks based on form choices
+            // filter the tasks based on form choices and post the projectTask relationships
            tasks.forEach(task => {
                if (task.taskTypeId ===1 || task.taskTypeId === 5){
                     addProjectTask({
@@ -105,9 +102,9 @@ export const ProjectForm = (props) => {
                }
             })
 
-            return newProjectObject
+            return newProjectObject /* return the new project object again */
     })
-     .then((newProjectObject) => props.history.push(`/${newProjectObject.id}`))
+     .then((newProjectObject) => props.history.push(`/${newProjectObject.id}`)) /* once everything is saved, route the user to the maker project dashboard for the newly created project */
 }
     
     return (
