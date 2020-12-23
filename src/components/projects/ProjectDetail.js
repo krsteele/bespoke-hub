@@ -30,24 +30,14 @@ export const ProjectDetail = (props) => {
         getProjectPartsByProjectId(project.id)
             .then(setParts)
     }, [project])
-    
-    // useEffect(() => {
-    //     const filtered = projectParts.filter(obj => obj.projectId === project.id)
-    //     // console.log("filtered project parts", filtered)
-    //     setfilteredParts(filtered)
-    // }, [projectParts])
-    // console.log(filteredProjectParts)
 
-    // useEffect(()=> {
-    //     console.log("pp's after set", relatedProjectParts)
-    // }, [relatedProjectParts])
 
     return (
         <>
-        <h3>"{project.boatName}" — {project.boatLength}' {project.model} {project.year}</h3>
         
             <div>
-                <h5>Boat details:</h5>
+                <h3>Boat details:</h3>
+                <h5>"{project.boatName}" — {project.boatLength}' {project.model} {project.year}</h5>
                 {
                    relatedProjectParts.map(obj => {
                        if (obj.hasOwnProperty('part')) {
