@@ -7,7 +7,7 @@ export const ClientDashboardList = (props) => {
 
     useEffect(() => {
         getProjects()
-    }, [])
+    })
 
     return (
         <div className="dashboards">

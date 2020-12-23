@@ -44,15 +44,6 @@
       "password": "toot",
       "userTypeId": 2,
       "id": 8
-    },
-    {
-      "firstName": "Don",
-      "lastName": "Jones",
-      "email": "dj@gmail.com",
-      "phone": "888-777-6666",
-      "password": "client",
-      "userTypeId": 2,
-      "id": 9
     }
   ],
   "userTypes": [
@@ -107,20 +98,6 @@
       "isComplete": false,
       "projectEndDate": null,
       "id": 3
-    },
-    {
-      "boatName": "Christie",
-      "year": 1987,
-      "model": "Montauk",
-      "boatLength": 17,
-      "userId": 9,
-      "paintTypeId": 1,
-      "seadekColorId": 9,
-      "swimPlatform": true,
-      "projectStartDate": 1608747040352,
-      "isComplete": false,
-      "projectEndDate": null,
-      "id": 4
     }
   ],
   "tasks": [
@@ -421,84 +398,6 @@
       "taskId": 14,
       "isComplete": false,
       "id": 34
-    },
-    {
-      "projectId": 4,
-      "taskId": 1,
-      "isComplete": false,
-      "id": 35
-    },
-    {
-      "projectId": 4,
-      "taskId": 2,
-      "isComplete": false,
-      "id": 36
-    },
-    {
-      "projectId": 4,
-      "taskId": 3,
-      "isComplete": false,
-      "id": 37
-    },
-    {
-      "projectId": 4,
-      "taskId": 4,
-      "isComplete": false,
-      "id": 38
-    },
-    {
-      "projectId": 4,
-      "taskId": 5,
-      "isComplete": false,
-      "id": 39
-    },
-    {
-      "projectId": 4,
-      "taskId": 6,
-      "isComplete": false,
-      "id": 40
-    },
-    {
-      "projectId": 4,
-      "taskId": 7,
-      "isComplete": false,
-      "id": 41
-    },
-    {
-      "projectId": 4,
-      "taskId": 8,
-      "isComplete": false,
-      "id": 42
-    },
-    {
-      "projectId": 4,
-      "taskId": 10,
-      "isComplete": false,
-      "id": 43
-    },
-    {
-      "projectId": 4,
-      "taskId": 11,
-      "isComplete": false,
-      "id": 44
-    },
-    {
-      "projectId": 4,
-      "taskId": 12,
-      "isComplete": false,
-      "id": 45
-    },
-    {
-      "projectId": 4,
-      "taskId": 14,
-      "isComplete": false,
-      "id": 46
-    },
-    {
-      "projectId": 4,
-      "taskId": 13,
-      "isComplete": false,
-      "id": 47
     }
   ],
   "notes": [],
@@ -613,21 +512,6 @@
       "projectId": 3,
       "partId": 4,
       "id": 9
-    },
-    {
-      "projectId": 4,
-      "partId": 3,
-      "id": 10
-    },
-    {
-      "projectId": 4,
-      "partId": 8,
-      "id": 11
-    },
-    {
-      "projectId": 4,
-      "partId": 5,
-      "id": 12
     }
   ],
   "paintTypes": [

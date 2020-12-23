@@ -59,7 +59,7 @@ export const Login = props => {
                     <h2>Please sign in</h2>
                     <fieldset>
                         <label htmlFor="inputEmail"> Email address </label>
-                        <input ref={email} type="email"
+                        <input ref={email} type="email" autoComplete="email"
                             id="email"
                             className="form-control"
                             placeholder="Email address"
@@ -67,7 +67,7 @@ export const Login = props => {
                     </fieldset>
                     <fieldset>
                         <label htmlFor="inputPassword"> Password </label>
-                        <input ref={password} type="password"
+                        <input ref={password} type="password" autoComplete="current-password"
                             id="password"
                             className="form-control"
                             placeholder="Password"

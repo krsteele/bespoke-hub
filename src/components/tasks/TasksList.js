@@ -3,9 +3,6 @@ import React, { useContext, useEffect, useState } from "react"
 import { ProjectContext } from "../projects/ProjectsDataProvider"
 import { ProjectTaskContext } from "./ProjectTasksDataProvider"
 
-// React-Hook-Form
-import { useForm } from "react-hook-form"
-
 // React-Bootstrap Component imports
 import Form from "react-bootstrap/Form"
 
