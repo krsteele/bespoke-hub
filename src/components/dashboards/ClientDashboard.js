@@ -45,9 +45,8 @@ export const ClientDashboard = (props) => {
         const notDone = relatedProjectTasks.filter(task => task.isComplete === false)
         setIncomplete(notDone.length)
     }, [relatedProjectTasks])
-    
+    // watches the state of complete and incomplete and calculates the percentage of project completion
     useEffect(() => {
-        console.log("why?", project)
         const percentage = Math.round((complete / (complete + incomplete)) * 100)
         setPercentage(percentage)
     }, [complete, incomplete])

@@ -240,37 +240,37 @@
     {
       "projectId": 1,
       "taskId": 8,
-      "isComplete": false,
+      "isComplete": true,
       "id": 8
     },
     {
       "projectId": 1,
       "taskId": 10,
-      "isComplete": false,
+      "isComplete": true,
       "id": 9
     },
     {
       "projectId": 1,
       "taskId": 11,
-      "isComplete": false,
+      "isComplete": true,
       "id": 10
     },
     {
       "projectId": 1,
       "taskId": 12,
-      "isComplete": false,
+      "isComplete": true,
       "id": 11
     },
     {
       "projectId": 1,
       "taskId": 13,
-      "isComplete": false,
+      "isComplete": true,
       "id": 12
     },
     {
       "projectId": 1,
       "taskId": 14,
-      "isComplete": false,
+      "isComplete": true,
       "id": 13
     },
     {
@@ -288,13 +288,13 @@
     {
       "projectId": 2,
       "taskId": 3,
-      "isComplete": false,
+      "isComplete": true,
       "id": 16
     },
     {
       "projectId": 2,
       "taskId": 4,
-      "isComplete": false,
+      "isComplete": true,
       "id": 17
     },
     {

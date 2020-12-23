@@ -22,11 +22,14 @@ export const Login = props => {
             .then(exists => {
                 if (exists && exists.password === password.current.value && exists.userTypeId === 1) {
                     // The user id is saved under the key app_user_id in local Storage. Change below if needed!
+                    // Sets userTypeId in local storage for conditional render of certain elements
                     localStorage.setItem("app_user_id", exists.id)
                     localStorage.setItem("app_userType_id", exists.userTypeId)
                     props.history.push("/")
                 } else if (exists && exists.password === password.current.value && exists.userTypeId === 2) {
                     // The user id is saved under the key app_user_id in local Storage. Change below if needed!
+                    // Sets userTypeId in local storage for conditional render of certain elements
+                    // if this set of conditions is true, takes client straight to their own dashboard
                     localStorage.setItem("app_user_id", exists.id)
                     localStorage.setItem("app_userType_id", exists.userTypeId)
                     props.history.push(`/dashboards/${exists.id}`)

@@ -6,19 +6,14 @@ export const ProjectsList = (props) => {
     const { projects, getProjects } = useContext(ProjectContext)
 
     useEffect(() => {
-        // console.log("I'm ProjectsList initial render!")
         getProjects()
     }, [])
-
-    useEffect(() => {
-        // console.log("I'm ProjectsList second render with data:", projects)
-    }, [projects])
 
     return (
         <div className="projects">
             <h1>Projects</h1>
             <button onClick={() => props.history.push("/create")}>
-                Add New
+                Add New Project
             </button>
             <article className="projectsList">
                 <ul>
