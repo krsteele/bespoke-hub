@@ -14,45 +14,51 @@ import Form from "react-bootstrap/Form"
 export const TasksList = (props) => {
     
     const { tasks, getTasks } = useContext(TaskContext)
-    const { projectTasks, getProjectTasks, patchProjectTask } = useContext(ProjectTaskContext)
-    const { projects, getProjects } = useContext(ProjectContext)
+    const { projectTasks, getProjectTasks, patchProjectTask, getProjectTasksByProjectId } = useContext(ProjectTaskContext)
+    const { projects, getProjects, getProjectByUserId } = useContext(ProjectContext)
     
-    const [filteredProjectTasks, setFiltered] = useState([])
+    const [project, setProject] = useState({user:{}, seadekColor: {}, paintType: {}})
+    const [relatedProjectTasks, setRelated] = useState([{task: {}}])
     
-    //  Grab needed functions from React-Form-Hook
-    // const { register, formState } = useForm()
 
-    useEffect(() => {
-        getProjectTasks().then(getTasks).then(getProjects)
+// This is what I'm working on next. I need to get project by user id, then use the project id to get project tasks by project id. 
+// Once those are set in state, I just need to make sure everything else is working accordingly. 
+
+useEffect(() => {
+        
+    const clientId = parseInt(props.match.params.userId) 
+    
+    getProjectByUserId(clientId)
+        .then((returnedProject) => {
+            setProject(returnedProject[0])
+        })
+   
     }, [])
-    
-    useEffect(() => {
-        const projId = parseInt(props.match.params.projectId)
-        // console.log("project id from params", projId)
-        const filteredProjectTasks = projectTasks.filter(obj => obj.projectId === projId)
-        // console.log("filtered pt before set:", filteredProjectTasks)
-        setFiltered(filteredProjectTasks)
-    }, [projectTasks])
 
-    const isCompleteToggle = (evt) => {
-        if (evt.target.checked === true) {
-            patchProjectTask(parseInt(evt.target.id), {isComplete: true})
-        } else {
-            patchProjectTask(parseInt(evt.target.id), {isComplete: false})
-        }
+useEffect(() => {
+    getProjectTasksByProjectId(project.id)
+        .then((r) => setRelated(r))
+}, [project, projectTasks])
+
+const isCompleteToggle = (evt) => {
+    if (evt.target.checked === true) {
+        patchProjectTask(parseInt(evt.target.id), {isComplete: true})
+    } else {
+        patchProjectTask(parseInt(evt.target.id), {isComplete: false})
     }
-// check out denise's repo gig denzelb5 on gh
+}
+
     return (
         <>
-        <h5>Task List</h5>
+        <h3>Task List:</h3>
         <Form>
         <Form.Group controlId="form__checklist">
                 {
-                    filteredProjectTasks.map(obj => {
-                    return (<Form.Check name="checkbox" key={obj.id} id={obj.id} type="checkbox" label={obj.task.text} checked={obj.isComplete} onChange={evt => {
+                    relatedProjectTasks.map(obj => (
+                    <Form.Check name="checkbox" key={`task--${obj.id}`} id={obj.id} type="checkbox" label={obj.task.text} checked={obj.isComplete} onChange={evt => {
                         isCompleteToggle(evt)
                     }} />)
-                    })
+                    )
                 }
         </Form.Group>
         </Form>
