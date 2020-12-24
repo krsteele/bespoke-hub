@@ -1,12 +1,15 @@
 import React from "react"
 import { Link, Route } from "react-router-dom"
 import { Logout } from "../auth/Logout"
-import "./NavBar.css"
+// React-Bootstrap Component imports
+import Navbar from "react-bootstrap/Navbar"
 
 export const NavBar = (props) => {
     return (
        <>
-        <ul className="navbar">
+
+
+        {/* <ul className="navbar">
                 <li className="navbar__item active">
                     <Link className="navbar__link" to="/">Projects</Link>
                 </li>
@@ -17,7 +20,7 @@ export const NavBar = (props) => {
                     <Link className="navbar__link" to="/dashboards">Client Views</Link>
                 </li>
             </ul>
-            <Route render={props => <Logout {...props} />} />
+            <Route render={props => <Logout {...props} />} /> */}
         </>
     )
 }
