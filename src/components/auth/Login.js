@@ -1,5 +1,6 @@
 import React, { useRef } from "react"
 import "./Login.css"
+import Button from "react-bootstrap/Button"
 
 
 export const Login = props => {
@@ -74,9 +75,9 @@ export const Login = props => {
                             required />
                     </fieldset>
                     <fieldset>
-                        <button type="submit" onClick={handleLogin} >
+                        <Button type="submit" variant="secondary" onClick={handleLogin} >
                             Sign in
-                        </button>
+                        </Button>
                     </fieldset>
                 </form>
             </section>
