@@ -1,6 +1,9 @@
 import React, { useRef } from "react"
 import "./Login.css"
 import Button from "react-bootstrap/Button"
+import Image from 'react-bootstrap/Image'
+import Container from 'react-bootstrap/Container'
+import Boat from "../../images/login-whaler"
 
 
 export const Login = props => {
@@ -45,46 +48,46 @@ export const Login = props => {
     }
 
     return (
-        <main className="container--login">
-            <dialog className="dialog dialog--auth" ref={existDialog}>
-                <div>User does not exist</div>
-                <button className="button--close" onClick={e => existDialog.current.close()}>Close</button>
-            </dialog>
-            <dialog className="dialog dialog--password" ref={passwordDialog}>
-                <div>Password does not match</div>
-                <button className="button--close" onClick={e => passwordDialog.current.close()}>Close</button>
-            </dialog>
-            <section>
-                <form className="form--login" onSubmit={handleLogin}>
-                    <h1>Bespoke Hub</h1>
-                    <h2>Please sign in</h2>
-                    <fieldset>
-                        <label htmlFor="inputEmail"> Email address </label>
-                        <input ref={email} type="email" autoComplete="email"
-                            id="email"
-                            className="form-control"
-                            placeholder="Email address"
-                            required autoFocus />
-                    </fieldset>
-                    <fieldset>
-                        <label htmlFor="inputPassword"> Password </label>
-                        <input ref={password} type="password" autoComplete="current-password"
-                            id="password"
-                            className="form-control"
-                            placeholder="Password"
-                            required />
-                    </fieldset>
-                    <fieldset>
-                        <Button type="submit" variant="secondary" onClick={handleLogin} >
-                            Sign in
-                        </Button>
-                    </fieldset>
-                </form>
-            </section>
-            {/* <section className="link--register">
-                <Link to="/register">Not a member yet?</Link>
-            </section> */}
-        </main>
+        <Container>
+            <Image src={Boat} fluid />
+            <main className="container--login">
+                <dialog className="dialog dialog--auth" ref={existDialog}>
+                    <div>User does not exist</div>
+                    <button className="button--close" onClick={e => existDialog.current.close()}>Close</button>
+                </dialog>
+                <dialog className="dialog dialog--password" ref={passwordDialog}>
+                    <div>Password does not match</div>
+                    <button className="button--close" onClick={e => passwordDialog.current.close()}>Close</button>
+                </dialog>
+                <section>
+                    <form className="form--login" onSubmit={handleLogin}>
+                        <h1>Bespoke Hub</h1>
+                        <h2>Please sign in</h2>
+                        <fieldset>
+                            <label htmlFor="inputEmail"> Email address </label>
+                            <input ref={email} type="email" autoComplete="email"
+                                id="email"
+                                className="form-control"
+                                placeholder="Email address"
+                                required autoFocus />
+                        </fieldset>
+                        <fieldset>
+                            <label htmlFor="inputPassword"> Password </label>
+                            <input ref={password} type="password" autoComplete="current-password"
+                                id="password"
+                                className="form-control"
+                                placeholder="Password"
+                                required />
+                        </fieldset>
+                        <fieldset>
+                            <Button type="submit" variant="secondary" onClick={handleLogin} >
+                                Sign in
+                            </Button>
+                        </fieldset>
+                    </form>
+                </section>
+            </main>
+        </Container>
     )
 }
 

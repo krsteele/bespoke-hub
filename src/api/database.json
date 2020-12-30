@@ -44,6 +44,15 @@
       "password": "toot",
       "userTypeId": 2,
       "id": 8
+    },
+    {
+      "firstName": "Smith",
+      "lastName": "McClintock",
+      "email": "smith@gmail.com",
+      "phone": "111-222-3333",
+      "password": "myboatname",
+      "userTypeId": 2,
+      "id": 9
     }
   ],
   "userTypes": [
@@ -258,19 +267,19 @@
     {
       "projectId": 1,
       "taskId": 12,
-      "isComplete": true,
+      "isComplete": false,
       "id": 11
     },
     {
       "projectId": 1,
       "taskId": 13,
-      "isComplete": true,
+      "isComplete": false,
       "id": 12
     },
     {
       "projectId": 1,
       "taskId": 14,
-      "isComplete": true,
+      "isComplete": false,
       "id": 13
     },
     {
@@ -300,13 +309,13 @@
     {
       "projectId": 2,
       "taskId": 5,
-      "isComplete": false,
+      "isComplete": true,
       "id": 18
     },
     {
       "projectId": 2,
       "taskId": 6,
-      "isComplete": false,
+      "isComplete": true,
       "id": 19
     },
     {

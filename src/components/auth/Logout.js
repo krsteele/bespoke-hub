@@ -10,12 +10,12 @@ export const Logout = (props) => {
     } 
     
     return (
-        <form onSubmit={handleLogout}>
-            <fieldset>
-                <Button type="submit" variant="secondary">
-                    Log out
-                </Button>
-             </fieldset>
-        </form>
+                <form onSubmit={handleLogout}>
+                    <fieldset>
+                        <Button type="submit" variant="secondary">
+                            Log out
+                        </Button>
+                    </fieldset>
+                </form>
     )
 }
