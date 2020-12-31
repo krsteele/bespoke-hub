@@ -4,6 +4,8 @@ import { TasksList } from "../tasks/TasksList"
 
 import { UserContext } from "../users/UsersDataProvider"
 import { Link } from "react-router-dom"
+// import react-bootstrap components
+import Container from 'react-bootstrap/Container'
 
 
 
@@ -22,7 +24,7 @@ export const MakerProjectDashboard = (props) => {
         }, [])
 
    return (
-        <>   
+        <Container>   
             <section className="user">
                 <h3>Client:</h3>
                 <Link key={user.id} to={`/people/${user.id}`}><h5 className="user__name">{user.firstName} {user.lastName}</h5></Link>
@@ -39,7 +41,7 @@ export const MakerProjectDashboard = (props) => {
             <section className="tasks">
                 <TasksList {...props} />
             </section>
-        </>
+        </Container>
    ) 
 
 }
