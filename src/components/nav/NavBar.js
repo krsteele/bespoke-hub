@@ -10,7 +10,7 @@ export const NavBar = (props) => {
        <>
             <Navbar bg="light" expand="lg">
             <Navbar.Brand href="/">
-                FasseCo
+                Bespoke Hub
             </Navbar.Brand>
             <Navbar.Toggle aria-controls="basic-navbar-nav" />
             <Navbar.Collapse id="basic-navbar-nav">
@@ -22,19 +22,6 @@ export const NavBar = (props) => {
                 </Nav>
             </Navbar.Collapse>
             </Navbar>
-
-        {/* <ul className="navbar">
-                <li className="navbar__item active">
-                    <Link className="navbar__link" to="/">Projects</Link>
-                </li>
-                <li className="navbar__item">
-                    <Link className="navbar__link" to="/people">People</Link>
-                </li>
-                <li className="navbar__item">
-                    <Link className="navbar__link" to="/dashboards">Client Views</Link>
-                </li>
-            </ul>
-            <Route render={props => <Logout {...props} />} /> */}
         </>
     )
 }

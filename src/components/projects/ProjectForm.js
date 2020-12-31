@@ -204,7 +204,7 @@ export const ProjectForm = (props) => {
             <Form.Group controlId="form__swimPlatform">
                 <Form.Check inline name="swimPlatform" type="checkbox" label="Add swim platform" ref={register} />
             </Form.Group>
-            <Button variant="primary" type="submit" disabled={formState.isSubmitting}>Submit</Button>
+            <Button variant="secondary" type="submit" disabled={formState.isSubmitting}>Submit</Button>
         </Form>
         </>
     )

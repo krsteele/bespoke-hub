@@ -3,6 +3,7 @@ import React, { useEffect, useState, useContext } from "react"
 import { ProjectContext } from "./ProjectsDataProvider"
 import { ProjectPartContext } from "../parts/ProjectPartsDataProvider"
 import { PartTypeContext } from "../parts/PartTypesProvider"
+import Button from "react-bootstrap/Button"
 
 export const ProjectDetail = (props) => {
 //   needed contexts
@@ -53,7 +54,7 @@ export const ProjectDetail = (props) => {
             {
                 localStorage.getItem("app_userType_id") === "1" 
                 ? 
-                <button onClick={() => deleteProject(project.id).then(()=> props.history.push("/"))}>Delete Project</button> 
+                <Button variant="secondary" onClick={() => deleteProject(project.id).then(()=> props.history.push("/"))}>Delete Project</Button> 
                 : 
                 ""
             }

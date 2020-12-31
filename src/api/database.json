@@ -255,13 +255,13 @@
     {
       "projectId": 1,
       "taskId": 10,
-      "isComplete": true,
+      "isComplete": false,
       "id": 9
     },
     {
       "projectId": 1,
       "taskId": 11,
-      "isComplete": true,
+      "isComplete": false,
       "id": 10
     },
     {

@@ -3,10 +3,12 @@ import "./Login.css"
 import Button from "react-bootstrap/Button"
 import Image from 'react-bootstrap/Image'
 import Container from 'react-bootstrap/Container'
-import Boat from "../../images/login-whaler"
+import background from './login-whaler.png'
+
 
 
 export const Login = props => {
+    const backgroundImage = background
     const email = useRef()
     const password = useRef()
     const existDialog = useRef()
@@ -48,9 +50,8 @@ export const Login = props => {
     }
 
     return (
+        <main>
         <Container>
-            <Image src={Boat} fluid />
-            <main className="container--login">
                 <dialog className="dialog dialog--auth" ref={existDialog}>
                     <div>User does not exist</div>
                     <button className="button--close" onClick={e => existDialog.current.close()}>Close</button>
@@ -86,8 +87,8 @@ export const Login = props => {
                         </fieldset>
                     </form>
                 </section>
-            </main>
-        </Container>
+            </Container>
+        </main>
     )
 }
 
