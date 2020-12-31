@@ -7,6 +7,8 @@ import { ProjectTaskContext } from "../tasks/ProjectTasksDataProvider"
 import { ProjectDetail } from "../projects/ProjectDetail"
 // import doughnut graph component from chartjs
 import {Doughnut} from 'react-chartjs-2';
+// import react-bootstrap components
+import Container from 'react-bootstrap/Container'
 
 
 export const ClientDashboard = (props) => {
@@ -70,17 +72,21 @@ export const ClientDashboard = (props) => {
       };
 
     return (
-        <>
-            <h3>Welcome, {project.user.firstName}!</h3>
-            <h5>"{project.boatName}" is {percentageComplete}% complete</h5>
+        <Container>
+            <div>
+                <h3>Welcome, {project.user.firstName}!</h3>
+            </div>
+            <div>
+                <h5>"{project.boatName}" is {percentageComplete}% complete</h5>
+            </div>
+
             <div>
                 <Doughnut data={data} />
             </div>
             <div>
                 <ProjectDetail {...props} />
             </div>
-            
-        </>
+        </Container>
     )
 }
 
