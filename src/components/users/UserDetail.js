@@ -3,6 +3,9 @@ import { Link } from "react-router-dom"
 // import contexts
 import { UserContext } from "./UsersDataProvider"
 import { ProjectContext } from "../projects/ProjectsDataProvider"
+// import react-bootstrap components
+import Button from 'react-bootstrap/Button'
+import Container from 'react-bootstrap/Container'
 
 export const UserDetail = (props) => {
 //  contexts
@@ -30,7 +33,7 @@ export const UserDetail = (props) => {
     }, [projects, user])
 
     return (
-        <section className="user">
+        <Container className="user">
             <h1 className="user__name">{user.firstName} {user.lastName}</h1>
             
             <div>
@@ -51,13 +54,13 @@ export const UserDetail = (props) => {
             <div className="user__email">Email: {user.email}</div>
             <div className="user__phone">Phone: {user.phone}</div>
             <div className="user__password">Password: {user.password}</div>
-            <button onClick={() => {
+            <Button variant="secondary" onClick={() => {
                 props.history.push(`/people/edit/${user.id}`)}}>
                 Edit
-            </button>
-            <button onClick={() => deleteUser(user.id).then(()=>props.history.push("/people"))}>
+            </Button>
+            <Button variant="secondary" onClick={() => deleteUser(user.id).then(()=>props.history.push("/people"))}>
                 Delete
-            </button>
-        </section>
+            </Button>
+        </Container>
     )
 }
