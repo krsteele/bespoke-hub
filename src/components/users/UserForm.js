@@ -1,6 +1,10 @@
 import React, { useContext, useState, useEffect } from "react"
 import { UserContext } from "./UsersDataProvider"
 import { UserTypeContext } from "./UserTypeDataProvider"
+// import react-bootstrap components
+import Button from 'react-bootstrap/Button'
+import Container from 'react-bootstrap/Container'
+import Form from 'react-bootstrap/Form'
 
 export const UserForm = (props) => {
     // necessary context providers
@@ -39,7 +43,7 @@ export const UserForm = (props) => {
         const userTypeId = parseInt(user.userTypeId)
 
         if (userTypeId === 0) {
-            window.alert("Please select a user type")
+            window.alert("Please select a contact type")
         } else {
             if (editMode) {
                 updateUser({
@@ -67,83 +71,85 @@ export const UserForm = (props) => {
     }
 
     return (
-        <form className="userForm">
-            <h3 className="userForm__title">{editMode ? "Edit Person Info" : "Add New Person"}</h3>
-            <fieldset>
-                <div className="form-group">
-                    <label htmlFor="firstName">First Name</label>
-                    <input type="text" name="firstName" required autoFocus className="form-control"
-                        proptype="varchar"
-                        defaultValue={user.firstName}
-                        onChange={handleControlledInputChange}
-                    />
-                </div>
-            </fieldset>
-            <fieldset>
-                <div className="form-group">
-                    <label htmlFor="lastName">Last Name</label>
-                    <input type="text" name="lastName" required autoFocus className="form-control"
-                        proptype="varchar"
-                        defaultValue={user.lastName}
-                        onChange={handleControlledInputChange}
-                    />
-                </div>
-            </fieldset>
-            <fieldset>
-                <div className="form-group">
-                    <label htmlFor="email">Email</label>
-                    <input type="text" name="email" required autoFocus className="form-control"
-                        proptype="varchar"
-                        defaultValue={user.email}
-                        onChange={handleControlledInputChange}
-                    />
-                </div>
-            </fieldset>
-            <fieldset>
-                <div className="form-group">
-                    <label htmlFor="phone">Phone</label>
-                    <input type="text" name="phone" autoFocus className="form-control"
-                        proptype="varchar"
-                        defaultValue={user.phone}
-                        onChange={handleControlledInputChange}
-                    />
-                </div>
-            </fieldset>
-            <fieldset>
-                <div className="form-group">
-                    <label htmlFor="password">Password</label>
-                    <input type="text" name="password" required autoFocus className="form-control"
-                        proptype="varchar"
-                        defaultValue={user.password}
-                        onChange={handleControlledInputChange}
-                    />
-                </div>
-            </fieldset>
-            <fieldset>
-                <div className="form-group">
-                    <label htmlFor="userTypeId">User Type </label>
-                    <select name="userTypeId" className="form-control"
-                        proptype="int"
-                        value={user.userTypeId}
-                        onChange={handleControlledInputChange}>
+        <Container>
+            <Form className="userForm">
+                <h3 className="userForm__title">{editMode ? "Edit Contact Info" : "Add New Contact"}</h3>
+                <Form.Group>
+                    <div className="form-group">
+                        <Form.Label htmlFor="firstName">First Name</Form.Label>
+                        <Form.Control type="text" name="firstName" required autoFocus className="form-control"
+                            proptype="varchar"
+                            defaultValue={user.firstName}
+                            onChange={handleControlledInputChange}
+                        />
+                    </div>
+                </Form.Group>
+                <Form.Group>
+                    <div className="form-group">
+                        <Form.Label htmlFor="lastName">Last Name</Form.Label>
+                        <Form.Control type="text" name="lastName" required autoFocus className="form-control"
+                            proptype="varchar"
+                            defaultValue={user.lastName}
+                            onChange={handleControlledInputChange}
+                        />
+                    </div>
+                </Form.Group>
+                <Form.Group>
+                    <div className="form-group">
+                        <Form.Label htmlFor="email">Email</Form.Label>
+                        <Form.Control type="email" name="email" required autoFocus className="form-control"
+                            proptype="varchar"
+                            defaultValue={user.email}
+                            onChange={handleControlledInputChange}
+                        />
+                    </div>
+                </Form.Group>
+                <Form.Group>
+                    <div className="form-group">
+                        <Form.Label htmlFor="phone">Phone</Form.Label>
+                        <Form.Control type="text" name="phone" autoFocus className="form-control"
+                            proptype="varchar"
+                            defaultValue={user.phone}
+                            onChange={handleControlledInputChange}
+                        />
+                    </div>
+                </Form.Group>
+                <Form.Group>
+                    <div className="form-group">
+                        <Form.Label htmlFor="password">Password</Form.Label>
+                        <Form.Control type="password" name="password" required autoFocus className="form-control"
+                            proptype="varchar"
+                            defaultValue={user.password}
+                            onChange={handleControlledInputChange}
+                        />
+                    </div>
+                </Form.Group>
+                <Form.Group>
+                    <div className="form-group">
+                        <Form.Label htmlFor="userTypeId">Contact Type </Form.Label>
+                        <Form.Control as="select" name="userTypeId" className="form-control"
+                            proptype="int"
+                            value={user.userTypeId}
+                            onChange={handleControlledInputChange}>
 
-                        <option value="0">Select a type</option>
-                        {userTypes.map(t => (
-                            <option key={t.id} value={t.id}>
-                                {t.type}
-                            </option>
-                        ))}
-                    </select>
-                </div>
-            </fieldset>
-            <button type="submit"
-                onClick={evt => {
-                    evt.preventDefault()
-                    createNewUser()
-                }}
-                className="btn btn-primary">
-                {editMode ? "Save Updates" : "Save"}
-            </button>
-        </form>
+                            <option value="0">Select a type</option>
+                            {userTypes.map(t => (
+                                <option key={t.id} value={t.id}>
+                                    {t.type}
+                                </option>
+                            ))}
+                        </Form.Control>
+                    </div>
+                </Form.Group>
+                <Button variant="secondary" type="submit"
+                    onClick={evt => {
+                        evt.preventDefault()
+                        createNewUser()
+                    }}
+                    className="btn btn-primary">
+                    {editMode ? "Save Updates" : "Save"}
+                </Button>
+            </Form>
+        </Container>
     )
 }
