@@ -1,6 +1,9 @@
 import React, { useContext, useEffect } from "react"
 import { ProjectContext } from "../projects/ProjectsDataProvider"
 import { Link } from "react-router-dom"
+// import react-bootstrap components
+import ListGroup from 'react-bootstrap/ListGroup'
+import Container from 'react-bootstrap/Container'
 
 export const ClientDashboardList = (props) => {
     const { projects, getProjects } = useContext(ProjectContext)
@@ -10,20 +13,18 @@ export const ClientDashboardList = (props) => {
     })
 
     return (
-        <div className="dashboards">
+        <Container className="dashboards">
             <h1>Client Dashboards</h1>
     
             <article className="clientDashboardList">
-                <ul>
+                <ListGroup>
                     {
                     projects.map(project => {
-                        return <Link key={project.id} to={`/dashboards/${project.user.id}`}>
-                            <li>{project.user.firstName} {project.user.lastName} — "{project.boatName}" — {project.boatLength}' {project.model} {project.year}</li>
-                        </Link>
+                        return <ListGroup.Item action key={project.id} href={`/dashboards/${project.user.id}`}>{project.user.firstName} {project.user.lastName} — "{project.boatName}" — {project.boatLength}' {project.model} {project.year}</ListGroup.Item>
                     })
                 }
-                </ul>
+                </ListGroup>
             </article>
-        </div>
+        </Container>
     )
 }
