@@ -93,20 +93,6 @@
       "isComplete": false,
       "projectEndDate": null,
       "id": 2
-    },
-    {
-      "boatName": "Myrtle",
-      "year": 1979,
-      "model": "Striper",
-      "boatLength": 15,
-      "userId": 8,
-      "paintTypeId": 2,
-      "seadekColorId": 13,
-      "swimPlatform": false,
-      "projectStartDate": 1608673157434,
-      "isComplete": false,
-      "projectEndDate": null,
-      "id": 3
     }
   ],
   "tasks": [
@@ -347,66 +333,6 @@
       "taskId": 14,
       "isComplete": false,
       "id": 24
-    },
-    {
-      "projectId": 3,
-      "taskId": 1,
-      "isComplete": false,
-      "id": 25
-    },
-    {
-      "projectId": 3,
-      "taskId": 2,
-      "isComplete": false,
-      "id": 26
-    },
-    {
-      "projectId": 3,
-      "taskId": 3,
-      "isComplete": false,
-      "id": 27
-    },
-    {
-      "projectId": 3,
-      "taskId": 4,
-      "isComplete": false,
-      "id": 28
-    },
-    {
-      "projectId": 3,
-      "taskId": 5,
-      "isComplete": false,
-      "id": 29
-    },
-    {
-      "projectId": 3,
-      "taskId": 7,
-      "isComplete": false,
-      "id": 30
-    },
-    {
-      "projectId": 3,
-      "taskId": 8,
-      "isComplete": false,
-      "id": 31
-    },
-    {
-      "projectId": 3,
-      "taskId": 9,
-      "isComplete": false,
-      "id": 32
-    },
-    {
-      "projectId": 3,
-      "taskId": 13,
-      "isComplete": false,
-      "id": 33
-    },
-    {
-      "projectId": 3,
-      "taskId": 14,
-      "isComplete": false,
-      "id": 34
     }
   ],
   "notes": [],
@@ -506,21 +432,6 @@
       "projectId": 2,
       "partId": 6,
       "id": 6
-    },
-    {
-      "projectId": 3,
-      "partId": 1,
-      "id": 7
-    },
-    {
-      "projectId": 3,
-      "partId": 10,
-      "id": 8
-    },
-    {
-      "projectId": 3,
-      "partId": 4,
-      "id": 9
     }
   ],
   "paintTypes": [

@@ -2,7 +2,6 @@ import React, { useRef } from "react"
 import "./Login.css"
 import Button from "react-bootstrap/Button"
 import Container from 'react-bootstrap/Container'
-import background from './login-whaler.png'
 
 
 

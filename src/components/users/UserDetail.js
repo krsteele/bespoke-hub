@@ -6,6 +6,8 @@ import { ProjectContext } from "../projects/ProjectsDataProvider"
 // import react-bootstrap components
 import Button from 'react-bootstrap/Button'
 import Container from 'react-bootstrap/Container'
+import Card from "react-bootstrap/Card"
+import ListGroup from 'react-bootstrap/ListGroup'
 
 export const UserDetail = (props) => {
 //  contexts
@@ -33,27 +35,31 @@ export const UserDetail = (props) => {
     }, [projects, user])
 
     return (
-        <Container className="user">
-            <h3 className="user__name">{user.firstName} {user.lastName}</h3>
-            
-            <div>
-                {
-                    // only render links if there is a project found for this user
-                    (project === {} || project === undefined)
-                    ? "" 
-                    : <>
-                    <Link to={`/${user.id}`}>
-                        <p>View project page</p>
-                    </Link>
-                    <Link to={`/dashboards/${user.id}`}>
-                        <p>View client dashboard</p>
-                    </Link>
-                    </>
-                }
-            </div>
-            <div className="user__email">Email: {user.email}</div>
-            <div className="user__phone">Phone: {user.phone}</div>
-            <div className="user__password">Password: {user.password}</div>
+        <>
+            <Card>
+                <Card.Header><h3 className="user__name">{user.firstName} {user.lastName}</h3></Card.Header>
+                <Card.Body>
+                    <ListGroup className="list-group-flush">
+                        <ListGroup.Item className="user__email">Email: {user.email}</ListGroup.Item>
+                        <ListGroup.Item className="user__phone">Phone: {user.phone}</ListGroup.Item>
+                        <ListGroup.Item className="user__password">Password: {user.password}</ListGroup.Item>
+                    </ListGroup>
+                </Card.Body>
+                    {
+                        // only render links if there is a project found for this user
+                        (project === {} || project === undefined)
+                        ? "" 
+                        : <Card.Body>
+                        <Card.Link to={`/${user.id}`}>
+                            View project page
+                        </Card.Link>
+                        <Card.Link to={`/dashboards/${user.id}`}>
+                            View client dashboard
+                        </Card.Link>
+                        </Card.Body>
+                    }
+
+            </Card>
             <Button className="btn" variant="secondary" onClick={() => {
                 props.history.push(`/people/edit/${user.id}`)}}>
                 Edit
@@ -61,6 +67,6 @@ export const UserDetail = (props) => {
             <Button className="btn" variant="secondary" onClick={() => deleteUser(user.id).then(()=>props.history.push("/people"))}>
                 Delete
             </Button>
-        </Container>
+        </>
     )
 }

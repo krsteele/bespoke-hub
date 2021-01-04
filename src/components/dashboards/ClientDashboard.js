@@ -73,16 +73,16 @@ export const ClientDashboard = (props) => {
 
     return (
         <Container>
-            <div>
-                <h3>Welcome, {project.user.firstName}!</h3>
-            </div>
-            <div>
-                <h5>"{project.boatName}" is {percentageComplete}% complete</h5>
-            </div>
+            <section className="clientDash">
+                <div className="clientDash__welcome">
+                    <h1>Welcome, {project.user.firstName}!</h1>
+                    <h3>"{project.boatName}" is {percentageComplete}% complete</h3>
+                </div>
 
-            <div>
-                <Doughnut data={data} />
-            </div>
+                <div className="clientDash__doughnut">
+                    <Doughnut data={data} />
+                </div>
+            </section>
             <div>
                 <ProjectDetail {...props} />
             </div>

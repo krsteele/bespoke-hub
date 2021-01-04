@@ -6,6 +6,8 @@ import { ProjectTaskContext } from "./ProjectTasksDataProvider"
 // React-Bootstrap Component imports
 import Form from "react-bootstrap/Form"
 import Container from "react-bootstrap/Container"
+import Card from "react-bootstrap/Card"
+
 
 
 export const TasksList = (props) => {
@@ -44,19 +46,21 @@ const isCompleteToggle = (evt) => {
 }
 
     return (
-        <>
-        <h3>Task List:</h3>
-        <Form>
-        <Form.Group controlId="form__checklist">
-                {
-                    relatedProjectTasks.map(obj => (
-                    <Form.Check name="checkbox" key={`task--${obj.id}`} id={obj.id} type="checkbox" label={obj.task.text} checked={obj.isComplete} onChange={evt => {
-                        isCompleteToggle(evt)
-                    }} />)
-                    )
-                }
-        </Form.Group>
-        </Form>
-        </>
+            <Card>
+                <Card.Header><h3>Task List</h3></Card.Header>
+                <Card.Body>
+                    <Form>
+                        <Form.Group controlId="form__checklist">
+                                {
+                                    relatedProjectTasks.map(obj => (
+                                        <Form.Check name="checkbox" key={`task--${obj.id}`} id={obj.id} type="checkbox" label={obj.task.text} checked={obj.isComplete} onChange={evt => {
+                                            isCompleteToggle(evt)
+                                        }} />)
+                                        )
+                                    }
+                        </Form.Group>
+                    </Form>
+                </Card.Body>
+            </Card>
     )
 }

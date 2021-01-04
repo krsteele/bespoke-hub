@@ -1,8 +1,8 @@
-@import url('https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@500&display=swap');
-@import url('https://fonts.googleapis.com/css2?family=Nunito+Sans:wght@300&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Source+Serif+Pro&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Source+Serif+Pro&display=swap');
 
 h1, h2, h3, h4, h5, h6 {
-  font-family: 'Cormorant Garamond', serif;
+  font-family: 'Source Serif Pro', serif;
 }
 h1 {
   font-size: 42px;
@@ -14,7 +14,7 @@ h3 {
 
 body {
   margin: 0;
-  font-family: 'Nunito Sans', sans-serif;
+  font-family: 'Source Serif Pro', sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
 }
@@ -26,4 +26,12 @@ code {
 
 .btn {
   margin: 5px 5px 5px 0px;
+}
+
+.clientDash__welcome {
+  justify-content: center;
+}
+
+.clientDash__doughnut {
+  margin: 50px 0;
 }

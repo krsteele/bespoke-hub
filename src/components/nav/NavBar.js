@@ -5,7 +5,6 @@ import { Logout } from "../auth/Logout"
 import Navbar from "react-bootstrap/Navbar"
 import Nav from "react-bootstrap/Nav"
 
-import Logo from "./logo-bespoke-hub.png"
 
 export const NavBar = (props) => {
     return (
