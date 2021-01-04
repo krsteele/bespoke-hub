@@ -1,14 +1,12 @@
 import React, { useRef } from "react"
 import "./Login.css"
 import Button from "react-bootstrap/Button"
-import Image from 'react-bootstrap/Image'
 import Container from 'react-bootstrap/Container'
 import background from './login-whaler.png'
 
 
 
 export const Login = props => {
-    const backgroundImage = background
     const email = useRef()
     const password = useRef()
     const existDialog = useRef()
