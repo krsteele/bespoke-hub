@@ -54,7 +54,7 @@ export const ProjectDetail = (props) => {
             {
                 localStorage.getItem("app_userType_id") === "1" 
                 ? 
-                <Button variant="secondary" onClick={() => deleteProject(project.id).then(()=> props.history.push("/"))}>Delete Project</Button> 
+                <Button className="btn" variant="secondary" onClick={() => deleteProject(project.id).then(()=> props.history.push("/"))}>Delete Project</Button> 
                 : 
                 ""
             }

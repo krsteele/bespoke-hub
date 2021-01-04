@@ -31,9 +31,6 @@ export const MakerProjectDashboard = (props) => {
                 <Link to={`/dashboards/${user.id}`}>
                     <p>View client dashboard</p>
                 </Link>
-                <div className="user__email">Email: {user.email}</div>
-                <div className="user__phone">Phone: {user.phone}</div>
-                <div className="user__password">Password: {user.password}</div>
             </section>
             <section className="project">
                 <ProjectDetail {...props} />

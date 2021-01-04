@@ -141,7 +141,7 @@ export const UserForm = (props) => {
                         </Form.Control>
                     </div>
                 </Form.Group>
-                <Button variant="secondary" type="submit"
+                <Button className="btn" variant="secondary" type="submit"
                     onClick={evt => {
                         evt.preventDefault()
                         createNewUser()

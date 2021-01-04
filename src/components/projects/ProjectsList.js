@@ -19,7 +19,7 @@ export const ProjectsList = (props) => {
         <Container>
             <div className="projectList__header">
                 <h1>Projects</h1>
-                <Button variant="secondary" onClick={() => props.history.push("/create")}>
+                <Button className="btn" variant="secondary" onClick={() => props.history.push("/create")}>
                     + Project
                 </Button>
             </div>

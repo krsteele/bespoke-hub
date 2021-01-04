@@ -81,7 +81,7 @@ export const Login = props => {
                                 required />
                         </fieldset>
                         <fieldset>
-                            <Button type="submit" variant="secondary" onClick={handleLogin} >
+                            <Button className="btn" type="submit" variant="secondary" onClick={handleLogin} >
                                 Sign in
                             </Button>
                         </fieldset>

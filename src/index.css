@@ -4,6 +4,12 @@
 h1, h2, h3, h4, h5, h6 {
   font-family: 'Cormorant Garamond', serif;
 }
+h1 {
+  font-size: 31px;
+}
+h3 {
+  font-size: 21px;
+}
 
 
 body {
@@ -16,4 +22,8 @@ body {
 code {
   font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
     monospace;
+}
+
+.btn {
+  margin: 5px 5px 5px 0px;
 }

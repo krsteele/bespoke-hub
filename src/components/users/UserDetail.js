@@ -34,7 +34,7 @@ export const UserDetail = (props) => {
 
     return (
         <Container className="user">
-            <h1 className="user__name">{user.firstName} {user.lastName}</h1>
+            <h3 className="user__name">{user.firstName} {user.lastName}</h3>
             
             <div>
                 {
@@ -54,11 +54,11 @@ export const UserDetail = (props) => {
             <div className="user__email">Email: {user.email}</div>
             <div className="user__phone">Phone: {user.phone}</div>
             <div className="user__password">Password: {user.password}</div>
-            <Button variant="secondary" onClick={() => {
+            <Button className="btn" variant="secondary" onClick={() => {
                 props.history.push(`/people/edit/${user.id}`)}}>
                 Edit
             </Button>
-            <Button variant="secondary" onClick={() => deleteUser(user.id).then(()=>props.history.push("/people"))}>
+            <Button className="btn" variant="secondary" onClick={() => deleteUser(user.id).then(()=>props.history.push("/people"))}>
                 Delete
             </Button>
         </Container>

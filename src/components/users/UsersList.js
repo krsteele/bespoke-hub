@@ -19,8 +19,8 @@ export const UsersList = (props) => {
         <Container className="users">
             <h1>People</h1>
 
-            <Button variant="secondary" onClick={() => props.history.push("/people/create")}>
-                Add New
+            <Button className="btn" className="btn" variant="secondary" onClick={() => props.history.push("/people/create")}>
+                + Contact
             </Button>
             
             <article className="usersList">
