@@ -1,9 +1,13 @@
 import React, {useContext, useState, useEffect} from "react"
 import { ProjectDetail } from "../projects/ProjectDetail"
 import { TasksList } from "../tasks/TasksList"
+import { DeleteProject } from "../projects/DeleteProjectButton"
 
 import { UserContext } from "../users/UsersDataProvider"
 import { Link } from "react-router-dom"
+// import react-bootstrap components
+import Container from 'react-bootstrap/Container'
+import Card from 'react-bootstrap/Card'
 
 
 
@@ -22,24 +26,26 @@ export const MakerProjectDashboard = (props) => {
         }, [])
 
    return (
-        <>   
-            <section className="user">
-                <h3>Client:</h3>
-                <Link key={user.id} to={`/people/${user.id}`}><h5 className="user__name">{user.firstName} {user.lastName}</h5></Link>
-                <Link to={`/dashboards/${user.id}`}>
-                    <p>View client dashboard</p>
-                </Link>
-                <div className="user__email">Email: {user.email}</div>
-                <div className="user__phone">Phone: {user.phone}</div>
-                <div className="user__password">Password: {user.password}</div>
-            </section>
+        <Container>   
             <section className="project">
                 <ProjectDetail {...props} />
             </section>
+            <Card>
+                <Card.Header><h3>Client</h3></Card.Header>
+                <Card.Body>
+                    <Link key={user.id} to={`/people/${user.id}`}>{user.firstName} {user.lastName}</Link>
+                    <Link to={`/dashboards/${user.id}`}>
+                        <p>View client dashboard</p>
+                    </Link>
+                </Card.Body>
+            </Card>
             <section className="tasks">
                 <TasksList {...props} />
             </section>
-        </>
+            <section>
+                <DeleteProject {...props} />
+            </section>
+        </Container>
    ) 
 
 }

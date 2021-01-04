@@ -15,6 +15,7 @@ import { useForm } from "react-hook-form"
 // React-Bootstrap Component imports
 import Form from "react-bootstrap/Form"
 import Button from "react-bootstrap/Button"
+import Container from "react-bootstrap/Container"
 
 export const ProjectForm = (props) => {
 
@@ -108,7 +109,7 @@ export const ProjectForm = (props) => {
 }
     
     return (
-        <>
+        <Container>
         <h3>Create New Project</h3>
         <Form onSubmit={handleSubmit(createNewProject)}>
             <Form.Group controlId="form__boatName">
@@ -204,8 +205,8 @@ export const ProjectForm = (props) => {
             <Form.Group controlId="form__swimPlatform">
                 <Form.Check inline name="swimPlatform" type="checkbox" label="Add swim platform" ref={register} />
             </Form.Group>
-            <Button variant="primary" type="submit" disabled={formState.isSubmitting}>Submit</Button>
+            <Button className="btn" variant="secondary" type="submit" disabled={formState.isSubmitting}>Submit</Button>
         </Form>
-        </>
+        </Container>
     )
 }

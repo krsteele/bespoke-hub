@@ -3,6 +3,9 @@ import React, { useEffect, useState, useContext } from "react"
 import { ProjectContext } from "./ProjectsDataProvider"
 import { ProjectPartContext } from "../parts/ProjectPartsDataProvider"
 import { PartTypeContext } from "../parts/PartTypesProvider"
+// react-bootstrap components
+import Card from "react-bootstrap/Card"
+import ListGroup from 'react-bootstrap/ListGroup'
 
 export const ProjectDetail = (props) => {
 //   needed contexts
@@ -33,30 +36,34 @@ export const ProjectDetail = (props) => {
     return (
         <>
         
-            <div>
-                <h3>Boat details:</h3>
-                <h5>"{project.boatName}" — {project.boatLength}' {project.model} {project.year}</h5>
-                {
-                   relatedProjectParts.map(obj => {
-                       if (obj.hasOwnProperty('part')) {
-                        const foundType = partTypes.find(type => type.id === obj.part.partTypeId)
-                           return   <div key={obj.id}>
-                                        <p>{foundType.type}: {obj.part.name}</p>
-                                    </div>
-                       }
-                   }) 
-                }
-                <p>Seadek Color: {project.seadekColor.color}</p>
-                <p>Paint Finish: {project.paintType.type}</p>
-                <p>Swim Platform: {project.swimPlatform === true ? "yes" : "no"}</p>
-            </div>
-            {
+            <Card>
+                <Card.Header><h3>Boat details</h3></Card.Header>
+                <Card.Body>
+                    <Card.Title>"{project.boatName}" — {project.boatLength}' {project.model} {project.year}</Card.Title>
+                    <ListGroup className="list-group-flush">
+                        {
+                        relatedProjectParts.map(obj => {
+                            if (obj.hasOwnProperty('part')) {
+                                const foundType = partTypes.find(type => type.id === obj.part.partTypeId)
+                                return   <ListGroup.Item key={obj.id}>
+                                                <b>{foundType.type}</b>: {obj.part.name}
+                                            </ListGroup.Item>
+                            }
+                        }) 
+                        }
+                        <ListGroup.Item><b>Seadek Color</b>: {project.seadekColor.color}</ListGroup.Item>
+                        <ListGroup.Item><b>Paint Finish</b>: {project.paintType.type}</ListGroup.Item>
+                        <ListGroup.Item><b>Swim Platform</b>: {project.swimPlatform === true ? "yes" : "no"}</ListGroup.Item>
+                    </ListGroup>
+                </Card.Body>
+            </Card>
+            {/* {
                 localStorage.getItem("app_userType_id") === "1" 
                 ? 
-                <button onClick={() => deleteProject(project.id).then(()=> props.history.push("/"))}>Delete Project</button> 
+                <Button className="btn" variant="secondary" onClick={() => deleteProject(project.id).then(()=> props.history.push("/"))}>Delete Project</Button> 
                 : 
                 ""
-            }
+            } */}
         </>
     )
 }

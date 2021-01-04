@@ -1,4 +1,5 @@
 import React from "react"
+import Button from "react-bootstrap/Button"
 
 
 export const Logout = (props) => {
@@ -9,12 +10,12 @@ export const Logout = (props) => {
     } 
     
     return (
-        <form onSubmit={handleLogout}>
-            <fieldset>
-                <button type="submit">
-                    Sign out
-                </button>
-             </fieldset>
-        </form>
+                <form onSubmit={handleLogout}>
+                    <fieldset>
+                        <Button type="submit" variant="secondary">
+                            Log out
+                        </Button>
+                    </fieldset>
+                </form>
     )
 }

@@ -2,6 +2,10 @@ import React, { useContext, useEffect } from "react"
 import { Link } from "react-router-dom"
 // import context
 import { UserContext } from "./UsersDataProvider"
+// react-bootstrap components
+import Button from 'react-bootstrap/Button'
+import ListGroup from 'react-bootstrap/ListGroup'
+import Container from 'react-bootstrap/Container'
 
 export const UsersList = (props) => {
 //  context
@@ -12,22 +16,24 @@ export const UsersList = (props) => {
     }, [])
 
     return (
-        <div className="users">
+        <Container className="users">
             <h1>People</h1>
 
-            <button onClick={() => props.history.push("/people/create")}>
-                Add New
-            </button>
+            <Button className="btn" className="btn" variant="secondary" onClick={() => props.history.push("/people/create")}>
+                + Contact
+            </Button>
             
             <article className="usersList">
+                <ListGroup>
                 {
                     users.map(user => {
-                        return <Link key={user.id} to={`/people/${user.id}`}>
-                            <p>{user.firstName} {user.lastName}</p>
-                        </Link>
+                        return <ListGroup.Item action href={`people/${user.id}`} key={user.id}>
+                            {user.firstName} {user.lastName}
+                        </ListGroup.Item>
                     })
                 }
+                </ListGroup>
             </article>
-        </div>
+        </Container>
     )
 }
