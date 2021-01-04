@@ -6,9 +6,14 @@ import { ProjectTaskContext } from "../tasks/ProjectTasksDataProvider"
 // necessary component
 import { ProjectDetail } from "../projects/ProjectDetail"
 // import doughnut graph component from chartjs
-import {Doughnut} from 'react-chartjs-2';
+// import {Doughnut} from 'react-chartjs-2';
 // import react-bootstrap components
 import Container from 'react-bootstrap/Container'
+// import doughnut from grommet
+import { Grommet, Box, Meter, Stack, Text } from 'grommet';
+// import grommet theme object
+import { grommetTheme } from "../../grommetTheme"
+
 
 
 export const ClientDashboard = (props) => {
@@ -21,8 +26,9 @@ export const ClientDashboard = (props) => {
     // projectTasks filtered by isComplete status
     const [complete, setComplete] = useState(0)
     const [incomplete, setIncomplete] = useState(0)
-    const [percentageComplete, setPercentage] = useState(null)
-    
+    const [percentageComplete, setPercentage] = useState(0)
+    let percentage = percentageComplete || 0
+
     // useEffects
     // find the project that matches the user's id in the params
     useEffect(() => {
@@ -53,40 +59,62 @@ export const ClientDashboard = (props) => {
     }, [complete, incomplete])
     
     // doughnut data
-    const data = {
-        labels: [
-            'complete',
-          'incomplete'
-        ],
-        datasets: [{
-          data: [complete, incomplete],
-          backgroundColor: [
-          '#FF6384', /* complete pink */
-          '#FFCE56' /* incomplete yellow */
-          ],
-          hoverBackgroundColor: [
-          '#FF6384',
-          '#FFCE56'
-          ]
-        }]
-      };
+    // const data = {
+    //     labels: [
+    //         'complete',
+    //       'incomplete'
+    //     ],
+    //     datasets: [{
+    //       data: [complete, incomplete],
+    //       backgroundColor: [
+    //       '#FF6384', /* complete pink */
+    //       '#FFCE56' /* incomplete yellow */
+    //       ],
+    //       hoverBackgroundColor: [
+    //       '#FF6384',
+    //       '#FFCE56'
+    //       ]
+    //     }]
+    //   };
 
     return (
+        <>
         <Container>
             <section className="clientDash">
                 <div className="clientDash__welcome">
                     <h1>Welcome, {project.user.firstName}!</h1>
-                    <h3>"{project.boatName}" is {percentageComplete}% complete</h3>
+                    {/* <h3>"{project.boatName}" is {percentageComplete}% complete</h3> */}
                 </div>
 
                 <div className="clientDash__doughnut">
-                    <Doughnut data={data} />
+                    {/* <Doughnut data={data} /> */}
+                    <Grommet theme={grommetTheme}>
+                        <Box align="center" pad="large">
+                            <Stack anchor="center">
+                                <Meter
+                                    type="circle"
+                                    background="light-5"
+                                    values={[{ value: percentage }]}
+                                    size="medium"
+                                    thickness="medium"
+                                />
+                                <Box direction="column" align="center" pad={{ bottom: 'xsmall' }}>
+                                    <Text size="xxlarge" alignSelf="center" weight="normal">"{project.boatName}" is</Text>
+                                    <Text size="xxlarge" alignSelf="center" weight="bold">
+                                     {percentage}%
+                                    </Text>
+                                    <Text size="xxlarge" alignSelf="center" weight="normal">complete</Text>
+                                </Box>
+                            </Stack>
+                        </Box>
+                    </Grommet>
                 </div>
             </section>
             <div>
                 <ProjectDetail {...props} />
             </div>
         </Container>
+                    </>
     )
 }
 

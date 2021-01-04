@@ -14,7 +14,7 @@ h3 {
 
 body {
   margin: 0;
-  font-family: 'Source Serif Pro', sans-serif;
+  font-family: 'Source Sans Pro', sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
 }
@@ -29,9 +29,9 @@ code {
 }
 
 .clientDash__welcome {
-  justify-content: center;
+  text-align: center;
 }
 
 .clientDash__doughnut {
-  margin: 50px 0;
+  /* margin: 50px 0; */
 }
