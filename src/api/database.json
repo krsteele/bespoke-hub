@@ -46,13 +46,22 @@
       "id": 8
     },
     {
+      "id": 9,
       "firstName": "Smith",
       "lastName": "McClintock",
       "email": "smith@gmail.com",
-      "phone": "111-222-3333",
+      "phone": "111-222-2222",
       "password": "myboatname",
-      "userTypeId": 2,
-      "id": 9
+      "userTypeId": 2
+    },
+    {
+      "id": 10,
+      "firstName": "Larry",
+      "lastName": "Bruce",
+      "email": "root@gmail.com",
+      "phone": "222-222-2223",
+      "password": "boop",
+      "userTypeId": 2
     }
   ],
   "userTypes": [
@@ -93,6 +102,34 @@
       "isComplete": false,
       "projectEndDate": null,
       "id": 2
+    },
+    {
+      "boatName": "Tilly",
+      "year": 1987,
+      "model": "Montauk",
+      "boatLength": 15,
+      "userId": 9,
+      "paintTypeId": 1,
+      "seadekColorId": 9,
+      "swimPlatform": false,
+      "projectStartDate": 1609814137466,
+      "isComplete": false,
+      "projectEndDate": null,
+      "id": 3
+    },
+    {
+      "boatName": "Louis",
+      "year": 1984,
+      "model": "Montauk",
+      "boatLength": 15,
+      "userId": 10,
+      "paintTypeId": 2,
+      "seadekColorId": 9,
+      "swimPlatform": true,
+      "projectStartDate": 1609814509905,
+      "isComplete": false,
+      "projectEndDate": null,
+      "id": 4
     }
   ],
   "tasks": [
@@ -241,31 +278,31 @@
     {
       "projectId": 1,
       "taskId": 10,
-      "isComplete": false,
+      "isComplete": true,
       "id": 9
     },
     {
       "projectId": 1,
       "taskId": 11,
-      "isComplete": false,
+      "isComplete": true,
       "id": 10
     },
     {
       "projectId": 1,
       "taskId": 12,
-      "isComplete": false,
+      "isComplete": true,
       "id": 11
     },
     {
       "projectId": 1,
       "taskId": 13,
-      "isComplete": false,
+      "isComplete": true,
       "id": 12
     },
     {
       "projectId": 1,
       "taskId": 14,
-      "isComplete": false,
+      "isComplete": true,
       "id": 13
     },
     {
@@ -333,6 +370,144 @@
       "taskId": 14,
       "isComplete": false,
       "id": 24
+    },
+    {
+      "projectId": 3,
+      "taskId": 1,
+      "isComplete": false,
+      "id": 25
+    },
+    {
+      "projectId": 3,
+      "taskId": 2,
+      "isComplete": false,
+      "id": 26
+    },
+    {
+      "projectId": 3,
+      "taskId": 3,
+      "isComplete": false,
+      "id": 27
+    },
+    {
+      "projectId": 3,
+      "taskId": 4,
+      "isComplete": false,
+      "id": 28
+    },
+    {
+      "projectId": 3,
+      "taskId": 5,
+      "isComplete": false,
+      "id": 29
+    },
+    {
+      "projectId": 3,
+      "taskId": 7,
+      "isComplete": false,
+      "id": 30
+    },
+    {
+      "projectId": 3,
+      "taskId": 8,
+      "isComplete": false,
+      "id": 31
+    },
+    {
+      "projectId": 3,
+      "taskId": 10,
+      "isComplete": false,
+      "id": 32
+    },
+    {
+      "projectId": 3,
+      "taskId": 11,
+      "isComplete": false,
+      "id": 33
+    },
+    {
+      "projectId": 3,
+      "taskId": 12,
+      "isComplete": false,
+      "id": 34
+    },
+    {
+      "projectId": 3,
+      "taskId": 13,
+      "isComplete": false,
+      "id": 35
+    },
+    {
+      "projectId": 3,
+      "taskId": 14,
+      "isComplete": false,
+      "id": 36
+    },
+    {
+      "projectId": 4,
+      "taskId": 1,
+      "isComplete": false,
+      "id": 37
+    },
+    {
+      "projectId": 4,
+      "taskId": 2,
+      "isComplete": false,
+      "id": 38
+    },
+    {
+      "projectId": 4,
+      "taskId": 3,
+      "isComplete": false,
+      "id": 39
+    },
+    {
+      "projectId": 4,
+      "taskId": 4,
+      "isComplete": false,
+      "id": 40
+    },
+    {
+      "projectId": 4,
+      "taskId": 5,
+      "isComplete": false,
+      "id": 41
+    },
+    {
+      "projectId": 4,
+      "taskId": 6,
+      "isComplete": false,
+      "id": 42
+    },
+    {
+      "projectId": 4,
+      "taskId": 7,
+      "isComplete": false,
+      "id": 43
+    },
+    {
+      "projectId": 4,
+      "taskId": 8,
+      "isComplete": false,
+      "id": 44
+    },
+    {
+      "projectId": 4,
+      "taskId": 9,
+      "isComplete": false,
+      "id": 45
+    },
+    {
+      "projectId": 4,
+      "taskId": 13,
+      "isComplete": false,
+      "id": 46
+    },
+    {
+      "projectId": 4,
+      "taskId": 14,
+      "isComplete": false,
+      "id": 47
     }
   ],
   "notes": [],
@@ -432,6 +607,36 @@
       "projectId": 2,
       "partId": 6,
       "id": 6
+    },
+    {
+      "projectId": 3,
+      "partId": 3,
+      "id": 7
+    },
+    {
+      "projectId": 3,
+      "partId": 8,
+      "id": 8
+    },
+    {
+      "projectId": 3,
+      "partId": 6,
+      "id": 9
+    },
+    {
+      "projectId": 4,
+      "partId": 2,
+      "id": 10
+    },
+    {
+      "projectId": 4,
+      "partId": 9,
+      "id": 11
+    },
+    {
+      "projectId": 4,
+      "partId": 6,
+      "id": 12
     }
   ],
   "paintTypes": [

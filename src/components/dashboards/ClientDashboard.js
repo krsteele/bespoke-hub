@@ -1,5 +1,6 @@
 import React, { useEffect, useContext, useState } from "react"
-
+// import useWindowSize hook from react-use library
+import useWindowSize from 'react-use/lib/useWindowSize'
 // necessary contexts: projects, projectTasks, users
 import { ProjectContext } from "../projects/ProjectsDataProvider"
 import { ProjectTaskContext } from "../tasks/ProjectTasksDataProvider"
@@ -13,6 +14,10 @@ import Container from 'react-bootstrap/Container'
 import { Grommet, Box, Meter, Stack, Text } from 'grommet';
 // import grommet theme object
 import { grommetTheme } from "../../grommetTheme"
+// import react-confetti
+import Confetti from 'react-confetti'
+// page css
+import "./ClientDash.css"
 
 
 
@@ -23,11 +28,19 @@ export const ClientDashboard = (props) => {
     // state variables
     const [project, setProject] = useState({user:{}, seadekColor: {}, paintType: {}})
     const [relatedProjectTasks, setRelated] = useState([])
+    // whether or not confetti component should run
+    const [confetti, setConfetti] = useState(false)
+    const [recycleConfetti, setRecycle] = useState(true)
     // projectTasks filtered by isComplete status
     const [complete, setComplete] = useState(0)
     const [incomplete, setIncomplete] = useState(0)
+    // state of calculated percentage of boat completion
     const [percentageComplete, setPercentage] = useState(0)
     let percentage = percentageComplete || 0
+    // watch window size and track width and height
+    const { width, height } = useWindowSize()
+
+
 
     // useEffects
     // find the project that matches the user's id in the params
@@ -50,13 +63,25 @@ export const ClientDashboard = (props) => {
         const done = relatedProjectTasks.filter(task => task.isComplete === true)
         setComplete(done.length)
         const notDone = relatedProjectTasks.filter(task => task.isComplete === false)
-        setIncomplete(notDone.length)
+        setIncomplete(notDone.length)       
     }, [relatedProjectTasks])
     // watches the state of complete and incomplete and calculates the percentage of project completion
     useEffect(() => {
         const percentage = Math.round((complete / (complete + incomplete)) * 100)
         setPercentage(percentage)
     }, [complete, incomplete])
+
+    useEffect(()=> {
+        if (percentageComplete === 100) {
+            setConfetti(true)
+        }
+        setTimeout(stopConfetti, 5000)
+        
+    }, [percentageComplete])
+
+    const stopConfetti = () => {
+        setRecycle(false)
+    }
     
     // doughnut data
     // const data = {
@@ -79,6 +104,7 @@ export const ClientDashboard = (props) => {
 
     return (
         <>
+        <Confetti width={width} height={height} run={confetti} recycle={recycleConfetti}/>
         <Container>
             <section className="clientDash">
                 <div className="clientDash__welcome">
