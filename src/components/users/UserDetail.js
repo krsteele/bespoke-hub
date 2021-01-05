@@ -50,10 +50,10 @@ export const UserDetail = (props) => {
                         (project === {} || project === undefined)
                         ? "" 
                         : <Card.Body>
-                        <Card.Link to={`/${user.id}`}>
+                        <Card.Link href={`/${user.id}`}>
                             View project page
                         </Card.Link>
-                        <Card.Link to={`/dashboards/${user.id}`}>
+                        <Card.Link href={`/dashboards/${user.id}`}>
                             View client dashboard
                         </Card.Link>
                         </Card.Body>

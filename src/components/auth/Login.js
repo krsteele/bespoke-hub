@@ -1,7 +1,7 @@
 import React, { useRef } from "react"
 import "./Login.css"
 import Button from "react-bootstrap/Button"
-import Container from 'react-bootstrap/Container'
+import Navbar from 'react-bootstrap/Navbar'
 
 
 
@@ -48,7 +48,13 @@ export const Login = props => {
 
     return (
         <main>
-        <Container>
+        <Navbar bg="light" expand="lg">
+            <Navbar.Brand href="#">
+                Bespōke Hub
+            </Navbar.Brand>
+        </Navbar>
+        <div className="login__background"></div>
+        <div className="login__form">
                 <dialog className="dialog dialog--auth" ref={existDialog}>
                     <div>User does not exist</div>
                     <button className="button--close" onClick={e => existDialog.current.close()}>Close</button>
@@ -59,8 +65,7 @@ export const Login = props => {
                 </dialog>
                 <section>
                     <form className="form--login" onSubmit={handleLogin}>
-                        <h1>Bespoke Hub</h1>
-                        <h2>Please sign in</h2>
+                        <h3>Please sign in</h3>
                         <fieldset>
                             <label htmlFor="inputEmail"> Email address </label>
                             <input ref={email} type="email" autoComplete="email"
@@ -84,7 +89,7 @@ export const Login = props => {
                         </fieldset>
                     </form>
                 </section>
-            </Container>
+            </div>
         </main>
     )
 }
