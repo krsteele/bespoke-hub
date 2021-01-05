@@ -17,7 +17,7 @@ export const BespokeHub = () => (
               <>
                 {
                     // if id is 1, then render navbar, if id is 2, only render the logout button
-                    localStorage.getItem("app_userType_id") === "1" ? <Route render={props => <NavBar {...props} />} /> : <Route render={props => <Logout {...props} />} />
+                    localStorage.getItem("app_userType_id") === "1" ? <Route render={props => <NavBar {...props} />} /> : ""
                 }
                 
                 <Route render={props => <ApplicationViews {...props} />} />

@@ -1,4 +1,5 @@
 import React, { useEffect, useContext, useState } from "react"
+import { Route } from 'react-router-dom'
 // import useWindowSize hook from react-use library
 import useWindowSize from 'react-use/lib/useWindowSize'
 // necessary contexts: projects, projectTasks, users
@@ -10,6 +11,9 @@ import { ProjectDetail } from "../projects/ProjectDetail"
 // import {Doughnut} from 'react-chartjs-2';
 // import react-bootstrap components
 import Container from 'react-bootstrap/Container'
+import Navbar from 'react-bootstrap/Navbar'
+import Nav from "react-bootstrap/Nav"
+
 // import doughnut from grommet
 import { Grommet, Box, Meter, Stack, Text } from 'grommet';
 // import grommet theme object
@@ -18,6 +22,9 @@ import { grommetTheme } from "../../grommetTheme"
 import Confetti from 'react-confetti'
 // page css
 import "./ClientDash.css"
+// import logout button
+import { Logout } from "../auth/Logout"
+
 
 
 
@@ -105,6 +112,14 @@ export const ClientDashboard = (props) => {
     return (
         <>
         <Confetti width={width} height={height} run={confetti} recycle={recycleConfetti}/>
+        <Navbar bg="light" expand="lg">
+            <Navbar.Brand href="/">
+                Bespōke Hub
+            </Navbar.Brand>
+            <Nav className="justify-content-end">
+                <Route render={props => <Logout {...props} />} />
+            </Nav>
+        </Navbar>
         <Container>
             <section className="clientDash">
                 <div className="clientDash__welcome">

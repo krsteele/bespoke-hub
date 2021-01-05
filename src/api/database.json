@@ -37,13 +37,13 @@
       "userTypeId": 1
     },
     {
+      "id": 8,
       "firstName": "Jimmy ",
       "lastName": "Wilson",
       "email": "bigjilm@mollusk.com",
       "phone": "555-555-5555",
-      "password": "toot",
-      "userTypeId": 2,
-      "id": 8
+      "password": "oceanman",
+      "userTypeId": 2
     },
     {
       "id": 9,
