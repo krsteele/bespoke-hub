@@ -22,7 +22,10 @@ When signed in as a client:
 
 ### Technologies Used
 
-![HTML5](https://img.shields.io/badge/html5%20-%23E34F26.svg?&style=for-the-badge&logo=html5&logoColor=white) ![CSS3](https://img.shields.io/badge/css3%20-%231572B6.svg?&style=for-the-badge&logo=css3&logoColor=white) ![JavaScript](https://img.shields.io/badge/javascript%20-%23323330.svg?&style=for-the-badge&logo=javascript&logoColor=%23F7DF1E) ![React](https://img.shields.io/badge/react%20-%2320232a.svg?&style=for-the-badge&logo=react&logoColor=%2361DAFB) ![Git](https://img.shields.io/badge/git%20-%23F05033.svg?&style=for-the-badge&logo=git&logoColor=white) ![GitHub](https://img.shields.io/badge/github%20-%23121011.svg?&style=for-the-badge&logo=github&logoColor=white) ![JSON Server](https://img.shields.io/badge/JSON_Server%20-%232a2e2a.svg?&style=for-the-badge&logo=JSON&logoColor=white) ![Visual Studio Code](https://img.shields.io/badge/VSCode%20-%23007ACC.svg?&style=for-the-badge&logo=visual-studio-code&logoColor=white)
+This application was built using the [React](https://reactjs.org/) JavaScript library, and was bootstrapped with [create-react-app](https://github.com/facebook/create-react-app). Also used in the production of the site, are [react-hook-form](https://react-hook-form.com/), [react-confetti](https://github.com/alampros/react-confetti), and [react-router-dom](https://www.npmjs.com/package/react-router-dom).  [React-Bootstrap](https://react-bootstrap.github.io/) was used for styling components. The progress doughnut was made using [Grommet](https://v2.grommet.io/).
+
+The API server is powered by [json-server](https://www.npmjs.com/package/json-server).  
+
 
 ### Running This Application
 
@@ -32,18 +35,18 @@ This application uses mock authentication which is purely for demonstration purp
 
 #### Back to the task at hand
 
-1. Clone this repository and change to the directory in teh terminal
+1. Clone this repository and change to the directory in the terminal
 
 ```sh
-git clone git@github.com:jaynaleitze/Pupdate.git
-cd Pupdate
+git clone git@github.com:krsteele/bespoke-hub.git
+cd bespoke-hub
 ```
 
 2. Access the data
 
 ```sh
-cd pupdate/src/api
-json-server -p 8088 -w database.json
+cd src/api
+json-server -p 8088 database.json
 ```
 
 3. Launch the client
@@ -61,4 +64,5 @@ Username: <i>demo</i>
 Password: <i>demo</i>
 </p>
 
-#### Created by Jayna Leitze
+#### Created by Kristen Steele
+[LinkedIn](https://www.linkedin.com/in/kristenraesteele/)
