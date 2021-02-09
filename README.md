@@ -15,10 +15,15 @@ This application was built in a two-week sprint. My goals were to incorporate fu
 
 <p>
 When signed in as a maker:
+    
 - Users can create, read, update, delete client records
+
 - Users can create read and delete projects
+
 - Based on options chosen on the project form during creation, a project management checklist is generated and displayed on the project dashboard, along with project details and a link to client information.
+
 When signed in as a client:
+
 - User is shown a dashboard with details of their boat and a progress doughnut, which is populated based on the project checklist.
 </p>
 
