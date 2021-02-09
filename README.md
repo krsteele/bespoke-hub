@@ -2,6 +2,8 @@
 
 <b style="font-size: 20px;"><i>Project Manager and Progress Tracker</i></b>
 
+[Watch the demo here](https://youtu.be/L0k_OsCnEsI)
+
 ### Application Overview
 
 Bespoke Hub is a custom app built for FassēCo, a small marine restoration company who buys and restores vintage Boston Whaler power boats from the 1970s and 80s. They were looking for a way to keep track of the details of each boat throughout the restoration process, which parts they need to order, and where they are in the project’s process. Since a restoration can take months to complete, they also wanted a hassle-free way to keep their clients apprised of their boat’s progress. It was important to my client that the app be easy to use on a phone on the go. 
