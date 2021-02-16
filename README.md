@@ -66,10 +66,9 @@ json-server -p 8088 database.json
 #### Demo User Credentials
 
 <p>
-Username: <i>demo</i>
+Username: <i>rfoster@fosco.com</i>
 <br>
-Password: <i>demo</i>
+Password: <i>notpassword</i>
 </p>
-
 #### Created by Kristen Steele
 [LinkedIn](https://www.linkedin.com/in/kristenraesteele/)
